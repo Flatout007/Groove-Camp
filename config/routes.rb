@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
 
   namespace :api, defaults: {format: :json} do
-    resources(:user, only: [:create])
+    resources(:users, only: [:create])
     resource(:session, only: [:create, :destroy, :show])
   end
 
@@ -14,7 +14,7 @@ end
 =begin
   
          Prefix Verb   URI Pattern                                                                             
-           api_user_index POST   /api/user(.:format)     api/user#create {:format=>:json}
+           api_user_index POST   /api/users(.:format)     api/user#create {:format=>:json}
               api_session GET    /api/session(.:format)  api/sessions#show {:format=>:json}
                           DELETE /api/session(.:format)  api/sessions#destroy {:format=>:json}
                           POST   /api/session(.:format)  api/sessions#create {:format=>:json}
