@@ -1,4 +1,11 @@
 import React from 'react';
+import {
+    Route,
+    Redirect,
+    Switch,
+    Link,
+    HashRouter
+} from 'react-router-dom';
 
 class GreetingIndex extends React.Component {
     constructor(props) {
@@ -11,6 +18,8 @@ class GreetingIndex extends React.Component {
       console.log('user has signed out');
       return this.props.signout();
     }
+    
+      
 
     greetUser() {
         if(this.props.currentUser) {
@@ -20,15 +29,21 @@ class GreetingIndex extends React.Component {
                <button onClick={this.signoutUser}>Log Out</button>
             </div>)
         } else {
-            // <div> 
-            //    <Link to={ }></Link>
-            //    <Link to={ }></Link>
-            // </div>
+            return(
+                <div>              
+                    <Link className="signup-link" to={'/signup'}>sign up</Link>
+             
+                    <Link to={'/login'}>login</Link>
+                </div>
+            )
         }
+        
+        
     }
 
     render() {
        return (<div>
+           
            {this.greetUser()}
        </div>)
     }
