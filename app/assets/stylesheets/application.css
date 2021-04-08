@@ -13,5 +13,97 @@
  *= require_tree .
  *= require_self
  */
+ 
+/* .signup--container {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-color: aquamarine;
+    display: flex;
+   justify-content: space-between;
+   align-items: center;
+} */
 
 
+* {padding: 0; margin: 0;}
+
+.flex-c {
+    display: flex;
+    justify-content: center;
+
+}
+
+h2 {
+    font-size: small;
+}
+
+.session--container  {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+   
+      width: 800px;
+}
+
+
+.logo {
+    padding-bottom: 10px;
+    color: black;
+  /* margin: 0 0 0 4.45em; */
+}
+
+img, h1 {
+    display: inline-block;
+    vertical-align: middle;
+    width: 20px;
+}
+
+   
+
+.logo, .session-nav {
+        list-style: none;
+        /* text-transform: uppercase; */
+}
+
+.logo a, .session-nav a {
+        text-decoration: none;
+        /* letter-spacing: .45rem; */
+} 
+
+.session-nav  {
+  display: flex;
+}
+
+.session-nav a {
+  display: block;
+  padding: 1em;
+  color: black;
+}
+
+/* .session-nav a:hover {
+    background: #00ace6;
+} */
+
+
+/* ****** ****** */
+ @media all and (max-width: 600px) {
+ 
+  .logo {
+     margin: .25em 0; 
+    align-self: left; 
+   }
+  
+  .session-nav {
+    flex-direction: column;
+  }
+  
+  .session-nav a { 
+    text-align: center; 
+    padding: 10px;
+    border-top: 1px solid rgba(255,255,255,0.3); 
+    border-bottom: 1px solid rgba(0,0,0,0.1); 
+  }
+  
+  .session-nav li:last-of-type a {
+    border-bottom: none;
+  }
+}  

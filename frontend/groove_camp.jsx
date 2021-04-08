@@ -8,7 +8,7 @@ import * as SessionActions from './actions/session_actions';
 document.addEventListener('DOMContentLoaded', (e) => {
     const store = configureStore({});
    
-    let user = { username: 'tim007', password: '123456', artist_check: false };
+    //let user = { username: 'tim007', password: '123456', artist_check: false };
     //console.log(store.dispatch(SessionActions.login(user)))
     window.login = SessionActions.login
     window.store = store
