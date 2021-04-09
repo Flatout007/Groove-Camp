@@ -2,6 +2,7 @@ import {connect } from 'react-redux'
 import React from 'react'
 import { signout } from '../../actions/session_actions';
 import GreetingIndex from './greeting_index';
+import { openModal } from '../../actions/modal_actions';
 
 const mapStoreToProps = (store, props) => {
     return {
@@ -11,7 +12,9 @@ const mapStoreToProps = (store, props) => {
 
 const mapActionsToProps = (dispatch, props) => {
     return {
-      signout: () => {dispatch(signout())}
+      signout: () => {dispatch(signout())},
+      openModal: modal => dispatch(openModal(modal))
+
     };
 };
 
