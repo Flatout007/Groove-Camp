@@ -41,15 +41,21 @@ export const login = (user) => {
     return dispatch => {
         return SessionAPIUtil.login(user).then(res => {
             return dispatch(receiveCurrentUser(res));
-        });
+        }, err => (
+            dispatch(receiveErrors(err.responseJSON))
+        ));
     };
 };
+
+
 
 export const signup = (user) => {
     return dispatch => {
         return SessionAPIUtil.signup(user).then(res => {
            return  dispatch(receiveCurrentUser(res));
-        });
+        }, err => (
+            dispatch(receiveErrors(err.responseJSON))
+        ));
     };
 };
 
@@ -57,7 +63,9 @@ export const signout = () => {
     return dispatch => {
         return SessionAPIUtil.signout().then(() => {
             return  dispatch(logoutUser())
-        });
+        }, err => (
+            dispatch(receiveErrors(err.responseJSON))
+        ));
     };
 };
 

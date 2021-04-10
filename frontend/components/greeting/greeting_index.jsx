@@ -1,4 +1,6 @@
 import React from 'react';
+
+
 // import {Navbar, Nav, NavDropdowm, Modal, Button} from 'react-bootstrap'
 
 import {
@@ -21,9 +23,7 @@ class GreetingIndex extends React.Component {
       return this.props.signout();
     }
 
-    handleSignUp(e) {
-       
-    }
+    
 
     greetUser() {
         if(this.props.currentUser) {
@@ -34,7 +34,7 @@ class GreetingIndex extends React.Component {
             </div>)
         } else {
             
-            return    <div>
+            return (<div className='nav-hd-div'>
             
                  <div className='flex-c'>
                     <div className="session--container">
@@ -44,7 +44,7 @@ class GreetingIndex extends React.Component {
                             <h2>Discover amazing new music and directly support the artists who make it.</h2>
                         </div>
                         <div className="session-nav">
-                            <a onClick={() => this.props.openModal('signup')}>signup</a>
+                            <a onClick={() => this.props.openModal('signup-modal')}>signup</a>
                             <a onClick={() => this.props.openModal('login')}>login</a>
                         </div>
                     </div>
@@ -52,15 +52,14 @@ class GreetingIndex extends React.Component {
                     
                
                 
-                </div>
+                </div>);
 
                 
                     
                 
                      
                      
-                
-                
+                              
             
         }
         
@@ -68,10 +67,12 @@ class GreetingIndex extends React.Component {
 
     render() {
         console.log(this.props.openModal)
-       return (<div>
-           {this.greetUser()}
-           
-       </div>)
+        return (
+            <React.Fragment>
+                
+              {this.greetUser()}
+            </React.Fragment>
+            )
     }
 }
 

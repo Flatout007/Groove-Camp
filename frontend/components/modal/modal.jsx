@@ -1,20 +1,44 @@
 import React from 'react';
-import { closeModal } from '../../actions/modal_actions';
+import { closeModal, openModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import LoginFormContainer from '../session_form/login_container';
 import SignupFormContainer from '../session_form/signup_container';
+import {
+    Route,
+    Redirect,
+    Switch,
+    Link,
+    HashRouter
+} from 'react-router-dom';
 
- function Modal({ modal, closeModal }){
-    if (!modal) {
-        return null;
-    }
+ function Modal({ modal, closeModal, openModal, boolean }){
+    // const handleSignIn = () => {
+    //     openModal('signup');
+    // }
+
+    // if (!modal) {
+    //     return null;
+    // }
+
     let component;
+
     switch (modal) {
+        case 'signup-modal':
+            component = <div className="sign-up-modal">
+               <ul>
+                <li><a onClick={() => openModal('signup-user')}>Sign up as a fan</a></li>
+                <li onClick={() => openModal('signup-artist')}>Sign up as an artist</li>
+               </ul>
+            </div>;
+            break;
         case 'login':
             component = <LoginFormContainer />;
             break;
-        case 'signup':
-            component = <SignupFormContainer />;
+        case 'signup-user':
+            component = <SignupFormContainer artist_check={false}/>; // pass in prop artist check false for user, 
+            break;
+        case 'signup-artist':
+            component = <SignupFormContainer artist_check={true}/>;
             break;
         default:
             return null;
@@ -29,7 +53,6 @@ import SignupFormContainer from '../session_form/signup_container';
 }
 
 const mapStateToProps = state => {
-   
     return {
         modal: state.ui.modal
     };
@@ -37,7 +60,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        closeModal: () => dispatch(closeModal())
+        closeModal: () => dispatch(closeModal()),
+        openModal: (signup) => dispatch(openModal(signup))
     };
 };
 

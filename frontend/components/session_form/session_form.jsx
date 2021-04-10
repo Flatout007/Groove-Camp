@@ -12,17 +12,25 @@ import {
 class SessionForm extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {username: '', password: '', artist_check: false}
+        this.state = {username: '', password: ''}
           
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.sessionForm = this.sessionForm.bind(this);
         this.navDiv = this.navDiv.bind(this);
+        this.handleErrors = this.handleErrors.bind(this);
     }
 
     handleSubmit(e) {
         e.preventDefault();
-        return Promise.resolve(this.props.action(this.state)).then(() => this.props.closeModal());
+        let obj = {username: this.state.username, password: this.state.password, artist_check: this.props.artist_check}
+        return this.props.action(obj)
+    }
+
+    handleClose() {
+        // if(this.props.errors.length === 10) {
+        //      return this.props.closeModal();
+        // }
     }
 
     
@@ -40,28 +48,34 @@ class SessionForm extends React.Component {
         else {
            return (
             <div>
-                   <h1>{this.props.formType}</h1>
-                   <div onClick={this.props.closeModal} className="close-x">X</div>
+                <h1>{this.props.formType}</h1>
+                   
+                <div onClick={this.props.closeModal} className="close-x">X</div>
+
                 <form onSubmit={this.handleSubmit}>
                     <label>Username
                       <input onChange={this.handleChange('username')} type="text" value={this.state.username} />
                     </label>
 
+                    <br/>
+
                     <label>Password
                       <input onChange={this.handleChange('password')} type="password" value={this.state.password} />
                     </label> 
                      
-                     <Link to='/'>Home</Link>
-
+                    <Link to='/'>Home</Link>
                     <button>Submit</button>
-
                 </form>
-                 
-                  
-                   
+
             </div>)
         }
 
+    }
+
+    handleErrors() {
+        // return this.props.errors.map((ele) => {
+        //     return <div key={ele-`${Math.random(100 * 10)}`}>{ele}</div>
+        // });
     }
 
     navDiv() {
@@ -89,14 +103,13 @@ class SessionForm extends React.Component {
     }
 
     render() {
-        console.log(this.props)
+      console.log(this.props.errors);
         return(
             
             <div>   
                 {/* {this.navDiv()} */}
-                {this.sessionForm()}
-            )
-              
+                {/* {this.handleErrors()} */}
+                {this.sessionForm()}  
             </div>
             
         

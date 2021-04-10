@@ -19,30 +19,23 @@ import SessionForm from './components/session_form/session_form'
 class App extends React.Component {
     constructor(props) {
         super(props);
-       
     }
+
     
-
     render() {
+        return(
+    <React.Fragment>
+                 <Modal/>
+           
+                 <Switch>
+                  <Route exact path="/signup" component={SignupContainer}></Route>
+                  <Route exact path="/" component={GreetingIndex}></Route>
+                  
+                  {/* <Route exact path='/login' component={LoginContainer}></Route>  */}
+                  {/* {<Route exact path="/" component={GreetingIndex}></Route>} */}
+                </Switch>
+    </React.Fragment >)
         
-
-        return <div>
-                <Modal />
-           
-             <GreetingIndex />
-            
-            
-
-
-                
-                
-                
-           
-            
-                {/* <Route exact path="/signup" component={SignupContainer}></Route>
-                <Route exact path='/login' component={LoginContainer}></Route> */}
-                {/* {<Route exact path="/" component={GreetingIndex}></Route>} */}
-        </div>
     }
 }
 
