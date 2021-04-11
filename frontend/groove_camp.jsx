@@ -6,7 +6,21 @@ import * as SessionActions from './actions/session_actions';
 
 
 document.addEventListener('DOMContentLoaded', (e) => {
-    const store = configureStore({});
+    let store;
+
+    if (window.currentUser) {
+        const preloadedState = {
+            entities: {
+                users: { [window.currentUser.id]: window.currentUser }
+            },
+            session: { id: window.currentUser.id }
+        };
+        store = configureStore(preloadedState);
+        delete window.currentUser;
+    } else {
+        store = configureStore();
+    }
+    // store = configureStore({});
    
     //let user = { username: 'tim007', password: '123456', artist_check: false };
     //console.log(store.dispatch(SessionActions.login(user)))

@@ -9,50 +9,70 @@ import {
 } from 'react-router-dom';
 
 
+
+
 class SessionForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {username: '', password: ''}
           
         this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.sessionForm = this.sessionForm.bind(this);
-        this.navDiv = this.navDiv.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);   
         this.handleErrors = this.handleErrors.bind(this);
+        
     }
 
     handleSubmit(e) {
         e.preventDefault();
         let obj = {username: this.state.username, password: this.state.password, artist_check: this.props.artist_check}
-        return this.props.action(obj)
+        
+        this.props.action(obj)        
     }
 
-    handleClose() {
-        // if(this.props.errors.length === 10) {
-        //      return this.props.closeModal();
-        // }
+    clearErrors() {
+
     }
 
+    handleErrors(e) {
+        return this.props.errors.map((ele) => {
+            return <div key={`ele-${Math.random(100 * 10)}`}>{ele}</div>
+        });
+
+        // return (
+        //     <ul>
+        //         {this.props.errors.map((error, i) => (
+        //            <li key={`error-${i}`}>
+        //                 {error}
+        //             </li>
+        //         ))}
+        //     </ul>
+        // );
+
+    }
     
     handleChange(type) {
-       return e => {
-         this.setState({[type]: e.target.value});
-       }
+        return e => this.setState({
+            [field]: e.currentTarget.value
+        });
+
     }
 
     sessionForm() {
         //if (this.state.visible) return null;
         if(this.props.currentUser) { 
-          
+          return {};
         }
         else {
            return (
             <div>
-                <h1>{this.props.formType}</h1>
+                <div className='flex-login-header'>
+                  <h1>{this.props.formType}</h1>
+                </div>
                    
-                <div onClick={this.props.closeModal} className="close-x">X</div>
+                {/* <div onClick={this.props.closeModal} className="close-x">X</div> */}
+                {this.handleErrors()}
 
-                <form onSubmit={this.handleSubmit}>
+                <form className='signup-form'>
                     <label>Username
                       <input onChange={this.handleChange('username')} type="text" value={this.state.username} />
                     </label>
@@ -63,8 +83,8 @@ class SessionForm extends React.Component {
                       <input onChange={this.handleChange('password')} type="password" value={this.state.password} />
                     </label> 
                      
-                    <Link to='/'>Home</Link>
-                    <button>Submit</button>
+                    <button onClick={this.handleSubmit} type="submit" className='session-submit-button'> Submit </button>
+                      
                 </form>
 
             </div>)
@@ -72,11 +92,7 @@ class SessionForm extends React.Component {
 
     }
 
-    handleErrors() {
-        return this.props.errors.map((ele) => {
-            return <div key={`ele-${Math.random(100 * 10)}`}>{ele}</div>
-        });
-    }
+    
 
     navDiv() {
     //   return  <div>
@@ -103,12 +119,12 @@ class SessionForm extends React.Component {
     }
 
     render() {
-      console.log(this.props.errors);
+      
         return(
             
             <div>   
                 {/* {this.navDiv()} */}
-                {this.handleErrors()}
+               
                 {this.sessionForm()}  
             </div>
             

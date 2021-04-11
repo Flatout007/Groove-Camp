@@ -15,6 +15,26 @@
         vertical-align: baseline;
         background: transparent;
     }
+  
+.blue-gradient {
+  background: -webkit-linear-gradient(left, #6046FE, #1DA0C3);
+  -webkit-background-clip: text;
+  // background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-decoration: none;
+  // background-color: white;
+  
+}
+
+.fan-account-text {
+  width: 250px;
+  height: 60px;
+  font-size: 12px;
+  line-height: 16px;
+  color: #818285;
+
+}
+
 
 .top-div {
  
@@ -40,6 +60,7 @@ h2 {
   align-items: center;
    
       width: 800px;
+      
 }
 
 
@@ -175,6 +196,7 @@ input[type=password], select {
   border-radius: 4px;
   display: block;
   cursor: pointer;
+  margin-bottom: 12px;
 }
 
 .signup-artist-button {
@@ -253,6 +275,7 @@ input[type=password], select {
   left: 50%;
   transform: translate(-50%, -50%);
   font: 14px/18px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
   background: #fff;
   width: 492px;
   height: 595px;
@@ -309,3 +332,32 @@ input[type=password], select {
   display: flex;
   justify-content: center;
 }
+
+/*--------------------------------------
+sesssion form */
+
+.signup-form {
+ color: #333;
+
+}
+
+.flex-login-header {
+  color: #333;
+    display: flex;
+    justify-content: center;
+}
+
+.session-submit-button {
+    width: 100%;
+    height: 36px;
+    cursor: pointer;
+    text-align: center;
+    background: rgb(0,161,198);
+    
+    color: #333;
+}
+
+.session-submit-button:hover {
+  color: ghostwhite;
+}
+

@@ -5,7 +5,6 @@ import { signup } from '../../actions/session_actions';
 import { openModal, closeModal } from '../../actions/modal_actions';
 
 
-
 const mapStoreToProps = (store, props) => {
     return {
         errors: store.errors.session,

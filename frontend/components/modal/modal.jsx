@@ -24,7 +24,6 @@ import {
 
     let component;
     
-
     switch (modal) {
         case 'signup-modal':
             component = 
@@ -37,10 +36,12 @@ import {
                           <ul>
                                 <li className='flex-item'>
                                     <div className='icon-1'></div>
-                                
+                
                                     <div>
                                         <a className='signup-fan-button' onClick={() => openModal('signup-user')}>Sign up as a fan</a>
-                                        <div>text</div>
+                                        <div className='fan-account-text'>
+                                            Sign up as a fan
+                                            Follow your favorite artists, keep a wishlist, get instant streaming of your purchases, showcase your collection, and explore the music of like-minded fans</div>
                                    </div>
                                 </li>
 
@@ -57,17 +58,15 @@ import {
                                     <div className='icon-3'></div>
 
                                     <div>
-                                        <a className='signup-demo-button' onClick={() => signin({ username: 'sally123', password: '123456', artist_check: false })}>Curious? Demo the Site</a>
+                                        <a className='signup-demo-button' onClick={() => signin({ username: 'sally123', password: '123456', artist_check: false })}>Curious? Try a demo</a>
                                         <div>text</div>
                                     </div>
                                 </li>
-                        </ul>
-                 </form>
+                          </ul>
+                      </form>
                     </div>
-
                  </div>
                
-           
             </React.Fragment>
           
             break;
@@ -84,8 +83,6 @@ import {
             return null;
     }
      
-    console.log(signin)
-
     return (
         
         <div className="modal-background" onClick={closeModal}>
