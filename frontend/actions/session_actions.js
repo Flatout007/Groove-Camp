@@ -9,10 +9,11 @@ import * as SessionAPIUtil from '../util/session_api_util';
 // receiveErrors(errors)(regular action creator)
 
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
-export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
-export const LOGOUT_USER = 'LOGOUT_USER';
+export const LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER';
+export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
 
 export const receiveCurrentUser = (payload) => {
+    
     return {
         type: RECEIVE_CURRENT_USER,
         currentUser: payload
@@ -20,40 +21,49 @@ export const receiveCurrentUser = (payload) => {
 };
 
 export const receiveErrors = (payload) => {
+
     return {
-        type: RECEIVE_ERRORS,
+        type: RECEIVE_SESSION_ERRORS,
         errors: payload
     };
 };
 
 export const logoutUser = () => {
     return {
-        type: LOGOUT_USER
+        type: LOGOUT_CURRENT_USER
     };
 };
 
 //---------------------------------
 
 export const login = (user) => {
-    return dispacth => {
+    
+    return dispatch => {
         return SessionAPIUtil.login(user).then(res => {
-            return dispacth(receiveCurrentUser(res));
-        }, err => dispacth(receiveErrors(err)));
+            return dispatch(receiveCurrentUser(res));
+        }, err => {
+            return dispatch(receiveErrors(err.responseJSON));
+        });
     };
 };
 
+
 export const signup = (user) => {
-    return dispacth => {
+    return dispatch => {
         return SessionAPIUtil.signup(user).then(res => {
-            return dispacth(receiveCurrentUser(res));
-        }, err =>  dispacth(receiveErrors(err)));
+           return  dispatch(receiveCurrentUser(res));
+        },  err => {
+           return dispatch(receiveErrors(err.responseJSON));
+        });
     };
 };
 
 export const signout = () => {
-    return dispacth => {
+    return dispatch => {
         return SessionAPIUtil.signout().then(() => {
-            return dispacth(logoutUser())
+            return  dispatch(logoutUser());
+        }, err => {
+           return dispatch(receiveErrors(err.responseJSON));
         });
     };
 };

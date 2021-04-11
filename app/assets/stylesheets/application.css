@@ -13,3 +13,12 @@
  *= require_tree .
  *= require_self
  */
+ 
+/* .signup--container {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-color: aquamarine;
+    display: flex;
+   justify-content: space-between;
+   align-items: center;
+} */
+

@@ -1,3 +1,363 @@
 // Place all the styles related to the statis_pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+
+// * {padding: 0; margin: 0;}
+* {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        outline: 0;
+        font-size: 100%;
+        vertical-align: baseline;
+        background: transparent;
+    }
+  
+.blue-gradient {
+  background: -webkit-linear-gradient(left, #6046FE, #1DA0C3);
+  -webkit-background-clip: text;
+  // background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-decoration: none;
+  // background-color: white;
+  
+}
+
+.fan-account-text {
+  width: 250px;
+  height: 60px;
+  font-size: 12px;
+  line-height: 16px;
+  color: #818285;
+
+}
+
+
+.top-div {
+ 
+  display:flex; justify-content:center;
+  position: relative;
+  top: -22px; 
+}
+
+.flex-c {
+    display: flex;
+    justify-content: center;
+
+}
+
+h2 {
+    font-size: small;
+}
+
+.session--container  {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+   
+      width: 800px;
+      
+}
+
+
+.logo {
+    padding-bottom: 10px;
+    color: black;
+  /* margin: 0 0 0 4.45em; */
+}
+
+img, h1 {
+    display: inline-block;
+    vertical-align: middle;
+    width: 20px;
+}
+
+   
+
+.logo, .session-nav {
+        list-style: none;
+        /* text-transform: uppercase; */
+}
+
+.logo a, .session-nav a {
+        text-decoration: none;
+        /* letter-spacing: .45rem; */
+} 
+
+.session-nav  {
+  display: flex;
+}
+
+.session-nav a {
+  display: block;
+  padding: 1em;
+  color: black;
+}
+
+.nav-hd-div {
+  
+  /* position:absolute;  
+  display:block;  
+  top:0px;  */
+ 
+}
+
+/* .session-nav a:hover {
+    background: #00ace6;
+} */
+
+
+/* ****** ****** */
+ @media all and (max-width: 600px) {
+  
+  .logo {
+     margin: .25em 0; 
+    align-self: left; 
+   }
+  
+   .top-div {
+     flex-direction: column-reverse;
+   }
+  
+  .session-nav {
+    flex-direction: column;
+  }
+  
+  .session-nav a { 
+    text-align: center; 
+    padding: 10px;
+    border-top: 1px solid rgba(255,255,255,0.3); 
+    border-bottom: 1px solid rgba(0,0,0,0.1); 
+  }
+  
+  .session-nav li:last-of-type a {
+    // border-bottom: none;
+  }
+}  
+/*--------------------------------------------------
+
+/*-------------------------------------------------
+
+/* new modal */
+.modal-background {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 10;
+}
+
+.flex-item {
+    display:flex;
+    align-items: center;
+}
+
+.flex-item img{
+    
+    
+}
+
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=password], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.signup-fan-button {
+  width: 248px;
+  height: 16px;
+  border: 1px solid rgb(0,161,198);
+  color: rgb(0,161,198);
+  text-align: center;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 8px 0 7px 0;
+  margin-bottom: 12;
+  border-radius: 4px;
+  display: block;
+  cursor: pointer;
+  margin-bottom: 12px;
+}
+
+.signup-artist-button {
+  width: 248px;
+  height: 16px;
+  border: 1px solid #6E943B;
+  color: #6E943B;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 8px 0 7px 0;
+  margin-bottom: 12;
+  border-radius: 4px;
+  display: block;
+  cursor: pointer;
+}
+
+.signup-demo-button {
+  width: 248px;
+  height: 16px;
+  border: 1px solid #333;
+  color: #333;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 8px 0 7px 0;
+  margin-bottom: 12;
+  border-radius: 4px;
+  display: block;
+  cursor: pointer;
+}
+
+.signup-fan-button:hover {
+  text-decoration: underline;
+}
+
+.signup-artist-button:hover {
+  text-decoration: underline;
+}
+
+.signup-demo-button:hover {
+  text-decoration: underline;
+}
+
+.icon-1 {
+    width: 172px;
+    height: 126px;
+    background: url('https://static.thenounproject.com/png/171141-200.png') no-repeat;
+    background-size:contain; 
+    border-radius: 50%;
+}
+
+.icon-2 {
+  width: 172px;
+  height: 126px;
+  background: url('https://static.thenounproject.com/png/330019-200.png') no-repeat;
+  background-size:contain;
+  border-radius: 50%;
+  
+}
+
+.icon-3 {
+  width: 172px;
+  height: 126px;
+  background: url('https://thumbs.dreamstime.com/b/curious-glyph-style-vector-icon-which-can-easily-modify-edit-curious-glyph-style-vector-icon-which-can-easily-modify-edit-192547588.jpg') no-repeat;
+  background-size:contain;
+  border-radius: 50%;
+  
+}
+
+
+
+.modal-child {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font: 14px/18px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  background: #fff;
+  width: 492px;
+  height: 595px;
+}
+
+.modal-form-div {
+
+    width: 480px;
+    height: 460px;
+
+}
+
+.sign-up-modal {
+  padding: 25px 20px 30px 20px;
+  width: 460px;
+  height: 486px;
+}
+
+
+.modal-form ul {
+ margin-left: 14px;
+}
+
+.modal-form ul li{
+  height: 126px;
+  width: 423px;
+  list-style: none;
+  padding-bottom: 26px;
+  margin-bottom: 24px;
+}
+
+.outer-sign-up-modal {
+  display: flex;
+
+   
+   width: 500px;
+   height: 587px;
+
+}
+
+.modal-header {
+  background: #333;
+  background-color: #f5f5f5;
+  padding: 15px 20px 20px 12px;
+  border-bottom: 1px solid #ededed;
+  width: 460px;
+  height: 18px;
+  text-align: center;
+}
+
+.modal-form {
+  width: 460px;
+  height: 480px;
+  display: flex;
+  justify-content: center;
+}
+
+/*--------------------------------------
+sesssion form */
+
+.signup-form {
+ color: #333;
+
+}
+
+.flex-login-header {
+  color: #333;
+    display: flex;
+    justify-content: center;
+}
+
+.session-submit-button {
+    width: 100%;
+    height: 36px;
+    cursor: pointer;
+    text-align: center;
+    background: rgb(0,161,198);
+    
+    color: #333;
+}
+
+.session-submit-button:hover {
+  color: ghostwhite;
+}
+
