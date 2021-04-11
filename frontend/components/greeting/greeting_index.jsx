@@ -34,8 +34,9 @@ class GreetingIndex extends React.Component {
             </div>)
         } else {
             
-            return (<div className='nav-hd-div'>
-            
+            return (
+                <div className='top-div'>
+            <div className='nav-hd-div'>
                  <div className='flex-c'>
                     <div className="session--container">
                         <div className="logo-container">
@@ -51,7 +52,7 @@ class GreetingIndex extends React.Component {
                     </div>
                     
                
-                
+                    </div>
                 </div>);
 
                 

@@ -3,15 +3,25 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-#root {
+
+
+// * {padding: 0; margin: 0;}
+* {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        outline: 0;
+        font-size: 100%;
+        vertical-align: baseline;
+        background: transparent;
+    }
+
+.top-div {
+ 
   display:flex; justify-content:center;
+  position: relative;
+  top: -22px; 
 }
-
-
-
-* {padding: 0; margin: 0;}
-
-
 
 .flex-c {
     display: flex;
@@ -68,7 +78,7 @@ img, h1 {
 }
 
 .nav-hd-div {
-  background-color: aquamarine;    
+  
   /* position:absolute;  
   display:block;  
   top:0px;  */
@@ -88,9 +98,12 @@ img, h1 {
      margin: .25em 0; 
     align-self: left; 
    }
+  
+   
+   
 
-   #root {
-     flex-direction: column;
+   .top-div {
+     flex-direction: column-reverse;
    }
   
   .session-nav {
@@ -105,7 +118,7 @@ img, h1 {
   }
   
   .session-nav li:last-of-type a {
-    border-bottom: none;
+    // border-bottom: none;
   }
 }  
 /*--------------------------------------------------
@@ -123,18 +136,129 @@ img, h1 {
   z-index: 10;
 }
 
+.flex-item {
+    display:flex;
+    align-items: center;
+}
+
+.flex-item img{
+    
+    
+}
+
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=password], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+button {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.icon {
+    width: 172px;
+    height: 126px;
+    background: url('https://static.thenounproject.com/png/171141-200.png') no-repeat;
+    background-size:contain;
+   
+    border-radius: 50%;
+    
+}
+
+
+
 .modal-child {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  font: 14px/18px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background: #fff url(/css/jquery-ui/themes/base/images/ui-bg_flat_75_ffffff_40x100.png) 50% 50% repeat-x;
+  width: 492px;
+  height: 595px;
+}
+
+.modal-form-div {
+
+    width: 480px;
+    height: 460px;
+
 }
 
 .sign-up-modal {
-  background-color: aquamarine;
+  padding: 25px 20px 30px 20px;
+  width: 460px;
+  height: 486px;
 }
 
-.sign-up-modal ul li{
-  height: 100px;
-  width: 300px;
+// p:nth-child(2) {
+//   background: red;
+// }
+
+.modal-form ul li:nth-child(1){
+ 
+}
+
+.modal-form ul li:nth-child(2){
+  
+}
+
+.modal-form ul {
+ margin-left: 14px;
+}
+
+.modal-form ul li{
+  height: 126px;
+  width: 423px;
+  list-style: none;
+  padding-bottom: 26px;
+  margin-bottom: 24px;
+}
+
+.outer-sign-up-modal {
+  display: flex;
+
+   
+   width: 500px;
+   height: 587px;
+
+}
+
+.modal-header {
+  background: #333;
+  background-color: #f5f5f5;
+  padding: 15px 20px 20px 12px;
+  border-bottom: 1px solid #ededed;
+  width: 460px;
+  height: 18px;
+  text-align: center;
+}
+
+.modal-form {
+  width: 460px;
+  height: 480px;
+  display: flex;
+  justify-content: center;
 }

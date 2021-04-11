@@ -73,9 +73,9 @@ class SessionForm extends React.Component {
     }
 
     handleErrors() {
-        // return this.props.errors.map((ele) => {
-        //     return <div key={ele-`${Math.random(100 * 10)}`}>{ele}</div>
-        // });
+        return this.props.errors.map((ele) => {
+            return <div key={`ele-${Math.random(100 * 10)}`}>{ele}</div>
+        });
     }
 
     navDiv() {
@@ -108,7 +108,7 @@ class SessionForm extends React.Component {
             
             <div>   
                 {/* {this.navDiv()} */}
-                {/* {this.handleErrors()} */}
+                {this.handleErrors()}
                 {this.sessionForm()}  
             </div>
             
