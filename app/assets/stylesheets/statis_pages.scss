@@ -93,15 +93,11 @@ img, h1 {
 /* ****** ****** */
  @media all and (max-width: 600px) {
   
-
   .logo {
      margin: .25em 0; 
     align-self: left; 
    }
   
-   
-   
-
    .top-div {
      flex-direction: column-reverse;
    }
@@ -166,25 +162,87 @@ input[type=password], select {
   box-sizing: border-box;
 }
 
-button {
-  width: 100%;
-  background-color: #4CAF50;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
+.signup-fan-button {
+  width: 248px;
+  height: 16px;
+  border: 1px solid rgb(0,161,198);
+  color: rgb(0,161,198);
+  text-align: center;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 8px 0 7px 0;
+  margin-bottom: 12;
   border-radius: 4px;
+  display: block;
   cursor: pointer;
 }
 
-.icon {
+.signup-artist-button {
+  width: 248px;
+  height: 16px;
+  border: 1px solid #6E943B;
+  color: #6E943B;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 8px 0 7px 0;
+  margin-bottom: 12;
+  border-radius: 4px;
+  display: block;
+  cursor: pointer;
+}
+
+.signup-demo-button {
+  width: 248px;
+  height: 16px;
+  border: 1px solid #333;
+  color: #333;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 8px 0 7px 0;
+  margin-bottom: 12;
+  border-radius: 4px;
+  display: block;
+  cursor: pointer;
+}
+
+.signup-fan-button:hover {
+  text-decoration: underline;
+}
+
+.signup-artist-button:hover {
+  text-decoration: underline;
+}
+
+.signup-demo-button:hover {
+  text-decoration: underline;
+}
+
+.icon-1 {
     width: 172px;
     height: 126px;
     background: url('https://static.thenounproject.com/png/171141-200.png') no-repeat;
-    background-size:contain;
-   
+    background-size:contain; 
     border-radius: 50%;
-    
+}
+
+.icon-2 {
+  width: 172px;
+  height: 126px;
+  background: url('https://static.thenounproject.com/png/330019-200.png') no-repeat;
+  background-size:contain;
+  border-radius: 50%;
+  
+}
+
+.icon-3 {
+  width: 172px;
+  height: 126px;
+  background: url('https://thumbs.dreamstime.com/b/curious-glyph-style-vector-icon-which-can-easily-modify-edit-curious-glyph-style-vector-icon-which-can-easily-modify-edit-192547588.jpg') no-repeat;
+  background-size:contain;
+  border-radius: 50%;
+  
 }
 
 
@@ -195,7 +253,7 @@ button {
   left: 50%;
   transform: translate(-50%, -50%);
   font: 14px/18px "Helvetica Neue", Helvetica, Arial, sans-serif;
-  background: #fff url(/css/jquery-ui/themes/base/images/ui-bg_flat_75_ffffff_40x100.png) 50% 50% repeat-x;
+  background: #fff;
   width: 492px;
   height: 595px;
 }
@@ -213,17 +271,6 @@ button {
   height: 486px;
 }
 
-// p:nth-child(2) {
-//   background: red;
-// }
-
-.modal-form ul li:nth-child(1){
- 
-}
-
-.modal-form ul li:nth-child(2){
-  
-}
 
 .modal-form ul {
  margin-left: 14px;

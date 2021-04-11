@@ -3,6 +3,8 @@ import { closeModal, openModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import LoginFormContainer from '../session_form/login_container';
 import SignupFormContainer from '../session_form/signup_container';
+import {login} from '../../actions/session_actions'
+
 import {
     Route,
     Redirect,
@@ -11,7 +13,7 @@ import {
     HashRouter
 } from 'react-router-dom';
 
- function Modal({ modal, closeModal, openModal, boolean }){
+ function Modal({ modal, closeModal, openModal, boolean, signin }){
     // const handleSignIn = () => {
     //     openModal('signup');
     // }
@@ -21,6 +23,7 @@ import {
     // }
 
     let component;
+    
 
     switch (modal) {
         case 'signup-modal':
@@ -28,25 +31,36 @@ import {
                 <React.Fragment>
             
                  <div className='modal-header'>Welcome to groovecamp</div>
-
                     <div className='sign-up-modal'>
-
                       <div className='modal-form-div'>
-                      <form className='modal-form'>
-                        <ul>
+                        <form className='modal-form'>
+                          <ul>
                                 <li className='flex-item'>
+                                    <div className='icon-1'></div>
+                                
+                                    <div>
+                                        <a className='signup-fan-button' onClick={() => openModal('signup-user')}>Sign up as a fan</a>
+                                        <div>text</div>
+                                   </div>
+                                </li>
 
-                                    <div className='icon'></div>
-                                    
-       
-                                <div>
-                                    <button onClick={() => openModal('signup-user')}>signup user</button>
-                                    <div>text</div>
-                                </div>
+                                <li className='flex-item'>
+                                    <div className='icon-2'></div>
 
-                            </li>
+                                    <div>
+                                        <a className='signup-artist-button' onClick={() => openModal('signup-user')}>Sign up as a artist</a>
+                                        <div>text</div>
+                                    </div>
+                                </li>
 
-                            <li onClick={() => openModal('signup-artist')}>Sign up as an artist</li>
+                                <li className='flex-item'>
+                                    <div className='icon-3'></div>
+
+                                    <div>
+                                        <a className='signup-demo-button' onClick={() => signin({ username: 'sally123', password: '123456', artist_check: false })}>Curious? Demo the Site</a>
+                                        <div>text</div>
+                                    </div>
+                                </li>
                         </ul>
                  </form>
                     </div>
@@ -69,7 +83,11 @@ import {
         default:
             return null;
     }
+     
+    console.log(signin)
+
     return (
+        
         <div className="modal-background" onClick={closeModal}>
             <div className="modal-child" onClick={e => e.stopPropagation()}>
                 {component}
@@ -87,7 +105,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         closeModal: () => dispatch(closeModal()),
-        openModal: (signup) => dispatch(openModal(signup))
+        openModal: (signup) => dispatch(openModal(signup)),
+        signin: (user) => dispatch(login(user))
     };
 };
 
