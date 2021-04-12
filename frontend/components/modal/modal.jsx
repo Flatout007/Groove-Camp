@@ -74,10 +74,10 @@ import {
             component = <LoginFormContainer />;
             break;
         case 'signup-user':
-            component = <SignupFormContainer artist_check={false}/>; // pass in prop artist check false for user, 
+            component = <SignupFormContainer artist_check={false}/>; // pass in prop to form artist check: false for user, 
             break;
         case 'signup-artist':
-            component = <SignupFormContainer artist_check={true} />; // pass in prop artist check true for artist, 
+            component = <SignupFormContainer artist_check={true} />; // pass in prop to form artist check: true for artist, 
             break;
         default:
             return null;

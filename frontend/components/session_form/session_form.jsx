@@ -37,17 +37,6 @@ class SessionForm extends React.Component {
         return this.props.errors.map((ele) => {
             return <div key={`ele-${Math.random(100 * 10)}`}>{ele}</div>
         });
-
-        // return (
-        //     <ul>
-        //         {this.props.errors.map((error, i) => (
-        //            <li key={`error-${i}`}>
-        //                 {error}
-        //             </li>
-        //         ))}
-        //     </ul>
-        // );
-
     }
     
     handleChange(type) {
@@ -60,7 +49,7 @@ class SessionForm extends React.Component {
     sessionForm() {
         //if (this.state.visible) return null;
         if(this.props.currentUser) { 
-          return {};
+         return null
         }
         else {
            return (
