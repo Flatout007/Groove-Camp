@@ -1,28 +1,38 @@
 // home page component that conatins links to artist show
 
 import React from 'react';
+import ArtistIndexItem from './artist_index_item';
 
 
 class ArtistWeekly extends React.Component {
+    componentDidMount() {
+        return this.props.requestAllUsers();
+    }
+
     constructor(props) {
         super(props);
+        this.artistList = this.artistList.bind(this);
     }
 
-    componentDidMount() {
-          this.props.requestAllUsers();
-    }
-
+    
     artistList() {
-        // get array of specifed artists.
-        // map each element into an <ArtistIndexItem/>
-        // pass in any props needed from conatiner
+           return this.props.users.map((ele) => {
+              if(ele.username === 'LiSA' || ele.username === 'Nico Touches the Walls')
+                return  <ArtistIndexItem
+                
+                key={ele.id}
+              />
+          });
+        
     }
 
 
     render() {
+       
         return(
+           
          <React.Fragment>
-            
+          
             <div className='artist-weekly-container'>
 
                 <div className='artist-weekly-outer'>
@@ -51,7 +61,8 @@ class ArtistWeekly extends React.Component {
 
 
                         <ol>
-                            <li className='artist-weekly-img-1'>
+                            {this.artistList()}
+                            {/* <li className='artist-weekly-img-1'>
                                 <div className='artist-overlay'></div>
                                 <div className='artist-overlay-hover'>image1</div>
                                   <a>
@@ -60,29 +71,29 @@ class ArtistWeekly extends React.Component {
                                         <h4></h4>
                                      </div>
                                   </a>
-                            </li>
+                            </li> */}
                    
-                            <li className='artist-weekly-img-2'>
-                                {/* <div className='artist-overlay'></div>
-                                <div className='artist-overlay-hover'>image2</div> */}
+                            {/* <li className='artist-weekly-img-2'>
+                                <div className='artist-overlay'></div>
+                                <div className='artist-overlay-hover'>image2</div>
                                     <a>
                                         <div>
                                             <h3></h3>
                                             <h4></h4>
                                         </div>
                                     </a>
-                            </li>
+                            </li> */}
 
-                            <li className='artist-weekly-img-3'>
-                                {/* <div className='artist-overlay'></div>
-                                <div className='artist-overlay-hover'>image3</div> */}
+                            {/* <li className='artist-weekly-img-3'>
+                                <div className='artist-overlay'></div>
+                                <div className='artist-overlay-hover'>image3</div>
                                     <a>
                                         <div>
                                             <h3></h3>
                                             <h4></h4>
                                         </div>
                                     </a>
-                            </li>
+                            </li> */}
                         </ol>
 
                     </div>

@@ -80,7 +80,7 @@ export const signout = () => {
 export const requestAllUsers = () => {
     return dispatch => {
         return SessionAPIUtil.getAllUsers().then((res) => {
-            return dispatch(receiveAllUsers(res));
+            dispatch(receiveAllUsers(res));
         });
     };
 };
