@@ -2,9 +2,20 @@
 
 import React from 'react';
 
+
 class ArtistWeekly extends React.Component {
     constructor(props) {
         super(props);
+    }
+
+    componentDidMount() {
+          this.props.requestAllUsers();
+    }
+
+    artistList() {
+        // get array of specifed artists.
+        // map each element into an <ArtistIndexItem/>
+        // pass in any props needed from conatiner
     }
 
 
@@ -40,16 +51,16 @@ class ArtistWeekly extends React.Component {
 
 
                         <ol>
-                                <li className='artist-weekly-img-1'>
-                                {/* <div className='artist-overlay'></div>
-                                <div className='artist-overlay-hover'>image1</div> */}
+                            <li className='artist-weekly-img-1'>
+                                <div className='artist-overlay'></div>
+                                <div className='artist-overlay-hover'>image1</div>
                                   <a>
                                      <div>
                                         <h3></h3>
                                         <h4></h4>
                                      </div>
                                   </a>
-                            </li  >
+                            </li>
                    
                             <li className='artist-weekly-img-2'>
                                 {/* <div className='artist-overlay'></div>

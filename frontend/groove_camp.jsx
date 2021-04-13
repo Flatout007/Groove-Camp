@@ -21,11 +21,16 @@ document.addEventListener('DOMContentLoaded', (e) => {
         store = configureStore();
     }
     // store = configureStore({});
+    // window.getAllUsers = SessionActions.getAllUsers
    
     //let user = { username: 'tim007', password: '123456', artist_check: false };
     //console.log(store.dispatch(SessionActions.login(user)))
     window.login = SessionActions.login
     window.store = store
+    
+     window.getAllUsers = SessionActions.requestAllUsers
+    
+
     
     //console.log(store.dispatch(SessionApiUtil.login(user)))
     

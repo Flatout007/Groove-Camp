@@ -58,7 +58,7 @@ import {
                                     <div className='icon-3'></div>
 
                                     <div>
-                                        <a className='signup-demo-button' onClick={() => signin({ username: 'sally123', password: '123456', artist_check: false })}>Curious? Try a demo</a>
+                                        <a className='signup-demo-button' onClick={() => signin({ username: 'sally123', password: '123456', artist_check: false }).then(closeModal)}>Curious? Try a demo</a>
                                         <div>text</div>
                                     </div>
                                 </li>

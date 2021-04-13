@@ -20,3 +20,9 @@ export const signout = () => {
         method: 'DELETE'
     });
 };
+
+export const getAllUsers = () => {
+    return $.ajax({
+        url: '/api/users',
+    });
+};

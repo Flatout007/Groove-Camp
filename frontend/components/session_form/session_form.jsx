@@ -26,7 +26,7 @@ class SessionForm extends React.Component {
         e.preventDefault();
         let obj = {username: this.state.username, password: this.state.password, artist_check: this.props.artist_check}
         
-        this.props.action(obj)        
+        this.props.action(obj).then(this.props.closeModal)  
     }
 
     clearErrors() {
@@ -41,7 +41,7 @@ class SessionForm extends React.Component {
     
     handleChange(type) {
         return e => this.setState({
-            [field]: e.currentTarget.value
+            [type]: e.currentTarget.value
         });
 
     }

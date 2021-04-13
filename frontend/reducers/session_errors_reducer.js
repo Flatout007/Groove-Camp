@@ -9,6 +9,7 @@ const SessionErrorReducer = (state = [], action) => {
         
         case RECEIVE_SESSION_ERRORS: return action.errors;
         case RECEIVE_CURRENT_USER: return [];
+        // close modal
         
         default: return state;
     }
