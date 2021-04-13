@@ -26,11 +26,11 @@ class ArtistIndexItem extends React.Component {
 
     render() {
         return(
-            <li>
+            <li onClick={() => console.log(this.props.artist)}>
                 <div className='artist-overlay'></div>
                 <div className='artist-overlay-hover'></div>
                {/* <Link to={`artists/${this.props.artist.id}`}> */}
-               <a onClick={() => console.log('hello')}>
+               <a>
                     <div className='img-link-div'>
                         <h3></h3>
                         <h4></h4>

@@ -21,9 +21,9 @@ class ArtistWeekly extends React.Component {
                 return  <ArtistIndexItem
                 
                 key={ele.id}
+                artist={ele}
               />
-          });
-        
+          }); 
     }
 
 
