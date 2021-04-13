@@ -10,4 +10,9 @@ class Api::UsersController < ApplicationController
            render "api/users/show"
         end
     end
+
+    def index 
+        @users = User.all
+        render(:index)
+    end
 end

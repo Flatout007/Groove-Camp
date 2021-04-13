@@ -1,4 +1,5 @@
 import React from 'react';
+import ArtistWeekly from '../artist/artist_index_container';
 
 
 // import {Navbar, Nav, NavDropdowm, Modal, Button} from 'react-bootstrap'
@@ -25,8 +26,7 @@ class GreetingIndex extends React.Component {
 
     greetUser() {
         if(this.props.currentUser) {
-           return(
-          <div className='top-div'>
+           return(  
             <div className='nav-hd-div'>
                  <div className='flex-c'>
                     <div className="session--container">
@@ -43,15 +43,14 @@ class GreetingIndex extends React.Component {
                     </div>
                     </div>
                        <button onClick={this.signoutUser}>Log Out</button>      
-                    </div>
-          </div>
+            </div>
+          
             );
 
         } else {
             
             return (
-        <div className='top-div'>
-            <div className='nav-hd-div'>
+             <div className='nav-hd-div'>
                  <div className='flex-c'>
                     <div className="session--container">
                         <div className="logo-container">
@@ -65,10 +64,8 @@ class GreetingIndex extends React.Component {
                         </div>
                     </div>
                     </div>
-                    
-               
-                    </div>
-                </div>);
+             </div>
+                );
         }
         
     }
@@ -77,8 +74,13 @@ class GreetingIndex extends React.Component {
         console.log(this.props.openModal)
         return (
             <React.Fragment>
-                
-              {this.greetUser()}
+                <div className='top-div'>
+                    {this.greetUser()}
+                </div>
+
+                <div className='artist-weekly'>
+                    <ArtistWeekly />
+                </div> 
             </React.Fragment>
             );
     }
