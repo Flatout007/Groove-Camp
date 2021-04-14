@@ -1,4 +1,5 @@
 import React from 'react';
+import GreetingNav from '../greeting/greeting_container';
 
 import {
     Route,
@@ -24,32 +25,54 @@ class ArtistShow extends React.Component {
     }
 
     componentDidMount() {
-      // this.props.requestAllUsers().then(() => {this.props.store.entities.users[this.props.match.params.id]})
+        
+    //   this.props.requestAllUsers().then(() => {this.props.store.entities.users[this.props.match.params.id]})
         this.props.requestUser(this.props.match.params.id)
         //return this.props.requestUser(this.props.artist.id)
 
-    // usersDiv() {
-    //     return this.props.artists.map((ele) => {
-    //        return <div>
-    //            <p>{this.props.artist.username}</p>
-    //            <Link to={'/'}>Home</Link>
-    //        </div>
-    //     });
-    // }
     }
 
     render() {
+       
         console.log(this.props.artist)
         console.log(this.props)
        
-        if (!this.props.artist) return null;
+       
+      
+        if (!this.props.artist) return <p>Loading</p>;
    
-        return <div>
+        return(
+        <React.Fragment>
+            <GreetingNav />
+            <nav className='daily-bar'>
+                    <div className='daily-wrapper'>
+                        <a> 
+                            <strong>Groovecamp Daily</strong>
+                        </a>
 
-            <p>{this.props.artist.username}</p>
-            {/* {this.usersDiv()} */}
-            <Link to={'/'}>Home</Link>
-        </div>
+                        <span className="flex-links">
+                            <span className="flex-link-1">
+                                <a href="">Link</a></span>
+                            <span>
+                                ·<a href="">Link</a></span>
+                            <span>
+                                ·<a href="">Link</a></span>
+                            <span>
+                                ·<a href="">Link</a></span>
+                        </span>
+
+                        <button className="daily-button">Home</button>
+                    </div>
+            </nav>
+           
+            {/* <p>{this.props.artist.username}</p> */}
+
+            {/* <Link to={'/'}>Home</Link> */}
+        </React.Fragment>
+          )
+
+       
+        
     }
 }
 

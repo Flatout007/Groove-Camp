@@ -1,5 +1,5 @@
 import React from 'react';
-import ArtistWeekly from '../artist/artist_index_container';
+
 
 
 // import {Navbar, Nav, NavDropdowm, Modal, Button} from 'react-bootstrap'
@@ -78,9 +78,9 @@ class GreetingIndex extends React.Component {
                     {this.greetUser()}
                 </div>
 
-                <div className='artist-weekly'>
+                {/* <div className='artist-weekly'>
                     <ArtistWeekly />
-                </div> 
+                </div>  */}
             </React.Fragment>
             );
     }

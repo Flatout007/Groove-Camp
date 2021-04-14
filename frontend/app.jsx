@@ -31,15 +31,17 @@ class App extends React.Component {
                  <Modal/>
                 
            
-                 <Switch>
-                  <Route exact path="/signup" component={SignupContainer}></Route>
-                  <Route exact path="/" component={GreetingIndex}></Route>
-                  <Route exact path="/" component={ArtistWeekly}></Route>
-                    <Route exact path='/artist/:id' component={ArtistShow}></Route>
+               
+                   <Route exact path="/signup" component={SignupContainer}></Route>
+                  
+                   <Route exact path="/" component={GreetingIndex}></Route>
+                <Route exact path="/" component={ArtistWeekly}></Route>
+                   <Route exact path='/artist/:id' component={ArtistShow}></Route>
+                   
                   
                   {/* <Route exact path='/login' component={LoginContainer}></Route>  */}
                   {/* {<Route exact path="/" component={GreetingIndex}></Route>} */}
-                </Switch>
+              
     </React.Fragment >)
         
     }

@@ -31,7 +31,7 @@ class ArtistWeekly extends React.Component {
         return(
            
          <React.Fragment>
-          
+          <div className='artist-weekly'>
             <div className='artist-weekly-container'>
 
                 <div className='artist-weekly-outer'>
@@ -68,6 +68,7 @@ class ArtistWeekly extends React.Component {
                 </div>
 
             </div>
+        </div>
 
         </React.Fragment>
         )
