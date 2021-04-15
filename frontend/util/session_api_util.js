@@ -26,3 +26,11 @@ export const getAllUsers = () => {
         url: '/api/users',
     });
 };
+
+
+export const getUser = (userId) => {
+    return $.ajax({
+        url: `/api/users/${userId}`,
+        data: {userId}
+    });
+}

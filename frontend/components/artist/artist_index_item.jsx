@@ -1,5 +1,14 @@
 import React from 'react';
 
+import {
+    Route,
+    Redirect,
+    Switch,
+    Link,
+    HashRouter
+} from 'react-router-dom';
+
+
 /* 
 // html model 
 <li className='artist-weekly-img-1'>
@@ -25,8 +34,14 @@ class ArtistIndexItem extends React.Component {
     }
 
     render() {
+       
         return(
-            <li onClick={() => console.log(this.props.artist)}>
+
+        
+
+            <li>
+                <Link to={`/artist/${this.props.artist.id}`}>{this.props.artist.username}</Link>
+
                 <div className='artist-overlay'></div>
                 <div className='artist-overlay-hover'></div>
                {/* <Link to={`artists/${this.props.artist.id}`}> */}

@@ -6,7 +6,21 @@ class User < ApplicationRecord
 
     attr_reader(:password)
 
-    after_initialize(:ensure_session_token!) 
+    after_initialize(:ensure_session_token!)
+
+    has_one_attached(:photo)
+    
+    has_many(
+        :albums,
+        foreign_key: :artist_id,
+        class_name: 'Album'
+    )
+
+    has_many(:songs,
+       foreign_key: :artist_id,
+       class_name: 'Song'
+    )
+
 
     def self.find_by_credentials(username,password)
         user = User.find_by(username: username)

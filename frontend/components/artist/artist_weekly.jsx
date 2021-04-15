@@ -19,11 +19,11 @@ class ArtistWeekly extends React.Component {
            return this.props.users.map((ele) => {
               if(ele.username === 'LiSA' || ele.username === 'Nico Touches the Walls')
                 return  <ArtistIndexItem
-                
+                artist={ele}
                 key={ele.id}
                 artist={ele}
               />
-          }); 
+
     }
 
 
@@ -32,7 +32,7 @@ class ArtistWeekly extends React.Component {
         return(
            
          <React.Fragment>
-          
+          <div className='artist-weekly'>
             <div className='artist-weekly-container'>
 
                 <div className='artist-weekly-outer'>
@@ -42,7 +42,7 @@ class ArtistWeekly extends React.Component {
                         <div className='artist-weekly-main'>
                             {/* <div className='artist-overlay'></div>
                             <div className='artist-overlay-hover'></div> */}
-                            <a className='artist-link'>main image</a>
+                            <a className='artist-link'></a>
 
                                 {/* <a>
                                     <div className='artist-link-row'>
@@ -62,38 +62,6 @@ class ArtistWeekly extends React.Component {
 
                         <ol>
                             {this.artistList()}
-                            {/* <li className='artist-weekly-img-1'>
-                                <div className='artist-overlay'></div>
-                                <div className='artist-overlay-hover'>image1</div>
-                                  <a>
-                                     <div>
-                                        <h3></h3>
-                                        <h4></h4>
-                                     </div>
-                                  </a>
-                            </li> */}
-                   
-                            {/* <li className='artist-weekly-img-2'>
-                                <div className='artist-overlay'></div>
-                                <div className='artist-overlay-hover'>image2</div>
-                                    <a>
-                                        <div>
-                                            <h3></h3>
-                                            <h4></h4>
-                                        </div>
-                                    </a>
-                            </li> */}
-
-                            {/* <li className='artist-weekly-img-3'>
-                                <div className='artist-overlay'></div>
-                                <div className='artist-overlay-hover'>image3</div>
-                                    <a>
-                                        <div>
-                                            <h3></h3>
-                                            <h4></h4>
-                                        </div>
-                                    </a>
-                            </li> */}
                         </ol>
 
                     </div>
@@ -101,6 +69,7 @@ class ArtistWeekly extends React.Component {
                 </div>
 
             </div>
+        </div>
 
         </React.Fragment>
         )
