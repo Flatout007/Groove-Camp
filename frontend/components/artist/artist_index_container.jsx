@@ -18,7 +18,7 @@ const mapStoreToProps = (store, props) => {
 
 const mapActionsToProps = (dispatch, props) => {
     return {
-         requestAllUsers: () => dispatch(requestAllUsers())
+        requestAllUsers: () => dispatch(requestAllUsers())
     };
 };
 

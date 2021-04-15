@@ -1,6 +1,7 @@
 import {connect} from 'react-redux';
 import {requestUser, requestAllUsers} from  '../../actions/session_actions';
-import ArtistShow from './artist_show';
+import ArtistArticle from './artist_article';
+
 
 
 /*
@@ -27,4 +28,4 @@ const mapActionsToProps = (dispatch, props) => {
 };
 
 
-export default connect(mapStoreToProps, mapActionsToProps)(ArtistShow);
+export default connect(mapStoreToProps, mapActionsToProps)(ArtistArticle);

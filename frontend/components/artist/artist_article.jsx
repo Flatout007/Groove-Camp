@@ -18,7 +18,7 @@ mounted to the DOM. Additionally, this component should contain a link back to
 the Home `/` page.
 */
 
-class ArtistShow extends React.Component {
+class ArtistArticle extends React.Component {
     constructor(props) {
         super(props)
        
@@ -34,8 +34,7 @@ class ArtistShow extends React.Component {
 
     render() {
        
-        console.log(this.props.artist)
-        console.log(this.props)
+        
        
        
       
@@ -46,6 +45,7 @@ class ArtistShow extends React.Component {
             <GreetingNav />
             <nav className='daily-bar'>
                     <div className='daily-wrapper'>
+                        
                         <a> 
                             <strong>Groovecamp Daily</strong>
                         </a>
@@ -65,7 +65,12 @@ class ArtistShow extends React.Component {
                     </div>
             </nav>
            
-            <p>{this.props.artist.username}</p>
+            {/* <p>{this.props.artist.username}</p> */}
+            <article className='artist-article'>
+                 <img className='artist-article-img' src={this.props.artist.photoUrl} alt=""/>
+            </article>
+            
+            
 
             {/* <Link to={'/'}>Home</Link> */}
         </React.Fragment>
@@ -76,4 +81,4 @@ class ArtistShow extends React.Component {
     }
 }
 
-export default  ArtistShow;
+export default  ArtistArticle;

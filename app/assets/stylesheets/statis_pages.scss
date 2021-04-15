@@ -459,7 +459,7 @@ artist weekly */
 
 
 /*--------------------------------------
-artist show */
+artist article */
 
 .daily-bar {
   display: block;
@@ -511,5 +511,15 @@ span a {
   color: inherit;
 }
 
+
+.artist-article-img {
+  width: 90%;
+  max-width: 100%;
+  padding-left: 150px;
+}
+
+.artist-article {
+  grid-column: 1 / -1;
+}
 
 
