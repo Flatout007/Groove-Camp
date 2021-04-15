@@ -65,7 +65,7 @@ class ArtistShow extends React.Component {
                     </div>
             </nav>
            
-            {/* <p>{this.props.artist.username}</p> */}
+            <p>{this.props.artist.username}</p>
 
             {/* <Link to={'/'}>Home</Link> */}
         </React.Fragment>
