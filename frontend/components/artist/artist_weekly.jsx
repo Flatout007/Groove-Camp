@@ -17,13 +17,14 @@ class ArtistWeekly extends React.Component {
     
     artistList() {
            return this.props.users.map((ele) => {
-              if(ele.username === 'LiSA' || ele.username === 'Nico Touches the Walls')
+              if(ele.username === 'LiSA' || ele.username === 'Nico Touches the Walls') {
                 return  <ArtistIndexItem
                 artist={ele}
                 key={ele.id}
                 artist={ele}
               />
-
+              }
+            });
     }
 
 
