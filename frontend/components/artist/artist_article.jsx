@@ -28,17 +28,30 @@ class ArtistArticle extends React.Component {
         
     //   this.props.requestAllUsers().then(() => {this.props.store.entities.users[this.props.match.params.id]})
         this.props.requestUser(this.props.match.params.id)
+        this.props.requestAlbums()
         //return this.props.requestUser(this.props.artist.id)
 
     }
 
+    albumList() {
+        return this.props.albums.map((ele) => {      
+            if (parseInt(this.props.match.params.id) === ele.artist_id) {
+         return <li>
+                <p>{ele.title}</p>
+            </li>
+            }
+        });
+        
+    }
+
     render() {
-       
+       console.log(this.albumList())
         
        
        
       
         if (!this.props.artist) return <p>Loading</p>;
+        if (!this.props.albums) return <p>Loading</p>;
    
         return(
         <React.Fragment>
@@ -69,6 +82,8 @@ class ArtistArticle extends React.Component {
             <article className='artist-article'>
                  <img className='artist-article-img' src={this.props.artist.photoUrl} alt=""/>
             </article>
+
+            {this.albumList()}
             
             
 

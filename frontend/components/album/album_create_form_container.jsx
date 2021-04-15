@@ -13,6 +13,7 @@ the store on form submission as `submitAlbum`.
 const mapStoreToProps = (store, props) => {
 
     return {
+        errors: store.errors.album,
         album: { title: '', artist_id: 10},
         formType: 'Create Album'
     };
@@ -21,7 +22,7 @@ const mapStoreToProps = (store, props) => {
 
 const mapActionsToProps = (dispatch, props) => {
     return {
-        submitAlbum: (album) => dispatch(createAlbum(album))
+      submitAlbum: (album) => dispatch(createAlbum(album))
     };
 };
 

@@ -11,7 +11,8 @@ const AlbumReducer = (state = {}, action) => {
     switch (action.type) {
 
         case RECEIVE_ALBUMS: return Object.assign(currentState, action.albums);
-        case RECEIVE_ALBUM: return Object.assign(currentState, { [action.album.id]: action.album });
+        case RECEIVE_ALBUM: return Object.assign({}, { [action.album.id]: action.album });
+        //case RECEIVE_ALBUM: return { id: action.album.id };
         case REMOVE_ALBUM: return Object.assign(currentState, { [action.albumId]: undefined })
         default: return state
     }

@@ -11,13 +11,16 @@ class AlbumForm extends React.Component {
 
     handleChange(type) {
         return e => {
-            return this.setState({ [type]: e.target.value })
+            return this.setState({ [type]: e.currentTarget.value });
         }
     }
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.submitAlbum(this.state);
+
+       this.props.submitAlbum(this.state);
+        
+        
     }
 
 

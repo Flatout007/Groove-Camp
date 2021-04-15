@@ -41,7 +41,7 @@ class ArtistWeekly extends React.Component {
                         <div className='artist-weekly-main'>
                             {/* <div className='artist-overlay'></div>
                             <div className='artist-overlay-hover'></div> */}
-                            <a className='artist-link'>main image</a>
+                            <a className='artist-link'></a>
 
                                 {/* <a>
                                     <div className='artist-link-row'>

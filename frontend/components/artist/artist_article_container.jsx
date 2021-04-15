@@ -1,5 +1,6 @@
 import {connect} from 'react-redux';
 import {requestUser, requestAllUsers} from  '../../actions/session_actions';
+import {requestAlbums} from '../../actions/album_actions';
 import ArtistArticle from './artist_article';
 
 
@@ -15,7 +16,8 @@ const mapStoreToProps = (store, props) => {
    
     return {
        //store: store,
-       artist: store.entities.users[props.match.params.id]
+       artist: store.entities.users[props.match.params.id],
+       albums: Object.values(store.entities.albums)
     };
 };
 
@@ -23,7 +25,8 @@ const mapStoreToProps = (store, props) => {
 const mapActionsToProps = (dispatch, props) => {
     return {
         requestUser: (id) => dispatch(requestUser(id)),
-        requestAllUsers: () => dispatch(requestAllUsers())
+        requestAllUsers: () => dispatch(requestAllUsers()),
+        requestAlbums: () => dispatch(requestAlbums())
     };
 };
 

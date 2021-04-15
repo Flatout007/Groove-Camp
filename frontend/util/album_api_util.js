@@ -39,7 +39,6 @@ export const deleteAlbum = (albumId) => {
     return $.ajax({
         url: `/api/albums/${albumId}`,
         method: 'DELETE', 
-        data: {albumId}
     });
 };
  

@@ -1,5 +1,6 @@
 import * as AlbumApi from "../util/album_api_util";
 
+
 /*
 Export the following action constants:
 
@@ -16,6 +17,7 @@ Export the following thunk action creators with the specified parameters:
 export const RECEIVE_ALBUMS = 'RECEIVE_ALBUMS';
 export const RECEIVE_ALBUM = 'RECEIVE_ALBUM';
 export const REMOVE_ALBUM = 'REMOVE_ALBUM';
+export const THE_ERRORS = 'THE_ERRORS';
 
 
 export const receiveAlbums = (payload) => {
@@ -39,6 +41,14 @@ export const removeAlbum = (payload) => {
     };
 };
 
+export const theErrors = (payload) => {
+    return {
+        type: THE_ERRORS,
+        errors: payload
+    };
+};
+
+
 // 1. `requestAlbums`
 // 2. `requestAlbum(AlbumId)`
 // 3. `createAlbum(Album)`
@@ -49,8 +59,6 @@ export const requestAlbums = () => {
     return dispatch => {
         return AlbumApi.fetchAlbums().then((res) => {
              return dispatch(receiveAlbums(res));
-        }, err => {
-            return err.responseJSON;
         });
     };
 };
@@ -59,16 +67,19 @@ export const requestAlbum = (albumId) => {
     return dispatch => {
         return AlbumApi.fetchAlbum(albumId).then((res) => {
             return dispatch(receiveAlbum(res));
+        }, (err) => {
+            return dispatch(theErrors(err.responseJSON))
         });
     };
 };
 
 export const createAlbum = (album) => {
+   
     return dispatch => {
         return AlbumApi.createAlbum(album).then((res) => {
             return dispatch(receiveAlbum(res));
-        }, err => {
-            return err.responseJSON;
+        }, (err) => {
+            return dispatch(theErrors(err.responseJSON))
         });
     };
 };
