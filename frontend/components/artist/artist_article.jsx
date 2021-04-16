@@ -80,7 +80,7 @@ class ArtistArticle extends React.Component {
            
             {/* <p>{this.props.artist.username}</p> */}
             <article className='artist-article'>
-                 <img className='artist-article-img' src={this.props.artist.photoUrl} alt=""/>
+                    <img className='https://groovecamp-seed.s3.us-east-2.amazonaws.com/939x0w+(16).jpg' src={this.props.artist.photoUrl} alt=""/>
             </article>
 
                 <audio controls>
