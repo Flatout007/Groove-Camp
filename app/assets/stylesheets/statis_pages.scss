@@ -531,6 +531,31 @@ album index*/
 
 .artist-outer {
   background-color: green;
+  height: 200px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.album-li {
+  height: 100px;
+  background-color: yellow;
+  width: 150px;
+  margin-top: 30px;
+  list-style: none;
+}
+
+.selling-now {
+  color: #408ea3;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 14px;
+    margin-top: 0px;
+    height: 0px;
+}
+
+.artist-outer-artist {
+    background-color: green;
+  height: 200px;
   display: flex;
   justify-content: space-evenly;
 }

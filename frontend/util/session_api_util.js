@@ -34,3 +34,4 @@ export const getUser = (userId) => {
         data: {userId}
     });
 }
+

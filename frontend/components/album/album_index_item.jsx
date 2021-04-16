@@ -22,7 +22,7 @@ class AlbumIndexItem extends React.Component {
         if (!this.props.album) return <p>Loading</p>;
 
         return (
-            <li>
+            <li className='album-li'>
                {this.props.album.title}
                <Link to={`/album/${this.props.album.id}`}>albums</Link>
               

@@ -1,6 +1,7 @@
 class Api::UsersController < ApplicationController
 
     def create
+        
         @user = User.new(params.require(:user).permit(:username, :password, :artist_check))
 
         if @user.save === false 
@@ -20,4 +21,13 @@ class Api::UsersController < ApplicationController
         @user = User.find(params[:id])
         render "api/users/show"
     end
+
+    # def update
+    #  @user = User.find_by(id: params[:id])
+    #   if @user.update(params.require(:user).permit(:photoUrl))
+    #    render 'api/users/show'
+    #  else
+    #   render json: @user.errors.full_messages, status: 422
+    #  end
+    # end
 end

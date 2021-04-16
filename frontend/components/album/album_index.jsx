@@ -25,10 +25,16 @@ class AlbumIndex extends React.Component {
 
     render() {
        
-        return (<div className='artist-outer'>
+        return (
+        <React.Fragment>
+        <div className='selling-now'>Selling Now</div>
+        <div className='artist-outer'>
+            
+            
             {this.albumList()}
             
-        </div>);
+        </div>
+        </React.Fragment >);
     }
 }
 

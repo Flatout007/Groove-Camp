@@ -49,7 +49,7 @@ import {
                                     <div className='icon-2'></div>
 
                                     <div>
-                                        <a className='signup-artist-button' onClick={() => openModal('signup-user')}>Sign up as a artist</a>
+                                        <a className='signup-artist-button' onClick={() => openModal('signup-artist')}>Sign up as a artist</a>
                                         <div>text</div>
                                     </div>
                                 </li>

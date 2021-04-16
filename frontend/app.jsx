@@ -23,6 +23,7 @@ import AlbumIndex from './components/album/album_index_container';
 import AlbumShow from './components/album/album_show_container';
 import SongIndex from './components/song/song_index_container';
 import SongForm from './components/song/song_create_form_container';
+import ArtistHome from './components/artist/artist_home_container';
 
 class App extends React.Component {
     constructor(props) {
@@ -44,10 +45,12 @@ class App extends React.Component {
                    <Route exact path="/" component={ArtistWeekly}></Route>
                    <Route exact path="/" component={AlbumIndex}></Route>
                    <Route exact path="/" component={SongIndex}></Route>
+                <Route exact path="/" component={ArtistHome}></Route>
                    <Route exact path='/artist/:id' component={ArtistArticle}></Route>
                    <Route exact path='/album/:id' component={AlbumShow}></Route>
                    <Route exact path='/albums/new' component={AlbumForm}></Route>
                    <Route exact path='/songs/new' component={SongForm}></Route>
+                   
                    
                    
                    

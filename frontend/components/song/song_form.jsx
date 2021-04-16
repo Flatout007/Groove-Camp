@@ -9,6 +9,7 @@ class SongForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.getAlbumId = this.getAlbumId.bind(this);
         this.handleSelect = this.handleSelect.bind(this);
+        this.handleFile = this.handleFile.bind(this);
     }
 
     componentDidMount() {
@@ -50,6 +51,10 @@ class SongForm extends React.Component {
         
     }
 
+    handleFile(e) {
+         this.setState({photoUrl: e.currentTarget.files[0]})
+    }
+
 
     handleSubmit(e) {
         e.preventDefault();
@@ -66,7 +71,7 @@ class SongForm extends React.Component {
         if (!this.props.albums) return <p>Loading</p>;
         
 
-       
+       console.log(this.state)
         return (
             <div>
                 <h1>{this.props.formType}</h1>
@@ -78,6 +83,8 @@ class SongForm extends React.Component {
                     <select onChange={this.handleSelect}>
                            {this.getAlbumId()}
                     </select>
+
+                    <input onChange={this.handleFile} type="file"/>
                     
                     
                     {/* <label>Your ID

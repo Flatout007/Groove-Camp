@@ -14,19 +14,34 @@ import {
 class SessionForm extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {username: '', password: ''}
+        this.state = { username: '', password: '', artist_check: this.props.artist_check}
           
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);   
         this.handleErrors = this.handleErrors.bind(this);
+        this.handleFile = this.handleFile.bind(this);
         
     }
 
     handleSubmit(e) {
         e.preventDefault();
-        let obj = {username: this.state.username, password: this.state.password, artist_check: this.props.artist_check}
+          let obj = {username: this.state.username, password: this.state.password, artist_check: this.props.artist_check}
+        // const formData = new FormData;
+        // formData.append('user[username]', this.state.username);
+        // formData.append('user[password]', this.state.password);
+        // formData.append('user[photo]', this.state.photoUrl);
+        // formData.append('user[artist_check]', this.props.artist_check);
         
         this.props.action(obj).then(this.props.closeModal)  
+
+        // $.ajax({
+        //     url: '/api/users',
+        //     method: 'POST',
+        //     data: formData,
+        //     contentType: false,
+        //     processData: false
+        // }).then(this.props.closeModal);
+        
     }
 
     clearErrors() {
@@ -37,6 +52,11 @@ class SessionForm extends React.Component {
         return this.props.errors.map((ele) => {
             return <div key={`ele-${Math.random(100 * 10)}`}>{ele}</div>
         });
+    }
+
+    handleFile(e) {
+       
+        this.setState({photo: e.target.files[0]})
     }
     
     handleChange(type) {
@@ -61,10 +81,16 @@ class SessionForm extends React.Component {
                 {/* <div onClick={this.props.closeModal} className="close-x">X</div> */}
                 {this.handleErrors()}
 
+                
+
                 <form className='signup-form'>
                     <label>Username
                       <input onChange={this.handleChange('username')} type="text" value={this.state.username} />
                     </label>
+
+                    <br/>
+
+                       <input onChange={this.handleFile} type="file" />
 
                     <br/>
 
@@ -108,6 +134,7 @@ class SessionForm extends React.Component {
     }
 
     render() {
+        console.log(this.state)
       
         return(
             
