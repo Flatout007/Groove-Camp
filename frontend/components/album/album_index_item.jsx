@@ -24,7 +24,7 @@ class AlbumIndexItem extends React.Component {
         return (
             <li className='album-li'>
                {this.props.album.title}
-               <Link to={`/album/${this.props.album.id}`}>albums</Link>
+               <Link to={`/`}>albums</Link>
               
                 <audio controls>
                     <source src="https://groovecamp-seed.s3.us-east-2.amazonaws.com/Rising+Hope.mp3" type="audio/mp3" />
