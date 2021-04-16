@@ -26,7 +26,9 @@ class AlbumIndexItem extends React.Component {
                {this.props.album.title}
                <Link to={`/album/${this.props.album.id}`}>albums</Link>
               
-            
+                <audio controls>
+                    <source src="https://groovecamp-seed.s3.us-east-2.amazonaws.com/Rising+Hope.mp3" type="audio/mp3" />
+                </audio>
               {/* <button onClick={this.deleteAlbum}>delete this album</button>  */}
             </li>
         )

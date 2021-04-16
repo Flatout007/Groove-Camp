@@ -36,6 +36,7 @@ class GreetingIndex extends React.Component {
                                    <h2>Discover amazing new music and <a className="blue-gradient">directly support</a> the artists who make it.</h2>
                         </div>
                         <div className="session-nav">
+                                   <Link>upload a song</Link>
                                    <h1>Welcome {this.props.currentUser.username}</h1>
                             {/* <a onClick={() => this.props.openModal('signup-modal')}>signup</a>
                             <a onClick={() => this.props.openModal('login')}>login</a> */}

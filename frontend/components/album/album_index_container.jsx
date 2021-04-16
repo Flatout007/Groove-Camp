@@ -13,15 +13,15 @@ props of the same name.
 
 const mapStoreToProps = (store, props) => {
     return {
-        albums: Object.values(store.entities.albums)
-        
+        albums: Object.values(store.entities.albums),
+        artist: store.entities.users[props.match.params.id],
     };
 };
 
 const mapActionsToProps = (dispatch, props) => {
     return {
         requestAlbums: () => dispatch(requestAlbums()),
-        deleteAlbum: (albumId) => dispatch(deleteAlbum(albumId))
+        deleteAlbum: (albumId) => dispatch(deleteAlbum(albumId)),
     };
 };
 

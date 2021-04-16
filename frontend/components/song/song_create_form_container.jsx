@@ -15,7 +15,7 @@ const mapStoreToProps = (store, props) => {
 
     return {
         errors: store.errors.songs,
-        song: { title: '', artist_id: 10, album_id: null, photoUrl: null },
+        song: { title: '', artist_id: 10, album_id: null, audioUrl: null },
         albums: Object.values(store.entities.albums),
         formType: 'Create Song',
         currentUser: store.session.id,

@@ -83,6 +83,10 @@ class ArtistArticle extends React.Component {
                  <img className='artist-article-img' src={this.props.artist.photoUrl} alt=""/>
             </article>
 
+                <audio controls>
+                    <source src="https://groovecamp-seed.s3.us-east-2.amazonaws.com/Rising+Hope.mp3" type="audio/mp3"/>
+                </audio>
+
             {this.albumList()}
             
             

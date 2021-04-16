@@ -3,7 +3,8 @@ import AlbumIndexItem from './album_index_item';
 
 class AlbumIndex extends React.Component {
     componentDidMount() {
-        return this.props.requestAlbums();
+        this.props.requestAlbums();
+        
     }
 
     constructor(props) {
@@ -18,6 +19,7 @@ class AlbumIndex extends React.Component {
              key={ele.id}
              album={ele}
              deleteAlbum={this.props.deleteAlbum}
+
            />
         });
     }

@@ -63,6 +63,7 @@ class ArtistWeekly extends React.Component {
 
                         <ol>
                             {this.artistList()}
+                            <li></li>
                         </ol>
 
                     </div>
