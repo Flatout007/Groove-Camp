@@ -6,7 +6,7 @@ class Api::SongsController < ApplicationController
     def index
         @songs = Song.all
 
-        render "api/songs/song"
+        render "api/songs/index"
     end
 
 

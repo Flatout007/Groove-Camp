@@ -1,5 +1,5 @@
 class Song < ApplicationRecord
-    validates(:title, presence: true)
+    validates(:title, presence: true )
     validates(:artist_id, presence: true)
 
     belongs_to(

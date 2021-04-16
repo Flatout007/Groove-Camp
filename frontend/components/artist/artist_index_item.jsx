@@ -37,8 +37,6 @@ class ArtistIndexItem extends React.Component {
        
         return(
 
-        
-
             <li>
                 <Link to={`/artist/${this.props.artist.id}`}>{this.props.artist.username}</Link>
 

@@ -21,13 +21,17 @@ import LoginContainer from './components/session_form/login_container';
 import SessionForm from './components/session_form/session_form';
 import AlbumIndex from './components/album/album_index_container';
 import AlbumShow from './components/album/album_show_container';
+import SongIndex from './components/song/song_index_container';
+import SongForm from './components/song/song_create_form_container';
 
 class App extends React.Component {
     constructor(props) {
         super(props);
     }
 
-    
+    // loop through albums
+    // if album has the same artist_id of the songs artist_id, grab that album, use its id 
+
     render() {
         return(
     <React.Fragment>
@@ -39,9 +43,12 @@ class App extends React.Component {
                    <Route exact path="/" component={GreetingIndex}></Route>
                    <Route exact path="/" component={ArtistWeekly}></Route>
                    <Route exact path="/" component={AlbumIndex}></Route>
+                   <Route exact path="/" component={SongIndex}></Route>
                    <Route exact path='/artist/:id' component={ArtistArticle}></Route>
                    <Route exact path='/album/:id' component={AlbumShow}></Route>
-                   <Route exact path='/album/new' component={AlbumForm}></Route>
+                   <Route exact path='/albums/new' component={AlbumForm}></Route>
+                   <Route exact path='/songs/new' component={SongForm}></Route>
+                   
                    
                    
                   

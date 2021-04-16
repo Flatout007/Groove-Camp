@@ -8,3 +8,8 @@
 
 nico = User.create(username:'Nico Touches the Walls', password:'123456', artist_check: true, bio:'Nico Touches the Walls was a Japanese rock band formed in 2004. The band members were: Mitsumura Tatsuya, Sakakura Shingo, Furumura Daisuke & Tsushima Shotaro. In the same year, they won the Lotte Prize at the Yamaha Teen Music Festival.')
 lisa = User.create(username:'LiSA', password:'123456', artist_check: true, bio:'Risa Oribe, better known by her stage name LiSA, is a Japanese singer, songwriter and lyricist from Seki, Gifu, signed to Sacra Music under Sony Music Artists. After aspiring to become a musician early in life, she started her musical career as the vocalist of the indie band Chucky.')
+
+
+
+
+
