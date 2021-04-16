@@ -536,6 +536,10 @@ album index*/
   justify-content: space-evenly;
 }
 
+a {
+  cursor: pointer;
+}
+
 .album-li {
   height: 100px;
   background: url('https://apicms.thestar.com.my/uploads/images/2020/01/27/527339.jpg') 100% no-repeat; 
