@@ -526,11 +526,11 @@ span a {
 album index*/
 
 .album-nav {
- background-color: green;
+
 }
 
 .artist-outer {
-  background-color: green;
+ 
   height: 200px;
   display: flex;
   justify-content: space-evenly;
@@ -538,7 +538,7 @@ album index*/
 
 .album-li {
   height: 100px;
-  background-color: yellow;
+  background: url('https://apicms.thestar.com.my/uploads/images/2020/01/27/527339.jpg') 100% no-repeat; 
   width: 150px;
   margin-top: 30px;
   list-style: none;
