@@ -14,8 +14,10 @@ const mapStoreToProps = (store, props) => {
 
     return {
         errors: store.errors.album,
-        album: { title: '', artist_id: 10},
-        formType: 'Create Album'
+        // album: { title: '', artist_id: 10},
+        formType: 'Create Album',
+        currentUserID: store.session.id
+
     };
 };
 

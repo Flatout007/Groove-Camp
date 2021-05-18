@@ -4,15 +4,18 @@ import React from 'react';
 class AlbumForm extends React.Component {
     constructor(props) {
         super(props);
-        this.state = this.props.album;
+        this.state = { title: '', artist_id: this.props.currentUserID}
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleChange(type) {
         return e => {
-            return this.setState({ [type]: e.currentTarget.value });
+            this.setState({ [type]: e.currentTarget.value });
+            console.log(this.state);
         }
+
+
     }
 
     handleSubmit(e) {

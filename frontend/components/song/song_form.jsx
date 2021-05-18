@@ -38,7 +38,7 @@ class SongForm extends React.Component {
     }
 
     handleFile(e) {
-         this.setState({audioUrl: e.currentTarget.files[0]})
+        this.setState({audioUrl: e.currentTarget.files[0]})
         console.log(e.currentTarget.files)
     }
 
