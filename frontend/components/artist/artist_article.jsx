@@ -27,8 +27,8 @@ class ArtistArticle extends React.Component {
     componentDidMount() {
         
     //   this.props.requestAllUsers().then(() => {this.props.store.entities.users[this.props.match.params.id]})
-        this.props.requestUser(this.props.match.params.id)
-        this.props.requestAlbums()
+        this.props.requestUser(this.props.match.params.id);
+        this.props.requestAlbums();
         //return this.props.requestUser(this.props.artist.id)
 
     }
@@ -36,33 +36,25 @@ class ArtistArticle extends React.Component {
     albumList() {
         return this.props.albums.map((ele) => {      
             if (parseInt(this.props.match.params.id) === ele.artist_id) {
-         return <li>
+              return <li>
                 <p>{ele.title}</p>
-            </li>
+              </li>
             }
-        });
-        
+        });   
     }
 
     render() {
-       console.log(this.albumList())
-        
-       
-       
-      
         if (!this.props.artist) return <p>Loading</p>;
         if (!this.props.albums) return <p>Loading</p>;
    
         return(
-        <React.Fragment>
+          <React.Fragment>
             <GreetingNav />
             <nav className='daily-bar'>
-                    <div className='daily-wrapper'>
-                        
+                    <div className='daily-wrapper'> 
                         <a> 
                             <strong>Groovecamp Daily</strong>
                         </a>
-
                         <span className="flex-links">
                             <span className="flex-link-1">
                                 <a href="">Link</a></span>
@@ -77,26 +69,17 @@ class ArtistArticle extends React.Component {
                         <button className="daily-button">Home</button>
                     </div>
             </nav>
-           
-            {/* <p>{this.props.artist.username}</p> */}
+            <p>{this.props.artist.username}</p>
             <article className='artist-article'>
-                    <img className='https://groovecamp-seed.s3.us-east-2.amazonaws.com/939x0w+(16).jpg' src={this.props.artist.photoUrl} alt=""/>
+                 <img className='artist-article-img' src={this.props.artist.photo} alt=""/>
             </article>
-
                 <audio controls>
                     <source src="https://groovecamp-seed.s3.us-east-2.amazonaws.com/Rising+Hope.mp3" type="audio/mp3"/>
                 </audio>
-
             {this.albumList()}
-            
-            
-
-            {/* <Link to={'/'}>Home</Link> */}
-        </React.Fragment>
-          )
-
-       
-        
+            <Link to={'/'}>Home</Link>
+          </React.Fragment>
+        );
     }
 }
 

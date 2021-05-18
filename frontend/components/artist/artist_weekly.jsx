@@ -9,6 +9,7 @@ class ArtistWeekly extends React.Component {
         return this.props.requestAllUsers();
     }
 
+
     constructor(props) {
         super(props);
         this.artistList = this.artistList.bind(this);
@@ -19,32 +20,26 @@ class ArtistWeekly extends React.Component {
            return this.props.users.map((ele) => {
               if(ele.username === 'LiSA' || ele.username === 'Nico Touches the Walls') {
                 return  <ArtistIndexItem
-                artist={ele}
-                key={ele.id}
-                artist={ele}
-              />
+                 artist={ele}
+                 key={ele.id}
+                 artist={ele}
+                />
               }
             });
     }
 
 
     render() {
-       
         return(
-           
-         <React.Fragment>
-          <div className='artist-weekly'>
-            <div className='artist-weekly-container'>
-
+          <React.Fragment>
+            <div className='artist-weekly'>
+              <div className='artist-weekly-container'>
                 <div className='artist-weekly-outer'>
-
                     <div className='artist-weekly-flex'>
-
                         <div className='artist-weekly-main'>
                             {/* <div className='artist-overlay'></div>
                             <div className='artist-overlay-hover'></div> */}
                             <a className='artist-link'></a>
-
                                 {/* <a>
                                     <div className='artist-link-row'>
                                         <div>
@@ -59,22 +54,15 @@ class ArtistWeekly extends React.Component {
                                     </div>
                                 </a> */}
                         </div>
-
-
                         <ol>
                             {this.artistList()}
-                            <li></li>
                         </ol>
-
                     </div>
-
                 </div>
-
-            </div>
-        </div>
-
-        </React.Fragment>
-        )
+             </div>
+           </div>
+         </React.Fragment>
+        );
     }
 };
 

@@ -24,11 +24,10 @@ class AlbumIndexItem extends React.Component {
         return (
             <li className='album-li'>
                {this.props.album.title}
-               <Link to={`/`}>albums</Link>
-              
-                <audio controls>
-                    <source src="https://groovecamp-seed.s3.us-east-2.amazonaws.com/Rising+Hope.mp3" type="audio/mp3" />
-                </audio>
+               <Link to={`/`}>albums</Link> 
+               {/* <audio controls>
+                    <source src="https://groovecamp-seed.s3.us-east-2.amazonaws.com/Rising+Hope.mp3" type="audio/mp3"/>
+               </audio> */}
               {/* <button onClick={this.deleteAlbum}>delete this album</button>  */}
             </li>
         )

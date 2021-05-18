@@ -4,10 +4,11 @@ import React from 'react';
 class SongForm extends React.Component {
     constructor(props) {
         super(props);
-        this.state = this.props.song;
+        // this.state = this.props.song;
+        this.state = { title: '', artist_id: this.props.currentUserID, album_id: null, audioUrl: null}
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.getAlbumId = this.getAlbumId.bind(this);
+        this.handleAlbumDropdown = this.handleAlbumDropdown.bind(this);
         this.handleSelect = this.handleSelect.bind(this);
         this.handleFile = this.handleFile.bind(this);
     }
@@ -23,28 +24,13 @@ class SongForm extends React.Component {
         }
     }
 
-    getAlbumId() {
-        
-
-        // return this.props.albums.map((ele) => {
-        //      if(ele.artist_id === this.props.currentUser) {
-        //         albumids.push(ele.id); 
-        //      }
-        //     albumids.push(ele.id)
-            
-            
-           
-        
-        // });
-
+    handleAlbumDropdown() {
         return this.props.albums.map(ele => {
-                if (ele.artist_id === this.props.currentUser) {
-                    return  <option  key={ele.id * 10} value={ele.id}>{ele.title}</option>
+                if (ele.artist_id === this.props.currentUserID) {
+                    return  <option key={ele.id * 10} value={ele.id}>{ele.title}</option>
                 }
         })
-       
-
-        
+  
     }
 
     albumDropDown() {
@@ -53,16 +39,24 @@ class SongForm extends React.Component {
 
     handleFile(e) {
          this.setState({audioUrl: e.currentTarget.files[0]})
+        console.log(e.currentTarget.files)
     }
 
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.submitSong(this.state);
+        let formData = new FormData;
+        formData.append('song[title]', this.state.title);
+        formData.append('song[artist_id]', this.state.artist_id);
+        formData.append('song[album_id]', this.state.album_id);
+        formData.append('song[audio]', this.state.audioUrl);
+        this.props.submitSong(formData);
     }
 
+
     handleSelect(e) {
-         return this.setState({album_id: e.target.value})
+        this.setState({album_id: parseFloat(e.target.value)})
+        console.log(this.state)
     }
 
 
@@ -71,7 +65,7 @@ class SongForm extends React.Component {
         if (!this.props.albums) return <p>Loading</p>;
         
 
-       console.log(this.state)
+       
         return (
             <div>
                 <h1>{this.props.formType}</h1>
@@ -80,8 +74,8 @@ class SongForm extends React.Component {
                         <input onChange={this.handleChange('title')} type="text" value={this.state.title} />
                     </label>
 
-                    <select onChange={this.handleSelect}>
-                           {this.getAlbumId()}
+                    <select onClick={this.handleSelect}>
+                           {this.handleAlbumDropdown()}
                     </select>
 
                     <input onChange={this.handleFile} type="file"/>

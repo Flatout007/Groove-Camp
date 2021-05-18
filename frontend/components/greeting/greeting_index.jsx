@@ -73,16 +73,10 @@ class GreetingIndex extends React.Component {
 
     render() {
         console.log(this.props.openModal)
-        return (
-            <React.Fragment>
+        return (   
                 <div className='top-div'>
                     {this.greetUser()}
                 </div>
-
-                {/* <div className='artist-weekly'>
-                    <ArtistWeekly />
-                </div>  */}
-            </React.Fragment>
             );
     }
 }

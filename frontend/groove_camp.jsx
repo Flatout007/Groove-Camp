@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', (e) => {
     window.login = SessionActions.login
     window.store = store
     
-     window.getAllUsers = SessionActions.requestAllUsers
+    window.getAllUsers = SessionActions.requestAllUsers
     
 
     

@@ -2,15 +2,19 @@ class Api::UsersController < ApplicationController
 
     def create
         
-        @user = User.new(params.require(:user).permit(:username, :password, :artist_check))
-
+        @user = User.new(params.require(:user).permit(:username, :password, :artist_check, :photo))
+      
         if @user.save === false 
             render json: @user.errors.full_messages, status: 422
          else
            sign_in!(@user)
            render "api/users/show"
         end
+
+        # private
+        
     end
+
 
     def index 
         @users = User.all

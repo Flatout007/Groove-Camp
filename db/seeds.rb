@@ -8,9 +8,7 @@
 
 require 'open-uri'
 
-User.destroy_all
-Album.destroy_all
-Song.destroy_all
+
 
 
 
@@ -18,18 +16,6 @@ nico = User.create(username:'Nico Touches the Walls', password:'123456', artist_
 lisa = User.create(username:'LiSA', password:'123456', artist_check: true, bio:'Risa Oribe, better known by her stage name LiSA, is a Japanese singer, songwriter and lyricist from Seki, Gifu, signed to Sacra Music under Sony Music Artists. After aspiring to become a musician early in life, she started her musical career as the vocalist of the indie band Chucky.')
 demo = User.create(username:'demo', password:'123456', artist_check: false, bio:'')
 
-album1 = Album.create(title: 'Diver-EP', artist_id: nico.id)
-album2 = Album.create(title: 'launcher', artist_id: lisa.id)
-
-
-song1 = Song.create(title: 'diver',artist_id: nico.id, album_id:album1.id)
-song2 = Song.create(title: 'rising hope', artist_id: lisa.id, album_id:album2.id)
-
-file1 = open('https://groovecamp-seed.s3.us-east-2.amazonaws.com/Diver.mp3')
-song1.audio.attach(io: file1, filename: 'Diver.mp3')
-
-file2 = open('https://groovecamp-seed.s3.us-east-2.amazonaws.com/Rising+Hope.mp3')
-song2.audio.attach(io: file2, filename: 'Rising Hope.mp3')
 
 
 

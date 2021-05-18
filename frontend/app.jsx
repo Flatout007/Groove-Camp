@@ -34,22 +34,26 @@ class App extends React.Component {
     // if album has the same artist_id of the songs artist_id, grab that album, use its id 
 
     render() {
+      
         return(
     <React.Fragment>
+                
                  <Modal/>
                 
            
-               
-                   <Route exact path="/signup" component={SignupContainer}></Route>
-                   <Route exact path="/" component={GreetingIndex}></Route>
-                   <Route exact path="/" component={ArtistWeekly}></Route>
-                   <Route exact path="/" component={AlbumIndex}></Route>
-                   <Route exact path="/" component={SongIndex}></Route>
+                <Route exact path="/" component={GreetingIndex}></Route>
+                <Route exact path="/" component={ArtistWeekly}></Route>
+                <Route exact path="/" component={AlbumIndex}></Route>
+                <Route exact path="/" component={SongIndex}></Route>
                 <Route exact path="/" component={ArtistHome}></Route>
+                   <Route exact path="/signup" component={SignupContainer}></Route>
+                   
                    <Route exact path='/artist/:id' component={ArtistArticle}></Route>
                    <Route exact path='/album/:id' component={AlbumShow}></Route>
                    <Route exact path='/albums/new' component={AlbumForm}></Route>
                    <Route exact path='/songs/new' component={SongForm}></Route>
+                   
+                
                    
                    
                    
