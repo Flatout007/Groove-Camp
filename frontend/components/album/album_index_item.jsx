@@ -30,13 +30,20 @@ class AlbumIndexItem extends React.Component {
                </audio> */}
               {/* <button onClick={this.deleteAlbum}>delete this album</button>  */}
             <div className='album-stats'>
-                <h4>{this.props.album.title}</h4>
-                <p>by test album</p>
-                {/* make this a random number for this */}
-                <p>sold for $20</p>
-                <p>in USA</p>
+                {/* <h4>{this.props.album.title}</h4> */}
+                <h5>
+            
+                The Cause Of It All
+            
+            
+            
+                <span>by {this.props.album.title}</span>
+                </h5>
+                {/* make a random number for this */}
+                <span>sold for $20</span>
+                <span>in USA</span>
                 {/* use the date object for this timestamp */}
-                <p>22 seconds ago</p>
+                <span className='timestamp'>22 seconds ago</span>
             </div>
            </li>
         </React.Fragment>

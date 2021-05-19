@@ -49,7 +49,7 @@ const App = () => {
                         <Route exact path="/" component={ArtistWeekly}></Route>
                         <Route exact path="/" component={AlbumIndex}></Route>
                         <Route exact path="/" component={SongIndex}></Route>
-                        <Route exact path="/" component={ArtistHome}></Route>
+                        {/* <Route exact path="/" component={ArtistHome}></Route> */}
                       
                 
                    

@@ -504,7 +504,7 @@ artist article */
   height: 16px;
 }
 
-span a {
+.flex-link-1 span a {
   margin-left: 8px;
   margin-right: 8px;
   text-decoration: none;
@@ -542,22 +542,27 @@ a {
 }
 
 .album-li {
-  height: 100px;
+  
   background: url('https://apicms.thestar.com.my/uploads/images/2020/01/27/527339.jpg') 100% no-repeat; 
   width: 150px;
-  margin-top: 30px;
+  
   list-style: none;
   position: relative;
+
+    width: 126px;
+    height: 126px;
+
 }
 
 .selling-now {
  
-  background-color: green;
+  // background-color: green;
   color: #408ea3;
   text-transform: uppercase;
   font-weight: 500;
   font-size: 14px;
   margin-top: 0px;
+  margin-bottom: 10px;
   height: 20px;
   // text-align: center;
   width: 1009px;
@@ -588,11 +593,16 @@ a {
 }
 
 .how-many-selling {
-  background-color: ghostwhite;
+  // background-color: ghostwhite;
   width: 100%;
-  height: 92px;
+  height: 150px;
   font: 13px/1.2307692308 'Helvetica Neue',Helvetica,Arial,sans-serif;
 
+}
+
+h4 {
+  font-weight: 400;
+  font-size: 18px;
 }
 
 .how-many-title-flex {
@@ -604,7 +614,7 @@ a {
   width: 862px;
   height: 92px;
   display: flex;
-  margin-top: 30px;
+  margin-top: 38px;
   justify-content: center;
 }
 
@@ -639,12 +649,12 @@ a {
   grid-template-columns: repeat(3, 1fr);
   /* margin-right: 12%; */
   /* margin-left: 12%; */
-  margin-top: 30px;
-  margin-bottom: 40px;
+  // margin-top: 30px;
+  // margin-bottom: 40px;
   // align-items: center;
   // display: flex;
   // justify-content: space-evenly;
-  background-color: gold;
+  // background-color: gold;
   height: 230px;
   grid-gap: 3px;
   justify-items: center;
@@ -656,14 +666,43 @@ a {
 
 }
 
+
 .album-stats {
   position:absolute;
   // background-color: green;
 
-    margin-top: 100px;
+    
     width: 150px;
-    height: 100px;
+    
 
+
+    height: 150px;
+    margin-top: 120px;
+
+
+    // display: block;
+}
+
+.album-stats h5 {
+  padding-top: 20px;
+  font-size: 13px;
+}
+
+.album-stats span {
+  color: rgba(0, 0, 0, 0.836);
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 100;
+  // font-size: 12px;
+  font: 13px/1.2307692308 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  
+  padding-top: 3.5px;
+}
+
+.album-stats span:last-child:not(h5 span) {
+  color: #999
 }
 
 

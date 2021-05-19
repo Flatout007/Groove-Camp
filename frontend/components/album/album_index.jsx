@@ -29,16 +29,16 @@ class AlbumIndex extends React.Component {
        
       return (
         <React.Fragment>
-         <div className="how-many-selling">content
+         <div className="how-many-selling">
           <div className='how-many-title-flex'>
                 <h4 className='how-many-title'>Fans have paid artists 
                   <span className='how-many-span-1'>
-                       <strong>&nbsp;$718 million</strong>
+                       <strong>&nbsp;$718 million&nbsp;</strong>
                        using Groovecamp
                   </span>
                   , and
                   <span className='how-many-span-2'>
-                        <strong> &nbsp;$20.4 million</strong>
+                  <strong>&nbsp;$20.4 million&nbsp;</strong>
                          in the last 30 days alone.
                   </span>
               </h4>
