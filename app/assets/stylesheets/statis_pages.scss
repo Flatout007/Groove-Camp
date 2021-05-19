@@ -547,15 +547,37 @@ a {
   width: 150px;
   margin-top: 30px;
   list-style: none;
+  position: relative;
 }
 
 .selling-now {
+ 
+  background-color: green;
   color: #408ea3;
   text-transform: uppercase;
   font-weight: 500;
   font-size: 14px;
-    margin-top: 0px;
-    height: 0px;
+  margin-top: 0px;
+  height: 20px;
+  // text-align: center;
+  width: 1009px;
+  display: table;
+  margin-right: auto;
+  margin-left: auto;
+
+//  margin-left: 204.5px;
+
+    // margin-right: 204.5px;
+
+
+  
+    
+
+}
+
+.flex-grid {
+  display: flex;
+  justify-content: center;
 }
 
 .artist-outer-artist {
@@ -587,13 +609,15 @@ a {
 }
 
 .album-flex {
-  width: 1742px;
+  width: 100%;
   height: 306px;
-  background-color: gold;
-  display: flex;
+  // background-color: gold;
+  display: grid;
+ 
   
-flex-direction: column;
-height: 250px;
+  grid-template-columns: repeat(1, 1fr);
+  
+  
 }
 
 .album-row {
@@ -604,10 +628,42 @@ height: 250px;
 }
 
 .album-list-flex {
-  display: flex;
-  justify-content: space-around;
+  // display: grid;
+ 
+  
+  // grid-template-columns: repeat(3, 1fr);
+  // grid-gap: 0;
+  display: grid;
+  // grid-column-gap: 20px;
+  // grid-row-gap: 50px;
+  grid-template-columns: repeat(3, 1fr);
+  /* margin-right: 12%; */
+  /* margin-left: 12%; */
+  margin-top: 30px;
+  margin-bottom: 40px;
+  // align-items: center;
+  // display: flex;
+  // justify-content: space-evenly;
+  background-color: gold;
+  height: 230px;
+  grid-gap: 3px;
+  justify-items: center;
+
+
+    margin-left: auto;
+    margin-right: auto;
+    width: 1009px;
+
 }
 
+.album-stats {
+  position:absolute;
+  // background-color: green;
 
+    margin-top: 100px;
+    width: 150px;
+    height: 100px;
+
+}
 
 

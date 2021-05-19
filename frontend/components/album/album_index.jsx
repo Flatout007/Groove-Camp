@@ -44,12 +44,14 @@ class AlbumIndex extends React.Component {
               </h4>
           </div>
          </div>
-           <div className='album-flex'>
-             <div className='selling-now'>Selling Now</div>
-             <div className='album-row'>  
-                      <ul className='album-list-flex'>{this.albumList()}</ul>
-             </div>
-         </div>
+            <div>
+                {/* <div className='album-flex'> */}
+                <div className='selling-now'><h5>Selling Now</h5></div>
+                  {/* <div className='flex-grid'> */}
+                    <ul className='album-list-flex'>{this.albumList()}</ul>
+                  {/* </div> */}
+                {/* </div> */}
+            </div>
         </React.Fragment >);
     }
 }

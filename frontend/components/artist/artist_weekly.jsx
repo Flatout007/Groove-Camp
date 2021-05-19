@@ -64,8 +64,7 @@ class ArtistWeekly extends React.Component {
                 </div>
              </div>
            </div>
-             <p onClick={() => this.props.history.push('/albums/new')}>album form</p>
-            </div>
+        </div>
         );
     }
 };

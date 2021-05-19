@@ -45,8 +45,8 @@ const App = () => {
                         <Route path='/albums/new' component={AlbumForm}></Route>
                         <Route path='/songs/new' component={SongForm}></Route>
                         <Route exact path="/signup" component={SignupContainer}></Route>   
-                        <Route exact path="/" component={ArtistWeekly}></Route>
                         <Route exact path="/" component={GreetingIndex}></Route>
+                        <Route exact path="/" component={ArtistWeekly}></Route>
                         <Route exact path="/" component={AlbumIndex}></Route>
                         <Route exact path="/" component={SongIndex}></Route>
                         <Route exact path="/" component={ArtistHome}></Route>
