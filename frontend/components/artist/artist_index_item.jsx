@@ -5,7 +5,8 @@ import {
     Redirect,
     Switch,
     Link,
-    HashRouter
+    HashRouter,
+    withRouter
 } from 'react-router-dom';
 
 
@@ -34,11 +35,13 @@ class ArtistIndexItem extends React.Component {
     }
 
     render() {
+        
        
         return(
           
             <li>
                 <Link to={`/artist/${this.props.artist.id}`}>{this.props.artist.username}</Link>
+                {/* <button onClick={this.props.history.push(`/artist/${this.props.artist.id}`)}>{this.props.artist.username}</button> */}
 
                 <div className='artist-overlay'></div>
                 <div className='artist-overlay-hover'></div>
@@ -57,5 +60,5 @@ class ArtistIndexItem extends React.Component {
 
 }
 
-export default ArtistIndexItem;
+export default withRouter(ArtistIndexItem);
 

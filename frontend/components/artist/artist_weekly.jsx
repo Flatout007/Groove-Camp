@@ -2,11 +2,12 @@
 
 import React from 'react';
 import ArtistIndexItem from './artist_index_item';
+import {withRouter} from 'react-router-dom'
 
 
 class ArtistWeekly extends React.Component {
     componentDidMount() {
-        return this.props.requestAllUsers();
+       this.props.requestAllUsers();
     }
 
 
@@ -30,8 +31,10 @@ class ArtistWeekly extends React.Component {
 
 
     render() {
+        console.log(this.props.history)
+        if(!this.props.users) return null;
         return(
-          <React.Fragment>
+          <div>
             <div className='artist-weekly'>
               <div className='artist-weekly-container'>
                 <div className='artist-weekly-outer'>
@@ -61,9 +64,10 @@ class ArtistWeekly extends React.Component {
                 </div>
              </div>
            </div>
-         </React.Fragment>
+             <p onClick={() => this.props.history.push('/albums/new')}>album form</p>
+            </div>
         );
     }
 };
 
-export default ArtistWeekly;
+export default withRouter(ArtistWeekly);

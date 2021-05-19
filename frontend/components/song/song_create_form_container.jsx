@@ -32,4 +32,4 @@ const mapActionsToProps = (dispatch, props) => {
 };
 
 
-export default connect(mapStoreToProps, mapActionsToProps)(SongForm);
+export default  connect(mapStoreToProps, mapActionsToProps)(SongForm);

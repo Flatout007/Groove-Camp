@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { connect } from 'react-redux';
 import SongIndex from './song_index';
 import { requestSongs } from '../../actions/song_actions';

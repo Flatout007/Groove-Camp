@@ -1,10 +1,11 @@
 import React from 'react';
+import {withRouter, Link} from 'react-router-dom'
 
 
 class SongForm extends React.Component {
     constructor(props) {
         super(props);
-        // this.state = this.props.song;
+        this.state = this.props.song;
         this.state = { title: '', artist_id: this.props.currentUserID, album_id: null, audioUrl: null}
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -13,9 +14,9 @@ class SongForm extends React.Component {
         this.handleFile = this.handleFile.bind(this);
     }
 
-    componentDidMount() {
-        this.props.requestAlbums();
-        this.props.requestSongs();
+   componentDidMount() {
+        this.props.requestAlbums()
+    //  this.props.requestSongs();
     }
 
     handleChange(type) {
@@ -62,7 +63,8 @@ class SongForm extends React.Component {
 
     render() {
         
-        if (!this.props.albums) return <p>Loading</p>;
+
+      
         
 
        
@@ -80,16 +82,16 @@ class SongForm extends React.Component {
 
                     <input onChange={this.handleFile} type="file"/>
                     
-                    
-                    {/* <label>Your ID
-                        <input onChange={this.handleChange('artist')} type="text" value={this.state.artist} />
-                    </label> */}
-
+                
                     <button>Submit</button>
                 </form>
+
+                {/* <Link to='/albums/new'>Home</Link> */}
+                <button onClick={() => this.props.history.push('/albums/new')}>album</button>
             </div>
         )
+      
     }
 }
 
-export default SongForm;
+export default withRouter(SongForm);

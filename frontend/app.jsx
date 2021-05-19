@@ -4,7 +4,8 @@ import {
     Redirect,
     Switch,
     Link,
-    HashRouter
+    HashRouter,
+    withRouter
 } from 'react-router-dom';
 
 
@@ -25,33 +26,32 @@ import SongIndex from './components/song/song_index_container';
 import SongForm from './components/song/song_create_form_container';
 import ArtistHome from './components/artist/artist_home_container';
 
-class App extends React.Component {
-    constructor(props) {
-        super(props);
-    }
+const App = () => {
+    
 
     // loop through albums
     // if album has the same artist_id of the songs artist_id, grab that album, use its id 
 
-    render() {
-      
+     
         return(
-    <React.Fragment>
+    <div>
                 
                  <Modal/>
+             
                 
-           
-                <Route exact path="/" component={GreetingIndex}></Route>
-                <Route exact path="/" component={ArtistWeekly}></Route>
-                <Route exact path="/" component={AlbumIndex}></Route>
-                <Route exact path="/" component={SongIndex}></Route>
-                <Route exact path="/" component={ArtistHome}></Route>
-                   <Route exact path="/signup" component={SignupContainer}></Route>
-                   
-                   <Route exact path='/artist/:id' component={ArtistArticle}></Route>
-                   <Route exact path='/album/:id' component={AlbumShow}></Route>
-                   <Route exact path='/albums/new' component={AlbumForm}></Route>
-                   <Route exact path='/songs/new' component={SongForm}></Route>
+                      
+                        <Route exact path='/artist/:id' component={ArtistArticle}></Route>
+                        <Route exact path='/album/:id' component={AlbumShow}></Route>
+                        <Route path='/albums/new' component={AlbumForm}></Route>
+                        <Route path='/songs/new' component={SongForm}></Route>
+                        <Route exact path="/signup" component={SignupContainer}></Route>   
+                        <Route exact path="/" component={ArtistWeekly}></Route>
+                        <Route exact path="/" component={GreetingIndex}></Route>
+                        <Route exact path="/" component={AlbumIndex}></Route>
+                        <Route exact path="/" component={SongIndex}></Route>
+                        <Route exact path="/" component={ArtistHome}></Route>
+                      
+                
                    
                 
                    
@@ -62,9 +62,9 @@ class App extends React.Component {
                   {/* <Route exact path='/login' component={LoginContainer}></Route>  */}
                   {/* {<Route exact path="/" component={GreetingIndex}></Route>} */}
               
-    </React.Fragment >)
+            </div>)
         
-    }
+    
 }
 
 

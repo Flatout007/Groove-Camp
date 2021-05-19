@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter, Link } from 'react-router-dom';
 
 
 class AlbumForm extends React.Component {
@@ -28,6 +29,7 @@ class AlbumForm extends React.Component {
 
 
     render() {
+      
         return (
             <div>
                 <h1>{this.props.formType}</h1>
@@ -36,15 +38,16 @@ class AlbumForm extends React.Component {
                         <input onChange={this.handleChange('title')} type="text" value={this.state.title} />
                     </label>
 
-                    {/* <label>Your ID
-                        <input onChange={this.handleChange('artist')} type="text" value={this.state.artist} />
-                    </label> */}
+                    
 
                     <button>Submit</button>
                 </form>
+
+                <button onClick={() => this.props.history.push('/songs/new')}>song</button>
+                {/* <Link to='/songs/new'>song</Link> */}
             </div>
         )
     }
 }
 
-export default AlbumForm;
+export default withRouter(AlbumForm);

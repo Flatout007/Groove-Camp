@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import ArtistWeekly from './artist_weekly';
 import { requestAllUsers } from '../../actions/session_actions';
 
+
 /*
 Export a container component for `ArtistWeekly` that maps an array of all
 users from the store as an `users` prop. Additionally, it should map in

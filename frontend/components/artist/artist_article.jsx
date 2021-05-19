@@ -6,7 +6,8 @@ import {
     Redirect,
     Switch,
     Link,
-    HashRouter
+    HashRouter,
+    withRouter
 } from 'react-router-dom';
 
 
@@ -36,7 +37,7 @@ class ArtistArticle extends React.Component {
     albumList() {
         return this.props.albums.map((ele) => {      
             if (parseInt(this.props.match.params.id) === ele.artist_id) {
-              return <li>
+              return <li key={ele.id}>
                 <p>{ele.title}</p>
               </li>
             }
@@ -77,10 +78,11 @@ class ArtistArticle extends React.Component {
                     <source src="https://groovecamp-seed.s3.us-east-2.amazonaws.com/Rising+Hope.mp3" type="audio/mp3"/>
                 </audio>
             {this.albumList()}
-            <Link to={'/'}>Home</Link>
+            {/* <button onClick={this.props.history.push('/')}></button> */}
+            <button onClick={() => Promise.resolve(this.props.history.push('/'))}>Home</button>
           </React.Fragment>
         );
     }
 }
 
-export default  ArtistArticle;
+export default  withRouter(ArtistArticle);
