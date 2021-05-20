@@ -46,9 +46,18 @@ class AlbumIndex extends React.Component {
          </div>
             <div>
                 {/* <div className='album-flex'> */}
-                <div className='selling-now'><h5>Selling Now</h5></div>
+                <div className='selling-now'>Selling Now</div>
                   {/* <div className='flex-grid'> */}
-                    <ul className='album-list-flex'>{this.albumList()}</ul>
+                    <ul className='album-list-flex'>
+                        {this.albumList()}
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                       
+                    
+                    </ul>
                   {/* </div> */}
                 {/* </div> */}
             </div>

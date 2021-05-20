@@ -1,6 +1,6 @@
 import React from 'react';
 import { deleteAlbum } from '../../util/album_api_util';
-import {Link} from  'react-router-dom'
+import {Link, withRouter} from  'react-router-dom'
 
 
 class AlbumIndexItem extends React.Component {
@@ -22,7 +22,7 @@ class AlbumIndexItem extends React.Component {
 
         return (
         <React.Fragment>
-            <li className='album-li'>
+            <li className='album-li' onClick={() => this.props.history.push(`/album/${this.props.album.id}`)}>
               
                {/* <Link to={`/`}>albums</Link>  */}
                {/* <audio controls>
@@ -52,5 +52,5 @@ class AlbumIndexItem extends React.Component {
 
 }
 
-export default AlbumIndexItem;
+export default withRouter(AlbumIndexItem);
 

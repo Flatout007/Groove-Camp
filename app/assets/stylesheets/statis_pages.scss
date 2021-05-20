@@ -541,7 +541,7 @@ a {
   cursor: pointer;
 }
 
-.album-li {
+.album-list-flex li {
   
   background: url('https://apicms.thestar.com.my/uploads/images/2020/01/27/527339.jpg') 100% no-repeat; 
   width: 150px;
@@ -558,18 +558,23 @@ a {
  
   // background-color: green;
   color: #408ea3;
-  text-transform: uppercase;
-  font-weight: 500;
-  font-size: 14px;
+  // text-transform: uppercase;
+  
   margin-top: 0px;
   margin-bottom: 10px;
   height: 20px;
   // text-align: center;
-  width: 1009px;
+  width: 1090px;
+  
   display: table;
   margin-right: auto;
   margin-left: auto;
-
+  
+  color: #408ea3;
+  text-transform: uppercase;
+  font-weight: 50;
+  font: 13px/1.2307692308 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  
 //  margin-left: 204.5px;
 
     // margin-right: 204.5px;
@@ -646,7 +651,7 @@ h4 {
   display: grid;
   // grid-column-gap: 20px;
   // grid-row-gap: 50px;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(8, 1fr);
   /* margin-right: 12%; */
   /* margin-left: 12%; */
   // margin-top: 30px;
@@ -654,15 +659,15 @@ h4 {
   // align-items: center;
   // display: flex;
   // justify-content: space-evenly;
-  // background-color: gold;
+  background-color: gold;
   height: 230px;
   grid-gap: 3px;
-  justify-items: center;
+  // justify-items: center;
 
 
     margin-left: auto;
     margin-right: auto;
-    width: 1009px;
+    width: 1090px;
 
 }
 
@@ -704,5 +709,131 @@ h4 {
 .album-stats span:last-child:not(h5 span) {
   color: #999
 }
+
+
+.album-header {
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: burlywood;
+  list-style: none;
+  width: 1200px;
+  height: 218px;
+  position: relative;
+}
+
+.album-header-img{
+ height: 180px;
+ width: 975;
+ background-color: green;
+
+}
+
+.album-header-nav {
+  height: 38px;
+  width: 975;
+  background-color: blue;
+}
+
+.album-header-nav ol li {
+  display: inline-block;
+  list-style: none;
+  text-align: left;
+}
+
+.album-header-nav ol li:nth-child(2) {
+  padding-left: 20px;
+}
+
+.album-content {
+  width: 975px;
+  height: 1000px;
+  background-color: blueviolet;
+  display: flex;
+  justify-content: center;
+}
+
+.album-content-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  width: 900px;
+  height: 900px;
+  background-color: #999;
+  margin-top: 30px;
+   grid-gap: 3px;
+  justify-items: center;
+  // position: relative;
+}
+
+.album-content-grid li {
+  width: 232px;
+  height: 232px;
+  background-color: green;
+
+}
+
+.album-profile-box {
+  position: absolute;
+  height: 341.500px;
+  width: 120px;
+  background-color: greenyellow;
+  left: 975px;
+  bottom: 630px;
+
+}
+
+.artist-profile-index-container {
+  width: 100%;
+  height: 641px;
+  margin-top: 100px;
+  background-color: black;
+}
+
+.artist-profile-index-title {
+  width: 1090px;
+  height: 34px;
+  background-color: grey;
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+  color: #408ea3;
+  text-transform: uppercase;
+  font-weight: 50;
+  font: 13px/1.2307692308 'Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+
+.artist-profile-index-flex {
+ height: 576px;
+ width: 1090px;
+ background-color: blueviolet;
+ display: table;
+ margin-left: auto;
+margin-right: auto;
+}
+
+
+.artist-profile-index-grid {
+ display: grid;
+ grid-template-columns: repeat(5, 1fr);
+ list-style: none;
+}
+
+
+.artist-profile-index-grid li {
+   height: 154px;
+   width: 205px;
+   background-color: green;
+   position: relative;
+}
+
+.artist-stats {
+  position: absolute;
+  width: 205px;
+  height: 400px;
+  background-color: brown;
+  top: 154px;
+  height: 107px;
+
+} 
 
 

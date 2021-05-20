@@ -24,6 +24,7 @@ import {
 
     let component;
     
+    // switches on string argument that's put into the `openModal(case)` function
     switch (modal) {
         case 'signup-modal':
             component = 
