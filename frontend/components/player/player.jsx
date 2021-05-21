@@ -9,8 +9,8 @@ class Player extends React.Component {
     }
 
     componentDidMount() {
-        
-       
+        // let audio = document.querySelector('.audio');
+        // console.log(audio.src);
     }
 
     handlePlayPause() {
@@ -19,6 +19,7 @@ class Player extends React.Component {
         const action = audio.paused ? 'play' : 'pause';
         this.setState({playing: audio.paused ? true : false});
         audio[action]();
+        console.log('hello')
     };
 
     render() {
@@ -43,7 +44,7 @@ class Player extends React.Component {
                         </div>
                     </div> */}
                     <button className="backward"><i className="fas fa-backward fa-2x"></i></button>
-                    <li onClick={this.togglePlay} className="play">
+                    <li onClick={this.handlePlayPause} className="play">
                         {/* <i className="fas fa-play fa-3x"></i>
                         <span className="pause left"></span>
                         <span className="pause right"></span> */}
