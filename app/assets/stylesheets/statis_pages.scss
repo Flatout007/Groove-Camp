@@ -690,7 +690,7 @@ h4 {
 
 .album-stats h5 {
   padding-top: 20px;
-  font-size: 13px;
+  font-size: 11px;
 }
 
 .album-stats span {
@@ -701,7 +701,7 @@ h4 {
   white-space: nowrap;
   font-weight: 100;
   // font-size: 12px;
-  font: 13px/1.2307692308 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  font: 10px/1.2307692308 'Helvetica Neue',Helvetica,Arial,sans-serif;
   
   padding-top: 3.5px;
 }
@@ -836,4 +836,13 @@ margin-right: auto;
 
 } 
 
+.player-controls {
+  
+}
 
+.play {
+ background: url('https://static.thenounproject.com/png/182656-200.png') 100% no-repeat;
+ background-size:contain; 
+ width: 60px;
+ height: 60px;
+}

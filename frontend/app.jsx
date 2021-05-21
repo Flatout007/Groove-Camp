@@ -1,4 +1,6 @@
 import React from 'react';
+import { useState, useRef } from 'react';
+import Player from './components/player/player';
 import {
     Route,
     Redirect,
@@ -27,17 +29,16 @@ import SongForm from './components/song/song_create_form_container';
 import ArtistHome from './components/artist/artist_home_container';
 import ArtistProfileIndexContainer from './components/profile/artist_profile_index_container';
 
+import AlbumSongContainer from './components/album/album_song_container';
+
 const App = () => {
-    
-
-    // loop through albums
-    // if album has the same artist_id of the songs artist_id, grab that album, use its id 
-
      
         return(
-    <div>
-                
+   
+               <div> 
                  <Modal/>
+                
+                
              
                 
                       
@@ -51,8 +52,8 @@ const App = () => {
                         <Route exact path="/" component={AlbumIndex}></Route>
                         <Route exact path="/" component={SongIndex}></Route>
                         <Route exact path="/" component={ArtistProfileIndexContainer}></Route>
-                        
-                        {/* <Route exact path="/" component={ArtistHome}></Route> */}
+                        <Route exact path='/album/songs/:id' component={AlbumSongContainer}></Route> 
+                        <Route exact path="/" component={ArtistHome}></Route>
                       
                 
                    

@@ -9,10 +9,10 @@ class SongIndexItem extends React.Component {
         //this.deleteSong = this.deleteSong.bind(this);
     }
 
-    // deleteAlbum(e) {
+    deleteAlbum(e) {
 
-    //     return this.props.deleteAlbum(this.props.album.id);
-    // }
+        return this.props.deleteAlbum(this.props.album.id);
+    }
 
 
 

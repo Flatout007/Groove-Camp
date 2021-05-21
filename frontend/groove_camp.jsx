@@ -5,6 +5,7 @@ import configureStore from './store/store';
 import * as SessionActions from './actions/session_actions';
 
 
+
 document.addEventListener('DOMContentLoaded', (e) => {
     let store;
 

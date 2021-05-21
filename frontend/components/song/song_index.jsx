@@ -3,8 +3,7 @@ import SongIndexItem from './song_index_item';
 
 class SongIndex extends React.Component {
     componentDidMount() {
-        return this.props.requestSongs();
-        
+        this.props.requestSongs();
     }
 
     constructor(props) {
@@ -12,8 +11,10 @@ class SongIndex extends React.Component {
         this.songList = this.songList.bind(this);
     }
 
+   
 
     songList() {
+       
         return this.props.songs.map((ele) => {
             return <SongIndexItem
                key={ele.id}
@@ -23,14 +24,16 @@ class SongIndex extends React.Component {
     }
 
 
-    render() {
+  render() {
       
         return (<div className='song-outer'>
-            {this.songList()}
+            {/* {this.songList()} */}
 
         </div>);
     }
 }
 
 
-export default SongIndex
+
+
+export default SongIndex;
