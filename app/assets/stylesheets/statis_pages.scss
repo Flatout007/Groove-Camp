@@ -840,8 +840,30 @@ margin-right: auto;
 
 }
 
+
+.play-container {
+  width: 60px;
+ height: 60px;
+ border-top: 1px solid black;
+ border-right: 1px solid black;
+ border-left: 1px solid black;
+ border-bottom: 1px solid black;
+ display: flex;
+ justify-content: center;
+
+}
+
 .play {
  background: url('https://static.thenounproject.com/png/3945527-200.png') 100% no-repeat;
+ background-size:contain; 
+ width: 30px;
+ height: 30px;
+ margin-top: 10px;
+ 
+}
+
+.pause-button {
+ background: url('https://static.thenounproject.com/png/1948219-200.png') 100% no-repeat;
  background-size:contain; 
  width: 60px;
  height: 60px;

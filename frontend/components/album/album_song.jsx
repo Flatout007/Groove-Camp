@@ -55,7 +55,7 @@ class ArtistShow extends React.Component {
                         <li></li>
                     </div> */}
                     <Player 
-                     songs={songArray}
+                        songs={songArray}
                     />
                     <ul>
                        
