@@ -37,10 +37,10 @@ class Player extends React.Component {
         const nextTrackId = currentTrackId === this.props.songs.length - 1 || this.props.songs.length === 1 ? '0' : (currentTrackId + 1).toString();
         const nextTrack = this.props.songs[nextTrackId];
         console.log(currentTrackId);
-        this.handleChange(nextTrack);
+        this.handleTrackChange(nextTrack);
     }
 
-    handleChange(track) {
+    handleTrackChange(track) {
         // if (playing) trackSwitch = true;
         if(this.state.playing) this.setState({trackSwitch: true});
 
@@ -61,6 +61,7 @@ class Player extends React.Component {
         this.progressBar.style.flexBasis = `${this.state.percent}%`;
     }
 
+
     render() {
         if(!this.props.songs[0]) return null;
         console.log(this.state);
@@ -74,8 +75,8 @@ class Player extends React.Component {
                 </audio>
                 <div className="song-panel">
                         <div className="song-info">
-                                <div className="song-info__title">Ukulele</div>
-                                <div className="song-info__artist">Bensound</div>
+                                <div className="song-info__title">{this.props.songs[0].title}</div>
+                                {/* <div className="song-info__artist">Bensound</div> */}
                                 <div className="progress">
                                 <div className="progress__filled"></div>
                                 </div>
