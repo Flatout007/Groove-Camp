@@ -20,6 +20,7 @@ class ArtistShow extends React.Component {
         this.props.requestAlbum(this.props.match.params.id)
         
         
+        
         //return this.props.requestUser(this.props.artist.id)
 
 
@@ -27,10 +28,10 @@ class ArtistShow extends React.Component {
 
 
     render() {
-        if (!this.props.songs) return <p>Loading</p>;
-        if (!this.props.album) return <p>Loading</p>;
+        if (!this.props.songs) return null;
+        if (!this.props.album) return null;
         const songArray = this.props.songs.map((ele) => {return ele}).filter((ele) => {
-               return ele.album_id === this.props.album.id
+               return ele.album_id === this.props.album.id && ele.audioUrl !== null;
         });
        
 
