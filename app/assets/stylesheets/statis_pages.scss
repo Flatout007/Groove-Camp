@@ -842,15 +842,14 @@ margin-right: auto;
 
 
 .play-container {
-  width: 60px;
- height: 60px;
+  width: 56px;
+ height: 52px;
  border-top: 1px solid black;
  border-right: 1px solid black;
  border-left: 1px solid black;
  border-bottom: 1px solid black;
  display: flex;
  justify-content: center;
-
 }
 
 .play {
@@ -859,7 +858,10 @@ margin-right: auto;
  width: 30px;
  height: 30px;
  margin-top: 10px;
- 
+ display: inline-block;
+ position: absolute;
+ left: 14px;
+
 }
 
 .pause-button {
@@ -867,27 +869,115 @@ margin-right: auto;
  background-size:contain; 
  width: 60px;
  height: 60px;
+ display: inline-block;
 }
 
 
 .progress {
-      background: #fff;
-      border-radius: 3px;
-      cursor: ew-resize;
-      display: flex;
-      flex: 10;
-      flex-basis: 100%;
-      max-height: 5px;
-      position: relative;
-      transition: height 0.3s;
-      width: 100%;
-      height: 20px;
+  background: #fff;
+  // border-radius: 3px;
+  cursor: ew-resize;
+  display: flex;
+  flex: 10;
+  flex-basis: 100%;
+  // max-height: 5px;
+  // position: relative;
+  transition: height 0.3s;
+  width: 248px;
+  height: 7px;
+  border: 1px solid #d9d9d9;
+  border-color: rgba(0,0,0,.15);
+  border-radius: 1px;
+  position: absolute;
+
+    left: 71px;
+    bottom: 16px;
+
+
+  // right: 989px; 
+  // left: 308px;
+  // bottom: 918px;
+  
 }
 
 .progress__filled {
-        background: #fc8da8;
-        flex: 0;
-        // flex-basis: 0%;
-        width: 50%;
-      }
+  background: #fc8da8;
+  flex: 0;
+  // flex-basis: 0%;
+  width: 50%;
+  
+}
     
+.player {
+  width: 500px;
+  height: 100px;
+  position: relative;
+  margin-right: 900px;
+  
+}
+
+.thumb {
+  height:11px;
+  width: 22px;
+  cursor: pointer;
+  
+  background-color: #333;
+  border: 1px solid #bebebe;
+  border-color: rgba(0,0,0,.25);
+  position: relative;
+  top: -2.9px;
+  left: -2px;
+  overflow: hidden;
+}
+
+.thumb:active{
+  height:11px;
+  width: 22px;
+  pointer-events: none; 
+  background-color: #333;
+  border: 1px solid #bebebe;
+  border-color: rgba(0,0,0,.25);
+  position: relative;
+  top: -2.9px;
+  left: -2px;
+}
+
+
+
+.forward {
+  
+
+    height: 30px;
+    width: 35px;
+    
+    margin-left: 20px;
+    position: relative;
+
+
+}
+
+.forward p:nth-child(3) {
+  display: inline-block;
+  position: absolute;
+  left: 12px;
+
+    bottom: 5px;
+
+}
+
+.forward p:nth-child(2) {
+  display: inline-block;
+  position: absolute;
+  left: 22px;
+
+    bottom: 5px;
+
+}
+.forward p:nth-child(1) {
+  display: inline-block;
+  position: absolute;
+  left: 8px;
+  right: 26px;
+  top: 2.5px;
+}
+
