@@ -730,20 +730,53 @@ h4 {
 }
 
 .album-header-nav {
-  height: 38px;
-  width: 975;
+  // height: 38px;
+  // width: 975;
   background-color: blue;
+  font: 13px/1.231 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 92.30769231%;
+  // margin: auto;
 }
 
-.album-header-nav ol li {
+
+.album-header-nav ol li:nth-child(1) {
+  height: 38px;
+  width: 70.38px;
+  background-color: #222;
   display: inline-block;
-  list-style: none;
-  text-align: left;
+  // list-style: none;
+  // text-align: left;
 }
 
-.album-header-nav ol li:nth-child(2) {
-  padding-left: 20px;
+
+.album-header-nav ol li:nth-child(2){
+  display: inline-block;
+  height: 38px;
+  width: 104.38px;
+  // display: inline-block;
+  // list-style: none;
+  // text-align: left;
+  background-color: #222;
+  margin-left: 20px;
+  position: relative;
 }
+
+
+.album-header-nav ol li:nth-child(1) a {
+  top: 7px;
+  left: 13px;
+  position: relative;
+   text-decoration: none;
+   color: #FFFFFF;
+}
+
+.album-header-nav ol li:nth-child(2) p {
+   position: relative;
+   top: 7px;
+   left: 13px;
+   color: #FFFFFF;
+}
+
 
 .album-content {
   width: 975px;
@@ -867,9 +900,16 @@ margin-right: auto;
 .pause-button {
  background: url('https://static.thenounproject.com/png/1948219-200.png') 100% no-repeat;
  background-size:contain; 
- width: 60px;
- height: 60px;
+ width: 30px;
+ height: 30px;
+ margin-top: 10px;
  display: inline-block;
+ position: absolute;
+ left: 14px;
+}
+
+.current {
+  
 }
 
 
@@ -945,24 +985,26 @@ margin-right: auto;
 
 
 .forward {
-  
 
-    height: 30px;
-    width: 35px;
-    
-    margin-left: 20px;
-    position: relative;
+  height: 30px;
+  width: 35px;
+  margin-left: 20px;
+  position: relative;
+}
 
+.rotate-right {
+  transform: rotate(180deg);
+}
 
+.rotate-right-opacity {
+  color: rgba(0, 0, 0, 0.171);
 }
 
 .forward p:nth-child(3) {
   display: inline-block;
   position: absolute;
   left: 12px;
-
-    bottom: 5px;
-
+  bottom: 5px;
 }
 
 .forward p:nth-child(2) {

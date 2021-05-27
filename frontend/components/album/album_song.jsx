@@ -42,7 +42,7 @@ class ArtistShow extends React.Component {
                 <div className='album-header-nav'>
                     <ol>
                         <li><Link to={`/album/${this.props.album.id}`}>music</Link></li>
-                        <li>community</li>
+                        <li><p>community</p></li>
                     </ol>
 
                 </div>
