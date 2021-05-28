@@ -985,30 +985,42 @@ margin-right: auto;
 
 
 .forward {
-
-  height: 30px;
+  height: 18px;
   width: 36px;
   // margin-left: 20px;
-  position: relative;
-  
- 
+  position: absolute;
+  background: url('https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/microsoft/54/black-right-pointing-double-triangle-with-vertical-bar_23ed.png') 100% no-repeat;
+  background-size: contain;
 
-   bottom: 58px;
-  left: 360px;
-  
+  top: 69px;
+  bottom: 13px;
+  left: 350px;
+  right: -341px;
+  cursor: pointer;
+
 }
 
 .backward {
-  height: 30px;
+  position: absolute; 
+  cursor: pointer;
+  
+  height: 18px;
+  // width: 20px;
   width: 36px;
+  // background-color: #222;
   // margin-left: 20px;
-  position: relative;
+  background: url('https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/microsoft/54/black-right-pointing-double-triangle-with-vertical-bar_23ed.png') 100% no-repeat;
+  background-size: contain;
+
+    left: 333px;
+    bottom: 13px;
+    right: -294px;
+    top: 69px;
+
   
-   bottom: 28px;
-  
-  left: 320px;
- 
 }
+
+
 
 .rotate-right {
   transform: rotate(180deg);
@@ -1023,6 +1035,7 @@ margin-right: auto;
   font-size: 12px;
   position: relative;
   top: 5px;
+ 
 
  
 }
@@ -1041,7 +1054,7 @@ margin-right: auto;
 .forward p:nth-child(3) {
   display: inline-block;
   font-size: 12px;
-   position: relative;
+  position: relative;
 }
 
 .forward p:nth-child(2) {

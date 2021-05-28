@@ -132,8 +132,10 @@ class Player extends React.Component {
 
                                     </div>  
                                     {/* {this.handleArrowsOnFirstSong()} */}
-                    <div onClick={this.handleBack} className="backward"><p>╹</p><p>◀</p><p>◀</p></div>
-                    <div onClick={this.handleNext} className="forward rotate-right"><p>╹</p><p>◀</p><p>◀</p></div>
+                                    <li onClick={this.handleBack} className='backward rotate-right'></li>
+                                    <li onClick={this.handleNext} className='forward'></li>
+                    {/* <div onClick={this.handleBack} className="backward"><p>╹</p><p>◀</p><p>◀</p></div>
+                    <div onClick={this.handleNext} className="forward rotate-right"><p>╹</p><p>◀</p><p>◀</p></div> */}
                             
                         </div>
             </div>)
