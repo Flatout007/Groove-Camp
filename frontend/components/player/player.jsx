@@ -4,7 +4,7 @@ import React from 'react';
 class Player extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {playing: false, trackSwitch: false, percent: 0, mousedown: false, duration: null, current: '0:00' };
+        this.state = {playing: false, trackSwitch: false, percent: 0, mousedown: null, duration: null, current: '0:00' };
         this.handlePlayPause = this.handlePlayPause.bind(this);
         this.audio = null;
         this.handleAudioSelection = this.handleAudioSelection.bind(this);
@@ -61,6 +61,7 @@ class Player extends React.Component {
     handleDurationConversion(seconds) {
         let sec = Math.floor(seconds);
         let min = Math.floor(sec / 60);
+        // refactor this logic here
         min = min >= 10 ? min : '0' + min;
         sec = Math.floor(sec % 60);
         sec = sec >= 10 ? sec : '0' + sec;
@@ -74,6 +75,7 @@ class Player extends React.Component {
         let progress = document.querySelector('.progress');
         const scrubTime = (e.nativeEvent.offsetX / progress.offsetWidth) * this.audio.duration;
         this.audio.currentTime = scrubTime;
+       
     }
 
 
@@ -99,6 +101,7 @@ class Player extends React.Component {
         }
     }
 
+    
 
     handleArrowsOnFirstSong() {
       
@@ -110,8 +113,8 @@ class Player extends React.Component {
        
         return(
             <div className="player">
+                
                         <audio onTimeUpdate={this.handleSeekBar} className="player__audio audio viewer">
-                                    {/* <source src="https://www.bensound.com/bensound-music/bensound-ukulele.mp3" type="audio/mpeg" data-trackid="1"/> */}
                                     <source src={this.props.songs[0].audioUrl} type="audio/mpeg" data-trackid="0"/>
                         </audio>
 
@@ -120,9 +123,12 @@ class Player extends React.Component {
                         <div className="song-info">
                                     <div  className="song-info__title">{this.props.songs[0].title}</div>
                         </div>
-                        <div onMouseDown={() => this.setState({ mousedown: true })} onMouseUp={() => this.setState({ mousedown: false })}  onClick={this.handleSrcubbing} onMouseMove={(e) => this.state.mousedown && this.handleSrcubbing(e)} className="progress">
-                                    <div  className="progress__filled">
-                                    </div>
+                        <div        onMouseDown={() => this.setState({ mousedown: true })} 
+                                    onMouseUp={() => this.setState({ mousedown: false })}
+                                    onMouseLeave={() => this.setState({ mousedown: false})}
+                                    onMouseMove={(e) => this.state.mousedown ? this.handleSrcubbing(e) : null}
+                                    className="progress">
+                                    <div  className="progress__filled"></div>
                                     <a className='thumb'></a>
                         </div>
                         <div className="player-controls">

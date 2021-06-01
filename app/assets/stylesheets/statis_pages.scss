@@ -643,49 +643,23 @@ h4 {
 }
 
 .album-list-flex {
-  // display: grid;
- 
-  
-  // grid-template-columns: repeat(3, 1fr);
-  // grid-gap: 0;
   display: grid;
-  // grid-column-gap: 20px;
-  // grid-row-gap: 50px;
   grid-template-columns: repeat(8, 1fr);
-  /* margin-right: 12%; */
-  /* margin-left: 12%; */
-  // margin-top: 30px;
-  // margin-bottom: 40px;
-  // align-items: center;
-  // display: flex;
-  // justify-content: space-evenly;
-  background-color: gold;
   height: 230px;
   grid-gap: 3px;
-  // justify-items: center;
-
-
-    margin-left: auto;
-    margin-right: auto;
-    width: 1090px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 1090px;
 
 }
 
 
 .album-stats {
   position:absolute;
-  // background-color: green;
+  width: 150px;
+  height: 150px;
+  margin-top: 120px;
 
-    
-    width: 150px;
-    
-
-
-    height: 150px;
-    margin-top: 120px;
-
-
-    // display: block;
 }
 
 .album-stats h5 {
@@ -732,7 +706,7 @@ h4 {
 .album-header-nav {
   // height: 38px;
   // width: 975;
-  background-color: blue;
+  // background-color: blue;
   font: 13px/1.231 'Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 92.30769231%;
   // margin: auto;
@@ -753,9 +727,7 @@ h4 {
   display: inline-block;
   height: 38px;
   width: 104.38px;
-  // display: inline-block;
-  // list-style: none;
-  // text-align: left;
+ 
   background-color: #222;
   margin-left: 20px;
   position: relative;
@@ -781,7 +753,7 @@ h4 {
 .album-content {
   width: 975px;
   height: 1000px;
-  background-color: blueviolet;
+  // background-color: blueviolet;
   display: flex;
   justify-content: center;
 }
@@ -838,10 +810,10 @@ h4 {
 .artist-profile-index-flex {
  height: 576px;
  width: 1090px;
- background-color: blueviolet;
+//  background-color: blueviolet;
  display: table;
  margin-left: auto;
-margin-right: auto;
+ margin-right: auto;
 }
 
 
