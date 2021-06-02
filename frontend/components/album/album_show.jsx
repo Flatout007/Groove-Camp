@@ -4,7 +4,7 @@
 import React from 'react';
 import AlbumIndexItem from './album_index_item';
 import GreetingNav from '../greeting/greeting_container';
-import {withRouter} from 'react-router-dom';
+import {withRouter, Link} from 'react-router-dom';
 
 class AlbumShow extends React.Component {
    
@@ -24,15 +24,18 @@ class AlbumShow extends React.Component {
 
     render() {
         if (!this.props.album) return <p>Loading</p>;
-        console.log(this.props);
+       
+        
         return (<div>
             <GreetingNav/>
             <div className='album-header'>
                     <li className='album-header-img'></li>
                     <div className='album-header-nav'>
                             <ol>
-                                    <li>music</li>
-                                <li onClick={() => this.props.history.push(`/album/songs/${this.props.album.id}`)}>community</li>
+                                    {/* <li>music</li>
+                                <li onClick={() => this.props.history.push(`/album/songs/${this.props.album.id}`)}>community</li> */}
+                                <li><Link to={`/album/songs/${this.props.album.id}`}>music</Link></li>
+                                        <li><p>community</p></li>
                             </ol>
                     
                     </div>

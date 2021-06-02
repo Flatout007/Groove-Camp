@@ -1,6 +1,5 @@
 import React from 'react';
-import { useState, useRef } from 'react';
-import Player from './components/player/player';
+
 import {
     Route,
     Redirect,
@@ -12,8 +11,6 @@ import {
 
 
 import Modal from './components/modal/modal';
-
-
 import GreetingIndex from './components/greeting/greeting_container';
 import ArtistWeekly from './components/artist/artist_index_container';
 import SignupContainer from './components/session_form/signup_container';
@@ -35,38 +32,24 @@ const App = () => {
      
         return(
    
-               <div> 
-                 <Modal/>
+          <div> 
+                <Modal/>
                 
-                
-             
-                
-                      
-                        <Route exact path='/artist/:id' component={ArtistArticle}></Route>
-                        <Route exact path='/album/:id' component={AlbumShow}></Route>
-                        <Route path='/albums/new' component={AlbumForm}></Route>
-                        <Route path='/songs/new' component={SongForm}></Route>
-                        <Route exact path="/signup" component={SignupContainer}></Route>   
-                        <Route exact path="/" component={GreetingIndex}></Route>
-                        <Route exact path="/" component={ArtistWeekly}></Route>
-                        <Route exact path="/" component={AlbumIndex}></Route>
-                        <Route exact path="/" component={SongIndex}></Route>
-                        <Route exact path="/" component={ArtistProfileIndexContainer}></Route>
-                        <Route exact path='/album/songs/:id' component={AlbumSongContainer}></Route> 
-                        <Route exact path="/" component={ArtistHome}></Route>
-                      
-                
-                   
-                
-                   
-                   
-                   
-                   
-                  
-                  {/* <Route exact path='/login' component={LoginContainer}></Route>  */}
-                  {/* {<Route exact path="/" component={GreetingIndex}></Route>} */}
-              
-            </div>)
+        
+                <Route exact path='/artist/:id' component={ArtistArticle}></Route>
+                <Route exact path='/album/:id' component={AlbumShow}></Route>
+                <Route path='/albums/new' component={AlbumForm}></Route>
+                <Route path='/songs/new' component={SongForm}></Route>
+                <Route exact path="/signup" component={SignupContainer}></Route>   
+                <Route exact path="/" component={GreetingIndex}></Route>
+                <Route exact path="/" component={ArtistWeekly}></Route>
+                <Route exact path="/" component={AlbumIndex}></Route>
+                <Route exact path="/" component={SongIndex}></Route>
+                <Route exact path="/" component={ArtistProfileIndexContainer}></Route>
+                <Route exact path='/album/songs/:id' component={AlbumSongContainer}></Route> 
+                <Route exact path="/" component={ArtistHome}></Route>
+                 
+          </div>)
         
     
 }

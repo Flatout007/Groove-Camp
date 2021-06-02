@@ -4,15 +4,17 @@ import React from 'react';
 class Player extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {playing: false, trackSwitch: false, percent: 0, mousedown: null, duration: null, current: '0:00' };
-        this.handlePlayPause = this.handlePlayPause.bind(this);
+        this.state = {playing: false, trackSwitch: false, percent: 0, mousedown: null, current: '0:00' };
         this.audio = null;
+
+        this.handlePlayPause = this.handlePlayPause.bind(this);
         this.handleAudioSelection = this.handleAudioSelection.bind(this);
         this.handleNext = this.handleNext.bind(this);
         this.handleBack = this.handleBack.bind(this);
         this.handleSeekBar = this.handleSeekBar.bind(this);
         this.handleSrcubbing = this.handleSrcubbing.bind(this);
-        this.handleArrowsOnFirstSong = this.handleArrowsOnFirstSong.bind(this);
+        this.handleDuration = this.handleDuration.bind(this);
+       
     }
 
     
@@ -21,12 +23,25 @@ class Player extends React.Component {
        return audio;
     }
 
+
     handlePlayPause() {
         this.audio = this.handleAudioSelection();
         const action = this.audio.paused ? 'play' : 'pause';
         this.setState({playing: this.audio.paused ? true : false});
         this.audio[action]();
     }
+    
+    handleDuration() {
+        let d = document.querySelector('.audio');
+        let p = document.querySelector('.duration');
+        if(d.duration !== null) p.innerHTML = this.handleDurationConversion(d.duration);
+       
+
+        
+
+
+    }
+
 
     handleBack() {
         this.audio = this.handleAudioSelection();
@@ -34,9 +49,9 @@ class Player extends React.Component {
         const currentTrackId = parseInt(audioSource.dataset.trackid);
         const prevTrackId = currentTrackId <= 0 ? (0).toString() : (currentTrackId - 1).toString();
         const prevTrack = this.props.songs[prevTrackId];
-        console.log(prevTrackId);
         this.handleTrackChange(prevTrack);
     }
+
 
     handleNext() {
         this.audio = this.handleAudioSelection();
@@ -47,6 +62,7 @@ class Player extends React.Component {
         this.handleTrackChange(nextTrack);
     }
 
+
     handleTrackChange(track) {
         if(this.state.playing) this.setState({trackSwitch: true});
         this.audio = this.handleAudioSelection();
@@ -54,13 +70,16 @@ class Player extends React.Component {
         audioSource.setAttribute('src', track.audioUrl);
         audioSource.dataset.trackid = this.props.songs.indexOf(track);
         this.audio.load();
-        
+
+
         if(this.state.playing) this.audio.play();
     }
+
 
     handleDurationConversion(seconds) {
         let sec = Math.floor(seconds);
         let min = Math.floor(sec / 60);
+
         // refactor this logic here
         min = min >= 10 ? min : '0' + min;
         sec = Math.floor(sec % 60);
@@ -68,9 +87,10 @@ class Player extends React.Component {
         return min + ':' + sec;
     }
 
+
     handleSrcubbing(e) {
-        // e.preventDefault();
-        // e.stopPropagation()
+        e.preventDefault();
+        e.stopPropagation()
         this.audio = this.handleAudioSelection();
         let progress = document.querySelector('.progress');
         const scrubTime = (e.nativeEvent.offsetX / progress.offsetWidth) * this.audio.duration;
@@ -89,9 +109,7 @@ class Player extends React.Component {
         this.setState({ current: this.handleDurationConversion(audio.currentTime)});
        
         
-        if( audio.currentTime === audio.duration && this.props.songs.length > 1) {
-            // this.setState({playing: false});
-            // this.progressBar.style.flexBasis = `0%`
+        if( audio.currentTime === audio.duration && this.props.songs.length > 1) {       
             this.setState({trackSwitch: true});
             this.handleNext();
         } else if (audio.currentTime === audio.duration && this.props.songs.length <= 1) {
@@ -101,34 +119,37 @@ class Player extends React.Component {
         }
     }
 
-    
 
-    handleArrowsOnFirstSong() {
+    // handleArrowsOnFirstSong() {
       
-    }
+    // }
 
 
     render() {
         if(!this.props.songs[0]) return null;
        
+
         return(
             <div className="player">
-                
-                        <audio onTimeUpdate={this.handleSeekBar} className="player__audio audio viewer">
+                        <audio onLoadedMetadata={this.handleDuration} preload='metadata' onTimeUpdate={this.handleSeekBar} className="player__audio audio viewer">
                                     <source src={this.props.songs[0].audioUrl} type="audio/mpeg" data-trackid="0"/>
                         </audio>
+            <div className='song-stats'>
+                        <p className="song-info__title">{this.props.songs[0].title}</p> &nbsp;
 
-                        {this.state.playing === false && this.state.percent === 0 ? <p className='current'>0:00</p> : <p className='current'>{this.state.current}</p>}
-
-                        <div className="song-info">
-                                    <div  className="song-info__title">{this.props.songs[0].title}</div>
-                        </div>
+                        {this.state.playing === false && this.state.percent === 0 ? <p className='current'>0:00</p> : <p className='current'>{this.state.current}</p>} &nbsp;
+                        
+                        <p className='slash'>/</p> &nbsp;
+                        <p className="duration">0:30</p>
+                        
+                       
+            </div>
                         <div        onMouseDown={() => this.setState({ mousedown: true })} 
                                     onMouseUp={() => this.setState({ mousedown: false })}
                                     onMouseLeave={() => this.setState({ mousedown: false})}
                                     onMouseMove={(e) => this.state.mousedown ? this.handleSrcubbing(e) : null}
                                     className="progress">
-                                    <div  className="progress__filled"></div>
+                                    <div className="progress__filled"></div>
                                     <a className='thumb'></a>
                         </div>
                         <div className="player-controls">
