@@ -2,6 +2,7 @@ import React from 'react';
 
 
 
+
 // import {Navbar, Nav, NavDropdowm, Modal, Button} from 'react-bootstrap'
 
 import {
@@ -37,6 +38,7 @@ class GreetingIndex extends React.Component {
                         </div>
                         <div className="session-nav">
                                <Link to={'/songs/new'}>upload a song</Link>
+                               <Link to={`/profile/${this.props.currentUser.id}`}>profile</Link>
                                    <h1>Welcome {this.props.currentUser.username}</h1>
                             {/* <a onClick={() => this.props.openModal('signup-modal')}>signup</a>
                             <a onClick={() => this.props.openModal('login')}>login</a> */}

@@ -72,14 +72,14 @@ class ArtistArticle extends React.Component {
             </nav>
             <p>{this.props.artist.username}</p>
             <article className='artist-article'>
-                 <img className='artist-article-img' src={this.props.artist.photo} alt=""/>
+                    <img className='artist-article-img' src='https://amp.ikimaru.com/pic/3330319_full-naruto-broken-youth-wallpaper-nico-touches-the-walls.jpg' alt=""/>
             </article>
                 <audio controls>
                     <source src="https://groovecamp-seed.s3.us-east-2.amazonaws.com/Rising+Hope.mp3" type="audio/mp3"/>
                 </audio>
             {this.albumList()}
             {/* <button onClick={this.props.history.push('/')}></button> */}
-            <button onClick={() => Promise.resolve(this.props.history.push('/'))}>Home</button>
+            <button onClick={() => this.props.history.push('/')}>Home</button>
           </React.Fragment>
         );
     }

@@ -7,7 +7,7 @@ const AlbumErrorReducer = (state = [], action) => {
 
     switch (action.type) {
 
-        case THE_ERRORS: return action.errors;
+        case THE_ERRORS: return action.errors ? action.errors : null;
         case RECEIVE_ALBUM: return [];
         // close modal
 

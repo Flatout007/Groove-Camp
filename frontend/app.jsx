@@ -25,6 +25,7 @@ import SongIndex from './components/song/song_index_container';
 import SongForm from './components/song/song_create_form_container';
 import ArtistHome from './components/artist/artist_home_container';
 import ArtistProfileIndexContainer from './components/profile/artist_profile_index_container';
+import ArtistProfileShowContainer from './components/profile/artist_profile_show_container';
 
 import AlbumSongContainer from './components/album/album_song_container';
 
@@ -48,6 +49,7 @@ const App = () => {
                 <Route exact path="/" component={ArtistProfileIndexContainer}></Route>
                 <Route exact path='/album/songs/:id' component={AlbumSongContainer}></Route> 
                 <Route exact path="/" component={ArtistHome}></Route>
+                <Route exact path='/profile/:id' component={ArtistProfileShowContainer}></Route>
                  
           </div>)
         

@@ -513,13 +513,15 @@ artist article */
 
 
 .artist-article-img {
-  width: 90%;
-  max-width: 100%;
-  padding-left: 150px;
+  width: 100%;
+  // max-width: 100%;
+  // // padding-left: 150px;
 }
 
 .artist-article {
-  grid-column: 1 / -1;
+  padding-top: 120px;
+  display: grid;
+  grid-template-columns: repeat(1, 3fr);
 }
 
 /*--------------------------------------
@@ -859,7 +861,9 @@ h4 {
  border-bottom: 1px solid black;
  display: flex;
  justify-content: center;
+ cursor: pointer;
 }
+
 
 .play {
  background: url('https://static.thenounproject.com/png/3945527-200.png') 100% no-repeat;
@@ -884,20 +888,13 @@ h4 {
  left: 14px;
 }
 
-.current {
-  
-}
-
 
 .progress {
   background: #fff;
-  // border-radius: 3px;
   cursor: ew-resize;
   display: flex;
   flex: 10;
   flex-basis: 100%;
-  // max-height: 5px;
-  // position: relative;
   transition: height 0.3s;
   width: 248px;
   height: 7px;
@@ -906,15 +903,8 @@ h4 {
   border-radius: 1px;
   position: absolute;
   cursor: auto;
-
-    left: 71px;
-    bottom: 16px;
-
-
-  // right: 989px; 
-  // left: 308px;
-  // bottom: 918px;
-  
+  left: 71px;
+  bottom: 16px;
 }
 
 .progress__filled {
@@ -938,7 +928,6 @@ h4 {
   height:11px;
   width: 22px;
   cursor: pointer;
-  
   background-color: #333;
   border: 1px solid #bebebe;
   border-color: rgba(0,0,0,.25);
@@ -969,33 +958,24 @@ h4 {
   position: absolute;
   background: url('https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/microsoft/54/black-right-pointing-double-triangle-with-vertical-bar_23ed.png') 100% no-repeat;
   background-size: contain;
-
   top: 37px;
   bottom: 13px;
   left: 350px;
   right: -341px;
   cursor: pointer;
-
 }
 
 .backward {
   position: absolute; 
   cursor: pointer;
-  
   height: 18px;
-  // width: 20px;
   width: 36px;
-  // background-color: #222;
-  // margin-left: 20px;
   background: url('https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/microsoft/54/black-right-pointing-double-triangle-with-vertical-bar_23ed.png') 100% no-repeat;
   background-size: contain;
-
-    left: 333px;
-    bottom: 13px;
-    right: -294px;
-    top: 37px;
-
-  
+  left: 333px;
+  bottom: 13px;
+  right: -294px;
+  top: 37px;
 }
 
 
@@ -1061,15 +1041,23 @@ h4 {
 // }
 
 .song-stats {
-  width: 400px;
+  width: max-content;
   height: 18px;
   position: absolute;
-
   top: 41px;
   bottom: 41px;
   left: 71px;
   right: -390px;
 
+}
+
+.song-stats::after {
+  
+}
+
+
+.song-stats:hover {
+  border-bottom: 1px solid black;
 }
 
 

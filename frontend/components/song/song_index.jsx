@@ -14,10 +14,9 @@ class SongIndex extends React.Component {
    
 
     songList() {
-       
         return this.props.songs.map((ele) => {
-            return <SongIndexItem
-               key={ele.id}
+        return <SongIndexItem
+                    key={ele.id}
                 
             />
         });

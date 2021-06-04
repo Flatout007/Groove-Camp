@@ -8,11 +8,10 @@ const SongReducer = (state = {}, action) => {
     const currentState = Object.assign({}, state);
 
     switch (action.type) {
-
         case RECEIVE_SONGS: return Object.assign(currentState, action.songs);
         case RECEIVE_SONG: return Object.assign({}, { [action.song.id]: action.song });
-        case REMOVE_SONG: return Object.assign(currentState, { [action.songId]: undefined })
-        default: return state
+        case REMOVE_SONG: return Object.assign(currentState, { [action.songId]: undefined });
+        default: return state;
     }
 };
 

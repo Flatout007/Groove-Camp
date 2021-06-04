@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import ArtistShow from './album_song';
 import { requestSongs } from '../../actions/song_actions';
 import { requestAlbum } from '../../actions/album_actions';
-// import { deleteAlbum } from '../../actions/album_actions';
+import { deleteAlbum } from '../../actions/album_actions';
 
 /*
 Export a container component for `AlbumIndex` that maps an array of all
@@ -14,9 +14,9 @@ props of the same name.
 
 const mapStoreToProps = (store, props) => {
     return {
-
         songs: Object.values(store.entities.songs),
-        album: store.entities.albums[props.match.params.id]
+        album: store.entities.albums[props.match.params.id],
+        
     };
 };
 
@@ -24,7 +24,7 @@ const mapActionsToProps = (dispatch, props) => {
     return {
         requestAlbum: (id) => dispatch(requestAlbum(id)),
         requestSongs: () => dispatch(requestSongs()),
-        // deleteAlbum: (id) => dispatch(deleteAlbum(id))
+        deleteAlbum: (id) => dispatch(deleteAlbum(id))
 
     };
 };

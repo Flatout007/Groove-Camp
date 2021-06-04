@@ -10,29 +10,33 @@ class ArtistShow extends React.Component {
 
     constructor(props) {
         super(props);
+        this.handleSongs = this.handleSongs.bind(this);
     }
 
 
     componentDidMount() {
-
         //   this.props.requestAllUsers().then(() => {this.props.store.entities.users[this.props.match.params.id]})
         this.props.requestSongs();
-        this.props.requestAlbum(this.props.match.params.id)
-        
-        
-        
+        this.props.requestAlbum(this.props.match.params.id);
+     
         //return this.props.requestUser(this.props.artist.id)
 
 
+    }
+
+    handleSongs() {
+        
     }
 
 
     render() {
         if (!this.props.songs) return null;
         if (!this.props.album) return null;
-        const songArray = this.props.songs.map((ele) => {return ele}).filter((ele) => {
-               return ele.album_id === this.props.album.id && ele.audioUrl !== null;
-        });
+        if (!this.props.album.id) return null;
+        console.log(this.props.songObjects);
+
+        
+       
        
 
         return (<div>
@@ -56,7 +60,8 @@ class ArtistShow extends React.Component {
                         <li></li>
                     </div> */}
                     <Player 
-                        songs={songArray}
+                        songs={this.props.songs}
+                        deleteAlbum={this.props.deleteAlbum}
                     />
                     <ul>
                        
@@ -65,8 +70,12 @@ class ArtistShow extends React.Component {
 
                     </div>
                 </div>
+           
+                
 
-            </div>
+            
+
+            </div>)
 
             {/* content div */}
 

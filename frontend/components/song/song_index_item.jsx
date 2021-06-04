@@ -10,7 +10,6 @@ class SongIndexItem extends React.Component {
     }
 
     deleteAlbum(e) {
-
         return this.props.deleteAlbum(this.props.album.id);
     }
 

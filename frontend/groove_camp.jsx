@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Root from './root';
 import configureStore from './store/store';
-import * as SessionActions from './actions/session_actions';
+import * as SessionActions from './actions/song_actions';
 
 
 
@@ -21,15 +21,14 @@ document.addEventListener('DOMContentLoaded', (e) => {
     } else {
         store = configureStore();
     }
-    // store = configureStore({});
-    // window.getAllUsers = SessionActions.getAllUsers
    
-    //let user = { username: 'tim007', password: '123456', artist_check: false };
-    //console.log(store.dispatch(SessionActions.login(user)))
-    window.login = SessionActions.login
+    // window.login = SessionActions.login
     window.store = store
     
-    window.getAllUsers = SessionActions.requestAllUsers
+    // window.getAllUsers = SessionActions.requestAllUsers
+
+    window.removeSong = SessionActions.removeSong;
+    window.deleteSong = SessionActions.deleteSong;
     
 
     

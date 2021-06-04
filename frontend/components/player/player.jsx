@@ -1,10 +1,11 @@
 import React from 'react';
+import {withRouter} from 'react-router-dom';
 
 
 class Player extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {playing: false, trackSwitch: false, percent: 0, mousedown: null, current: '0:00' };
+        this.state = {playing: false, trackSwitch: false, percent: 0, mousedown: null, current: '00:00' };
         this.audio = null;
 
         this.handlePlayPause = this.handlePlayPause.bind(this);
@@ -31,15 +32,11 @@ class Player extends React.Component {
         this.audio[action]();
     }
     
+
     handleDuration() {
         let d = document.querySelector('.audio');
         let p = document.querySelector('.duration');
         if(d.duration !== null) p.innerHTML = this.handleDurationConversion(d.duration);
-       
-
-        
-
-
     }
 
 
@@ -81,10 +78,10 @@ class Player extends React.Component {
         let min = Math.floor(sec / 60);
 
         // refactor this logic here
-        min = min >= 10 ? min : '0' + min;
+        min = min >= 10 ? min : `0${min}`;
         sec = Math.floor(sec % 60);
-        sec = sec >= 10 ? sec : '0' + sec;
-        return min + ':' + sec;
+        sec = sec >= 10 ? sec : `0${sec}`;
+        return `${min}:${sec}`;
     }
 
 
@@ -126,7 +123,11 @@ class Player extends React.Component {
 
 
     render() {
+        // let arr = this.props.songs.filter((song) => {return song.album_id === this.props.match.params.id}) 
+
         if(!this.props.songs[0]) return null;
+
+       
        
 
         return(
@@ -137,27 +138,28 @@ class Player extends React.Component {
             <div className='song-stats'>
                         <p className="song-info__title">{this.props.songs[0].title}</p> &nbsp;
 
-                        {this.state.playing === false && this.state.percent === 0 ? <p className='current'>0:00</p> : <p className='current'>{this.state.current}</p>} &nbsp;
+                        {this.state.playing === false && this.state.percent === 0 ? <p className='current'>00:00</p> : <p className='current'>{this.state.current}</p>} &nbsp;
                         
                         <p className='slash'>/</p> &nbsp;
                         <p className="duration">0:30</p>
                         
                        
             </div>
-                        <div        onMouseDown={() => this.setState({ mousedown: true })} 
-                                    onMouseUp={() => this.setState({ mousedown: false })}
-                                    onMouseLeave={() => this.setState({ mousedown: false})}
-                                    onMouseMove={(e) => this.state.mousedown ? this.handleSrcubbing(e) : null}
-                                    className="progress">
-                                    <div className="progress__filled"></div>
-                                    <a className='thumb'></a>
-                        </div>
+            <div        onMouseDown={() => this.setState({ mousedown: true })} 
+                        onMouseUp={() => this.setState({ mousedown: false })}
+                        onMouseLeave={() => this.setState({ mousedown: false})}
+                        onMouseMove={(e) => this.state.mousedown ? this.handleSrcubbing(e) : null}
+                        className="progress">
+                        <div className="progress__filled"></div>
+                        <a className='thumb'></a>
+            </div>
                         <div className="player-controls">
                                     <div onClick={this.handlePlayPause} className="play-container">
 
                                         {this.state.playing === true ? <li className="pause-button"></li> : <li className='play'></li>}
 
                                     </div>  
+                    <button onClick={() => this.props.deleteAlbum(this.props.match.params.id)}>delete album</button>
                                     {/* {this.handleArrowsOnFirstSong()} */}
                                     <li onClick={this.handleBack} className='backward rotate-right'></li>
                                     <li onClick={this.handleNext} className='forward'></li>
@@ -165,13 +167,16 @@ class Player extends React.Component {
                                     <div onClick={this.handleNext} className="forward rotate-right"><p>╹</p><p>◀</p><p>◀</p></div> */}
                             
                         </div>
-            </div>)
+            
+                </div>)
+                
+            
 
     }
     
 }
 
-export default Player;
+export default withRouter(Player);
 
 
 
