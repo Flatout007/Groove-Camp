@@ -8,19 +8,19 @@ class SongIndex extends React.Component {
 
     constructor(props) {
         super(props);
-        this.songList = this.songList.bind(this);
+        // this.songList = this.songList.bind(this);
     }
 
    
 
-    songList() {
-        return this.props.songs.map((ele) => {
-        return <SongIndexItem
-                    key={ele.id}
+    // songList() {
+    //     return this.props.songs.map((ele) => {
+    //     return <SongIndexItem
+    //                 key={ele.id}
                 
-            />
-        });
-    }
+    //         />
+    //     });
+    // }
 
 
   render() {

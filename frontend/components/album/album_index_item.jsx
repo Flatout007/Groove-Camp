@@ -6,12 +6,12 @@ import {Link, withRouter} from  'react-router-dom'
 class AlbumIndexItem extends React.Component {
     constructor(props) {
         super(props);
-        this.deleteAlbum = this.deleteAlbum.bind(this);
+        // this.deleteAlbum = this.deleteAlbum.bind(this);
     }
 
-    deleteAlbum(e) {    
-        this.props.deleteAlbum(this.props.album.id);
-    }
+    // deleteAlbum(e) {    
+    //     this.props.deleteAlbum(this.props.album.id);
+    // }
 
     
     

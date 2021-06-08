@@ -5,10 +5,6 @@ import { deleteAlbum, requestAlbums } from '../../actions/album_actions';
 
 
 
-
-
-
-
 const mapStoreToProps = (store, props) => {
     return {
         songs: Object.values(store.entities.songs),
@@ -20,7 +16,7 @@ const mapStoreToProps = (store, props) => {
 const mapActionsToProps = (dispatch, props) => {
     return {
         fetchAlbums: () => dispatch(requestAlbums()),
-        deleteAlbum: (id) => dispatch(deleteAlbum(id))
+        deleteAlbum: (id) => dispatch(deleteAlbum(id)),
     };
 };
 

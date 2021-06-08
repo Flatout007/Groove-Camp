@@ -26,12 +26,13 @@ class Api::UsersController < ApplicationController
         render "api/users/show"
     end
 
-    # def update
-    #  @user = User.find_by(id: params[:id])
-    #   if @user.update(params.require(:user).permit(:photoUrl))
-    #    render 'api/users/show'
-    #  else
-    #   render json: @user.errors.full_messages, status: 422
-    #  end
-    # end
+    def update
+      @user = User.find_by(id: params[:id])
+
+      if @user.update(params.require(:user).permit(:photoUrl))
+        render 'api/users/show'
+      else
+        render json: @user.errors.full_messages, status: 422
+      end
+    end
 end

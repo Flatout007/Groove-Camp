@@ -12,9 +12,13 @@ class AlbumIndex extends React.Component {
         this.albumList = this.albumList.bind(this);
     }
 
+    handleLimit() {
+      return this.props.albums.filter((ele, idx) => { return idx < 8 } );
+    }
+
 
     albumList() {
-        return this.props.albums.map((ele) => {
+        return this.handleLimit().map((ele) => {
            return <AlbumIndexItem
              key={ele.id}
              album={ele}
@@ -50,12 +54,12 @@ class AlbumIndex extends React.Component {
                   {/* <div className='flex-grid'> */}
                     <ul className='album-list-flex'>
                         {this.albumList()}
+                        {/* <li></li>
                         <li></li>
                         <li></li>
                         <li></li>
                         <li></li>
-                        <li></li>
-                       
+                        */}
                     
                     </ul>
                   {/* </div> */}

@@ -100,3 +100,12 @@ export const requestUser = (userId) => {
         });
     };
 };
+
+
+export const editUserPhoto = (user) => {
+    return dispatch => {
+        return SessionAPIUtil.editUserPhoto(user).then(res => {
+            return dispatch(receiveUser(res));
+        });
+    };
+};

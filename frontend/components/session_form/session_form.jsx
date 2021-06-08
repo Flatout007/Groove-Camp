@@ -19,7 +19,7 @@ class SessionForm extends React.Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);   
         this.handleErrors = this.handleErrors.bind(this);
-        this.handleFile = this.handleFile.bind(this);
+        this.handlePhotoFile = this.handlePhotoFile.bind(this);
         
     }
 
@@ -58,8 +58,7 @@ class SessionForm extends React.Component {
         });
     }
 
-    handleFile(e) {
-       
+    handlePhotoFile(e) {
         // this.setState({photo: e.currentTarget.files[0]})
 
         const reader = new FileReader();
@@ -104,7 +103,7 @@ class SessionForm extends React.Component {
 
                     <br/>
 
-                    <input onChange={this.handleFile} type="file"/>
+                    <input onChange={this.handlePhotoFile} type="file"/>
 
                     <br/>
 

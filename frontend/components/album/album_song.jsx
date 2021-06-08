@@ -4,13 +4,13 @@
 import React from 'react';
 import GreetingNav from '../greeting/greeting_container';
 import {withRouter, Link} from 'react-router-dom';
-import Player from '../player/player'
+import Player from '../player/player';
 
 class ArtistShow extends React.Component {
 
     constructor(props) {
         super(props);
-        this.handleSongs = this.handleSongs.bind(this);
+      
     }
 
 
@@ -24,20 +24,22 @@ class ArtistShow extends React.Component {
 
     }
 
-    handleSongs() {
-        
+    
+
+    handleAnotherSongs() {
+        return this.handleFilterSongsById().map(ele => {
+            return ele
+        });
     }
 
 
     render() {
-        if (!this.props.songs) return null;
+        if (!this.props.songs[0]) return null;
+        
         if (!this.props.album) return null;
         if (!this.props.album.id) return null;
-        console.log(this.props.songObjects);
-
+        // console.log(this.handleUserSongs(), this.handleAnotherSongs() )  
         
-       
-       
 
         return (<div>
             <GreetingNav />
@@ -61,7 +63,10 @@ class ArtistShow extends React.Component {
                     </div> */}
                     <Player 
                         songs={this.props.songs}
-                        deleteAlbum={this.props.deleteAlbum}
+                        
+                        
+                       
+                        // deleteAlbum={}
                     />
                     <ul>
                        

@@ -43,7 +43,8 @@ class ArtistProfileShow extends React.Component {
     }
 
     render() {
-        // if(!this.props.albums[0]) return null;
+        if(!this.props.albums[0]) return null;
+    
         return(
            
         <div>
@@ -63,6 +64,7 @@ class ArtistProfileShow extends React.Component {
                     <div className='album-content-grid'>
                         {/* albumIndexItem */}
                         {this.handleUsersAlbums()}
+
                        
 
                     </div>

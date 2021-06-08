@@ -2,7 +2,7 @@
 
 import React from 'react';
 import ArtistIndexItem from './artist_index_item';
-import {withRouter} from 'react-router-dom'
+import {withRouter} from 'react-router-dom';
 
 
 class ArtistWeekly extends React.Component {
@@ -19,7 +19,7 @@ class ArtistWeekly extends React.Component {
     
     artistList() {
            return this.props.users.map((ele) => {
-              if(ele.username === 'LiSA' || ele.username === 'Nico Touches the Walls') {
+              if(ele.username === 'LiSA' || ele.username === 'Nico Touches the Walls' || ele.username === 'ONE OK ROCK') {
                 return  <ArtistIndexItem
                  artist={ele}
                  key={ele.id}
@@ -27,6 +27,17 @@ class ArtistWeekly extends React.Component {
                 />
               }
             });
+    }
+
+    handleArtistOfTheWeek() {
+        return this.props.users.map((ele) => {
+            if (ele.username === 'ONE OK ROCK') {
+                return (<div key={ele.id} className='artist-weekly-main'>
+                    {/* <button onClick={() => this.props.history.push(`/artist/${ele.id}`)}>go</button> */}
+                    
+                </div>)
+            }
+        });
     }
 
 
@@ -39,24 +50,7 @@ class ArtistWeekly extends React.Component {
               <div className='artist-weekly-container'>
                 <div className='artist-weekly-outer'>
                     <div className='artist-weekly-flex'>
-                        <div className='artist-weekly-main'>
-                            {/* <div className='artist-overlay'></div>
-                            <div className='artist-overlay-hover'></div> */}
-                            <a className='artist-link'></a>
-                                {/* <a>
-                                    <div className='artist-link-row'>
-                                        <div>
-                                            <div>
-                                                <h3></h3>
-                                                <p></p>
-                                                <div>
-                                                    <button>read more</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a> */}
-                        </div>
+                        {this.handleArtistOfTheWeek()}
                         <ol>
                             {this.artistList()}
                         </ol>

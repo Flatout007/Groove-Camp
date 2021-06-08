@@ -3,7 +3,8 @@ import { closeModal, openModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import LoginFormContainer from '../session_form/login_container';
 import SignupFormContainer from '../session_form/signup_container';
-import {login} from '../../actions/session_actions'
+import {login} from '../../actions/session_actions';
+import EditPhotoForm from '../session_form/edit_photo_form';
 
 import {
     Route,
@@ -69,7 +70,6 @@ import {
                  </div>
                
             </React.Fragment>
-          
             break;
         case 'login':
             component = <LoginFormContainer />;
@@ -79,7 +79,7 @@ import {
             break;
         case 'signup-artist':
             component = <SignupFormContainer artist_check={true} />; // pass in prop to form artist check: true for artist, 
-            break;
+            break;    
         default:
             return null;
     }

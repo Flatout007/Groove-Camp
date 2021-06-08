@@ -1,5 +1,7 @@
 import React from 'react';
 import {withRouter} from 'react-router-dom';
+import SongIndexItem from '../song/song_index_item';
+
 
 
 class Player extends React.Component {
@@ -18,6 +20,30 @@ class Player extends React.Component {
        
     }
 
+
+    handleFilterSongsById() {
+        return this.props.songs.filter(ele => { return (parseFloat(ele.album_id) === parseFloat(this.props.match.params.id)) })
+
+    }
+
+    handleUserSongs() {
+        return this.handleFilterSongsById().map((ele, idx, arr) => {
+            return <SongIndexItem
+               key={ele.id}
+               songs={arr}
+               song={ele}
+               playing={this.state.playing}
+            />
+        }); 
+    }
+
+    handleUserFiles() {
+        return this.handleUserSongs().map((ele) => {
+            return ele.props.songs[0];
+        });
+
+    }
+
     
     handleAudioSelection() {
        let audio = document.querySelector('.audio');
@@ -27,6 +53,7 @@ class Player extends React.Component {
 
     handlePlayPause() {
         this.audio = this.handleAudioSelection();
+        let source = this.audio.querySelector('source');
         const action = this.audio.paused ? 'play' : 'pause';
         this.setState({playing: this.audio.paused ? true : false});
         this.audio[action]();
@@ -77,7 +104,7 @@ class Player extends React.Component {
         let sec = Math.floor(seconds);
         let min = Math.floor(sec / 60);
 
-        // refactor this logic here
+        
         min = min >= 10 ? min : `0${min}`;
         sec = Math.floor(sec % 60);
         sec = sec >= 10 ? sec : `0${sec}`;
@@ -86,8 +113,6 @@ class Player extends React.Component {
 
 
     handleSrcubbing(e) {
-        e.preventDefault();
-        e.stopPropagation()
         this.audio = this.handleAudioSelection();
         let progress = document.querySelector('.progress');
         const scrubTime = (e.nativeEvent.offsetX / progress.offsetWidth) * this.audio.duration;
@@ -123,20 +148,18 @@ class Player extends React.Component {
 
 
     render() {
-        // let arr = this.props.songs.filter((song) => {return song.album_id === this.props.match.params.id}) 
-
+        if(!this.handleUserFiles()[0]) return null;
         if(!this.props.songs[0]) return null;
+        console.log(this.handleUserFiles());
 
        
-       
-
         return(
             <div className="player">
                         <audio onLoadedMetadata={this.handleDuration} preload='metadata' onTimeUpdate={this.handleSeekBar} className="player__audio audio viewer">
-                                    <source src={this.props.songs[0].audioUrl} type="audio/mpeg" data-trackid="0"/>
+                                    <source src={this.handleUserFiles()[0].audioUrl} type="audio/mpeg" data-trackid="0"/>
                         </audio>
             <div className='song-stats'>
-                        <p className="song-info__title">{this.props.songs[0].title}</p> &nbsp;
+                        <p className="song-info__title">{this.handleUserFiles()[0].title}</p> &nbsp;
 
                         {this.state.playing === false && this.state.percent === 0 ? <p className='current'>00:00</p> : <p className='current'>{this.state.current}</p>} &nbsp;
                         
@@ -149,6 +172,7 @@ class Player extends React.Component {
                         onMouseUp={() => this.setState({ mousedown: false })}
                         onMouseLeave={() => this.setState({ mousedown: false})}
                         onMouseMove={(e) => this.state.mousedown ? this.handleSrcubbing(e) : null}
+                        onClick={this.handleSrcubbing}
                         className="progress">
                         <div className="progress__filled"></div>
                         <a className='thumb'></a>
@@ -159,13 +183,17 @@ class Player extends React.Component {
                                         {this.state.playing === true ? <li className="pause-button"></li> : <li className='play'></li>}
 
                                     </div>  
-                    <button onClick={() => this.props.deleteAlbum(this.props.match.params.id)}>delete album</button>
+                   
                                     {/* {this.handleArrowsOnFirstSong()} */}
                                     <li onClick={this.handleBack} className='backward rotate-right'></li>
                                     <li onClick={this.handleNext} className='forward'></li>
                                     {/* <div onClick={this.handleBack} className="backward"><p>╹</p><p>◀</p><p>◀</p></div>
                                     <div onClick={this.handleNext} className="forward rotate-right"><p>╹</p><p>◀</p><p>◀</p></div> */}
                             
+                        </div>
+
+                        <div className='songs'>
+                            {this.handleUserSongs()}
                         </div>
             
                 </div>)
