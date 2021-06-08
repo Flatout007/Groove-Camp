@@ -26,6 +26,7 @@ import SongForm from './components/song/song_create_form_container';
 import ArtistHome from './components/artist/artist_home_container';
 import ArtistProfileIndexContainer from './components/profile/artist_profile_index_container';
 import ArtistProfileShowContainer from './components/profile/artist_profile_show_container';
+import GenreColorChanger from './components/features/genre_color_changer';
 
 import AlbumSongContainer from './components/album/album_song_container';
 
@@ -45,10 +46,12 @@ const App = () => {
                 <Route exact path="/" component={GreetingIndex}></Route>
                 <Route exact path="/" component={ArtistWeekly}></Route>
                 <Route exact path="/" component={AlbumIndex}></Route>
-                <Route exact path="/" component={SongIndex}></Route>
+                {/* <Route exact path="/" component={SongIndex}></Route> */}
                 <Route exact path="/" component={ArtistProfileIndexContainer}></Route>
                 <Route exact path='/album/songs/:id' component={AlbumSongContainer}></Route> 
-                <Route exact path="/" component={ArtistHome}></Route>
+                <Route exact path="/" component={GenreColorChanger}></Route>
+                {/* <Route exact path="/" component={ArtistHome}></Route> */}
+                
                 <Route exact path='/profile/:id' component={ArtistProfileShowContainer}></Route>
                  
           </div>)

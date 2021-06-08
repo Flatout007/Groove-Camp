@@ -38,9 +38,8 @@ class Player extends React.Component {
     }
 
     handleUserFiles() {
-        return this.handleUserSongs().map((ele) => {
-            return ele.props.songs[0];
-        });
+        return this.handleFilterSongsById();
+           
 
     }
 
@@ -72,7 +71,7 @@ class Player extends React.Component {
         let audioSource = this.audio.querySelector('source');
         const currentTrackId = parseInt(audioSource.dataset.trackid);
         const prevTrackId = currentTrackId <= 0 ? (0).toString() : (currentTrackId - 1).toString();
-        const prevTrack = this.props.songs[prevTrackId];
+        const prevTrack = this.handleUserFiles()[prevTrackId];
         this.handleTrackChange(prevTrack);
     }
 
@@ -81,8 +80,8 @@ class Player extends React.Component {
         this.audio = this.handleAudioSelection();
         let audioSource = this.audio.querySelector('source');
         const currentTrackId = parseInt(audioSource.dataset.trackid);
-        const nextTrackId = currentTrackId === this.props.songs.length - 1 || this.props.songs.length === 1 ? '0' : (currentTrackId + 1).toString();
-        const nextTrack = this.props.songs[nextTrackId];
+        const nextTrackId = currentTrackId === this.handleUserFiles().length - 1 || this.handleUserFiles().length === 1 ? '0' : (currentTrackId + 1).toString();
+        const nextTrack = this.handleUserFiles()[nextTrackId];
         this.handleTrackChange(nextTrack);
     }
 
@@ -92,7 +91,7 @@ class Player extends React.Component {
         this.audio = this.handleAudioSelection();
         let audioSource = this.audio.querySelector('source');
         audioSource.setAttribute('src', track.audioUrl);
-        audioSource.dataset.trackid = this.props.songs.indexOf(track);
+        audioSource.dataset.trackid = this.handleUserFiles().indexOf(track);
         this.audio.load();
 
 
@@ -150,7 +149,7 @@ class Player extends React.Component {
     render() {
         if(!this.handleUserFiles()[0]) return null;
         if(!this.props.songs[0]) return null;
-        console.log(this.handleUserFiles());
+        console.log(this.handleUserFiles)
 
        
         return(
