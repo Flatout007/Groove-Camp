@@ -10,6 +10,22 @@ class SongIndexItem extends React.Component {
     }
 
 
+    componentDidMount() {
+        this.props.requestUser(this.props.song.artist_id).then((res) => {
+            if (document.readyState === 'complete') {
+                let name = document.querySelector('.name');
+                name.innerHTML = res['user'].username;
+                let li = document.querySelector('.album-header-img');
+                li.style.background = `url(${res['user'].photo}) no-repeat 50%`;
+                li.backgroundSize = 'contain';
+            }
+
+        });
+        
+    }
+
+
+
     handleSongsPlayPause() {
         let audio = document.querySelector('.audio');
         let src = audio.querySelector('source').src.split('/')[document.querySelector('source').src.split('/').length - 1];
@@ -25,12 +41,13 @@ class SongIndexItem extends React.Component {
 
     render() {
         if (!this.props.song) return <p>Loading</p>;
-        
+
        
         return (        
             <li>
                         <div onClick={this.handleSongsPlayPause} className='play'></div>
                         <p>{this.props.song.title}</p>
+                        <p className={'name'}></p>
             </li>
         )
     }

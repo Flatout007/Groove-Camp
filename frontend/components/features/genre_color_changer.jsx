@@ -1,11 +1,11 @@
 import React from 'react';
 
 
-
 class GenreColorChanger extends React.Component {
     constructor(props) {
         super(props);
-       
+
+
         this.handleDefaultColorChange = this.handleDefaultColorChange.bind(this);
         this.handleElectronicColorChange = this.handleElectronicColorChange.bind(this);
         this.handleRockColorChange = this.handleRockColorChange.bind(this);
@@ -82,9 +82,7 @@ class GenreColorChanger extends React.Component {
         selling.style.backgroundColor = 'rgb(148, 168, 165)';
         disc.style.backgroundColor = 'rgb(143, 153, 151)';
     }
-
     
-
 
     handlePopColorChange() {
         let genre = document.querySelector('.genre-grid');
@@ -96,9 +94,6 @@ class GenreColorChanger extends React.Component {
         selling.style.backgroundColor = 'rgb(193, 21, 121)';
         disc.style.backgroundColor = 'rgb(170, 24, 109)';
     }
-
-    
-
 
    
     handleFolkColorChange() {
@@ -112,8 +107,6 @@ class GenreColorChanger extends React.Component {
         disc.style.backgroundColor = 'rgb(109, 71, 123)';
 
     }
-
-
 
 
     handlePunkColorChange() {
@@ -219,42 +212,41 @@ class GenreColorChanger extends React.Component {
                         <div className='discover'><h2>Discover</h2></div>
                         <div className='genre-color-changer'>
                                     <div className='genre-grid'>
-                                            <ol>
-                                                        <li onClick={this.handleDefaultColorChange}><p>all</p></li>
-                                                        <li onClick={this.handleElectronicColorChange}><p>electronic</p></li>
-                                                        <li onClick={this.handleRockColorChange}><p>rock</p></li>
-                                                        <li onClick={this.handleMetalColorChange}><p>metal</p></li>
-                                                        <li onClick={this.handleAlternativeColorChange}><p>alternative</p></li>
-                                                        <li onClick={this.handleHipHopColorChange}><p>hip-hop/rap</p></li>
-                                                        <li onClick={this.handleExperimentalColorChange}><p>experimental</p></li>
-                                                        <li onClick={this.handlePunkColorChange}><p>punk</p></li>
-                                                        <li onClick={this.handleFolkColorChange}><p>folk</p></li>
-                                                        <li onClick={this.handlePopColorChange}><p>j-pop</p></li>
-                                                        <li onClick={this.handleAmbientColorChange}><p>ambient</p></li>
-                                                        <li onClick={this.handleSoundTrackColorChange}><p>soundtrack</p></li>
-                                                        <li onClick={this.handleWorldColorChange}><p>world</p></li>
-                                                        <li onClick={this.handleJazzColorChange}><p>jazz</p></li>
-                                                        <li onClick={this.handleAcousticColorChange}><p>acoustic</p></li>
+                                                <ol>
+                                                            <li onClick={this.handleDefaultColorChange}><p>all</p></li>
+                                                            <li onClick={this.handleElectronicColorChange}><p>electronic</p></li>
+                                                            <li onClick={this.handleRockColorChange}><p>rock</p></li>
+                                                            <li onClick={this.handleMetalColorChange}><p>metal</p></li>
+                                                            <li onClick={this.handleAlternativeColorChange}><p>alternative</p></li>
+                                                            <li onClick={this.handleHipHopColorChange}><p>hip-hop/rap</p></li>
+                                                            <li onClick={this.handleExperimentalColorChange}><p>experimental</p></li>
+                                                            <li onClick={this.handlePunkColorChange}><p>punk</p></li>
+                                                            <li onClick={this.handleFolkColorChange}><p>folk</p></li>
+                                                            <li onClick={this.handlePopColorChange}><p>j-pop</p></li>
+                                                            <li onClick={this.handleAmbientColorChange}><p>ambient</p></li>
+                                                            <li onClick={this.handleSoundTrackColorChange}><p>soundtrack</p></li>
+                                                            <li onClick={this.handleWorldColorChange}><p>world</p></li>
+                                                            <li onClick={this.handleJazzColorChange}><p>jazz</p></li>
+                                                            <li onClick={this.handleAcousticColorChange}><p>acoustic</p></li>
 
-                                            </ol>
+                                                </ol>
                                     </div>
                                     <div className='selling-grid'>
-                                            <ol>
-                            <li><p>any format</p></li>
-                            <li><p>digital</p></li>
-                            <li><p>artist-recommended</p></li>
-                                            </ol>
+                                                <ol>
+                                                            <li><p>any format</p></li>
+                                                            <li><p>digital</p></li>
+                                                            <li><p>artist-recommended</p></li>
+                                                </ol>
                                     </div>
                                     <div className='disc-grid'>
-                                            <ol>
-
-                            <li><p>best-selling</p></li>
-                            <li><p>new arrivals</p></li>
-                            <li><p>viynl</p></li>
-                            <li><p>compact disc</p></li>
-                            <li><p>cassette</p></li>
-                                                
-                                            </ol>
+                                                <ol>
+                                                            <li><p>best-selling</p></li>
+                                                            <li><p>new arrivals</p></li>
+                                                            <li><p>viynl</p></li>
+                                                            <li><p>compact disc</p></li>
+                                                            <li><p>cassette</p></li>
+                                                    
+                                                </ol>
                                     </div>
                         
                         </div>

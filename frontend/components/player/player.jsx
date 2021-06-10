@@ -22,9 +22,10 @@ class Player extends React.Component {
 
 
     handleFilterSongsById() {
-        return this.props.songs.filter(ele => { return (parseFloat(ele.album_id) === parseFloat(this.props.match.params.id)) })
+        return this.props.songs.filter(ele => { return (parseFloat(ele.album_id) === parseFloat(this.props.match.params.id)) });
 
     }
+
 
     handleUserSongs() {
         return this.handleFilterSongsById().map((ele, idx, arr) => {
@@ -33,14 +34,17 @@ class Player extends React.Component {
                songs={arr}
                song={ele}
                playing={this.state.playing}
+               requestUser={this.props.requestUser}
+               artist={this.props.artist}
+            //    requestAllUsers={this.props.requestAllUsers}
             />
         }); 
     }
 
+
     handleUserFiles() {
         return this.handleFilterSongsById();
-           
-
+  
     }
 
     
@@ -149,9 +153,9 @@ class Player extends React.Component {
     render() {
         if(!this.handleUserFiles()[0]) return null;
         if(!this.props.songs[0]) return null;
-        console.log(this.handleUserFiles)
+        // if (!this.props.songs[0]) return null;
+        
 
-       
         return(
             <div className="player">
                         <audio onLoadedMetadata={this.handleDuration} preload='metadata' onTimeUpdate={this.handleSeekBar} className="player__audio audio viewer">
@@ -163,9 +167,7 @@ class Player extends React.Component {
                         {this.state.playing === false && this.state.percent === 0 ? <p className='current'>00:00</p> : <p className='current'>{this.state.current}</p>} &nbsp;
                         
                         <p className='slash'>/</p> &nbsp;
-                        <p className="duration">0:30</p>
-                        
-                       
+                        <p className="duration">0:30</p>       
             </div>
             <div        onMouseDown={() => this.setState({ mousedown: true })} 
                         onMouseUp={() => this.setState({ mousedown: false })}
@@ -178,9 +180,7 @@ class Player extends React.Component {
             </div>
                         <div className="player-controls">
                                     <div onClick={this.handlePlayPause} className="play-container">
-
-                                        {this.state.playing === true ? <li className="pause-button"></li> : <li className='play'></li>}
-
+                                                {this.state.playing === true ? <li className="pause-button"></li> : <li className='play'></li>}
                                     </div>  
                    
                                     {/* {this.handleArrowsOnFirstSong()} */}
@@ -190,7 +190,6 @@ class Player extends React.Component {
                                     <div onClick={this.handleNext} className="forward rotate-right"><p>╹</p><p>◀</p><p>◀</p></div> */}
                             
                         </div>
-
                         <div className='songs'>
                             {this.handleUserSongs()}
                         </div>

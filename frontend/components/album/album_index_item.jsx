@@ -9,12 +9,11 @@ class AlbumIndexItem extends React.Component {
         // this.deleteAlbum = this.deleteAlbum.bind(this);
     }
 
+    
     // deleteAlbum(e) {    
     //     this.props.deleteAlbum(this.props.album.id);
     // }
 
-    
-    
 
     render() {
         
@@ -22,14 +21,13 @@ class AlbumIndexItem extends React.Component {
 
         return (
         <React.Fragment>
-            <li className='album-li' onClick={() => this.props.history.push(`/album/${this.props.album.id}`)}>
-              
+            <li className='album-li' onClick={() => this.props.history.push(`/album/songs/${this.props.album.id}`)}>       
                {/* <Link to={`/`}>albums</Link>  */}
                {/* <audio controls>
                     <source src="https://groovecamp-seed.s3.us-east-2.amazonaws.com/Rising+Hope.mp3" type="audio/mp3"/>
                </audio> */}
               {/* <button onClick={this.deleteAlbum}>delete this album</button>  */}
-            <div className='album-stats'>
+               <div className='album-stats'>
                 {/* <h4>{this.props.album.title}</h4> */}
                 <h5>
             

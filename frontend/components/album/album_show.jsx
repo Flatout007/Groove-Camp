@@ -4,6 +4,8 @@
 import React from 'react';
 import AlbumIndexItem from './album_index_item';
 import GreetingNav from '../greeting/greeting_container';
+import AlbumShowItem from '../album/album_show_item';
+
 import {withRouter, Link} from 'react-router-dom';
 
 class AlbumShow extends React.Component {
@@ -13,43 +15,80 @@ class AlbumShow extends React.Component {
     }
 
 
-    componentDidMount() {
+    componentDidMount() {      
+       
+        this.props.requestAlbum(this.props.match.params.id);
+       
+        setTimeout(() => this.props.requestAlbums(), 500);
 
-        //   this.props.requestAllUsers().then(() => {this.props.store.entities.users[this.props.match.params.id]})
-        this.props.requestAlbum(this.props.match.params.id)
-        //return this.props.requestUser(this.props.artist.id)
+        // this.props.requestUser(this.props.album.artist_id);
+    //    console.log(this.props.artist_id
+        
+        
+        // .then((res) => {
+        //     // if(document.readyState === 'complete') {
+        //     //     let li = document.querySelector('.album-header-img');
 
+        //     //     li.style.background = `url(${res['user'].photo})`
+        //     // }     
+        //     console.log(res);
+        // });
+    }
+
+
+    
+
+    handleFilterAlbums() {
+        // console.log(this.props.album.artist_id)
+        return this.props.albums.filter((ele) => { return ele.artist_id === this.props.album.artist_id})
+    }
+
+
+    handleAlbumItems() {
+       return this.handleFilterAlbums().map((ele) => {
+           return <AlbumShowItem
+                key={ele.id}
+                album={ele}
+                fetchUser={this.props.requestUser}
+           />
+
+        }) 
     }
 
 
     render() {
-        if (!this.props.album) return <p>Loading</p>;
-       
+        if (!this.props.album) return null;
+        if (!this.props.albums[0]) return null;
+      
+
+
+        console.log(this.handleFilterAlbums())
+
         
         return (<div>
             <GreetingNav/>
             <div className='album-header'>
-                    <li className='album-header-img'></li>
-                    <div className='album-header-nav'>
-                            <ol>
-                                    {/* <li>music</li>
-                                <li onClick={() => this.props.history.push(`/album/songs/${this.props.album.id}`)}>community</li> */}
-                                <li><Link to={`/album/songs/${this.props.album.id}`}>music</Link></li>
-                                        <li><p>community</p></li>
-                            </ol>
-                    
-                    </div>
-                    <div className='album-content'>
-                            <div className='album-content-grid'>
-                                    <li></li>
-                                    <li></li>
-                                    <li></li>
-                            </div>
-                            <div className='album-profile-box'>
-                                
-                            </div>
-                    </div> 
+                        <li className='album-header-img'></li>
+                                    <div className='album-header-nav'>
+                                                <ol>                 
+                                                            <li><Link to={`/album/songs/${this.props.album.id}`}>music</Link></li>
+                                                            <li><p>community</p></li>
+                                                </ol>
+                                    
+                                    </div>
+                                    <div className='album-content'>
+                                                <div className='album-content-grid'>
+                                                
+                                                            {/* <li></li>
+                                                            <li></li>
+                                                            <li></li> */}
 
+                                                            {this.handleAlbumItems()}
+                                                </div>
+                                                <div className='album-profile-box'>
+                                                    
+                                                </div>
+                                    </div> 
             </div>
             
             {/* content div */}
