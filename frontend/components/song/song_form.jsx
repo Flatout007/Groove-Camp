@@ -34,9 +34,6 @@ class SongForm extends React.Component {
   
     }
 
-    albumDropDown() {
-        
-    }
 
     handleFile(e) {
         this.setState({audioUrl: e.currentTarget.files[0]})
@@ -62,11 +59,6 @@ class SongForm extends React.Component {
 
 
     render() {
-        
-
-      
-        
-
        
         return (
             <div>

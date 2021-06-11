@@ -14,7 +14,7 @@ import {
 class SessionForm extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { username: '', password: '', artist_check: this.props.artist_check, photo: null}
+        this.state = { bio: "", username: '', password: '', artist_check: this.props.artist_check, photo: null}
           
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);   
@@ -26,10 +26,11 @@ class SessionForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        let obj = {username: this.state.username, password: this.state.password, artist_check: this.props.artist_check}
+        let obj = {bio: this.state.bio, username: this.state.username, password: this.state.password, artist_check: this.props.artist_check};
         
         const formData = new FormData();
         formData.append('user[username]', this.state.username);
+        formData.append('user[bio]', this.state.bio);
         formData.append('user[password]', this.state.password);
         formData.append('user[artist_check]', this.props.artist_check);
 
@@ -103,7 +104,8 @@ class SessionForm extends React.Component {
 
                     <br/>
 
-                    <input onChange={this.handlePhotoFile} type="file"/>
+
+                       {this.props.formType !== 'login' ? <input onChange={this.handlePhotoFile} type="file" /> : <React.Fragment></React.Fragment>}
 
                     <br/>
 
@@ -112,6 +114,10 @@ class SessionForm extends React.Component {
                     </label> 
                      
                     <button onClick={this.handleSubmit} type="submit" className='session-submit-button'>Submit</button>     
+
+                       {this.props.formType !== 'login' ? <textarea onChange={this.handleChange('bio')} name="" id="" cols="30" rows="10" value={this.state.bio} placeholder='add a bio'></textarea> 
+                       : <React.Fragment></React.Fragment>}
+                    
                 </form>
 
             </div>)
@@ -120,7 +126,6 @@ class SessionForm extends React.Component {
     }
 
     render() {
-        
         return(
             
             <div>   

@@ -4,7 +4,7 @@ class Api::AlbumsController < ApplicationController
     end
 
     def create
-        @album = Album.new(params.require(:album).permit(:title, :artist_id))
+        @album = Album.new(params.require(:album).permit(:title, :artist_id, :photo))
        
         if @album.save === false
             render json: @user.errors.full_messages, status: 422
@@ -24,7 +24,7 @@ class Api::AlbumsController < ApplicationController
 
     def update
      @album = Album.find_by(id: params[:id])
-      if @album.update(params.require(:album).permit(:title, :artist_id))
+      if @album.update(params.require(:album).permit(:title, :artist_id, :photo))
        render 'api/albums/show'
      else
       render json: @album.errors.full_messages, status: 422

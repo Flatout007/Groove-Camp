@@ -1,8 +1,7 @@
 class Api::UsersController < ApplicationController
 
     def create
-        
-        @user = User.new(params.require(:user).permit(:username, :password, :artist_check, :photo))
+        @user = User.new(params.require(:user).permit(:username, :password, :artist_check, :photo, :bio))
       
         if @user.save === false 
             render json: @user.errors.full_messages, status: 422

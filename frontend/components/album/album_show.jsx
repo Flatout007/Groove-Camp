@@ -16,23 +16,11 @@ class AlbumShow extends React.Component {
 
 
     componentDidMount() {      
-       
         this.props.requestAlbum(this.props.match.params.id);
        
         setTimeout(() => this.props.requestAlbums(), 500);
 
-        // this.props.requestUser(this.props.album.artist_id);
-    //    console.log(this.props.artist_id
-        
-        
-        // .then((res) => {
-        //     // if(document.readyState === 'complete') {
-        //     //     let li = document.querySelector('.album-header-img');
-
-        //     //     li.style.background = `url(${res['user'].photo})`
-        //     // }     
-        //     console.log(res);
-        // });
+      
     }
 
 
