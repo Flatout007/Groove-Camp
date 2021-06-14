@@ -40,25 +40,38 @@ class ArtistWeekly extends React.Component {
         });
     }
 
+    handlePlayer() {
+
+    }
+
 
     render() {
         console.log(this.props.history)
         if(!this.props.users) return null;
         return(
-          <div>
-            <div className='artist-weekly'>
-              <div className='artist-weekly-container'>
-                <div className='artist-weekly-outer'>
-                    <div className='artist-weekly-flex'>
-                        {this.handleArtistOfTheWeek()}
-                        <ol>
-                            {this.artistList()}
-                        </ol>
-                    </div>
-                </div>
-             </div>
-           </div>
-        </div>
+            <div>
+                        <div className='artist-weekly'>
+                                    <div className='artist-weekly-container'>
+                                                <div className='artist-weekly-outer'>
+                                                <div className='artist-weekly-flex'>
+
+                                                <div className='weekly-player-container'>
+                                                <li className='weekly-player'>▶</li>
+                                                            <div className='weekly-player-text'></div>
+                                                </div>
+
+                                                            {this.handleArtistOfTheWeek()}
+
+                                                            <ol>
+
+                                                                        {this.artistList()}
+
+                                                            </ol>
+                                                </div>
+                                                </div>
+                                    </div>
+                        </div>
+            </div>
         );
     }
 };

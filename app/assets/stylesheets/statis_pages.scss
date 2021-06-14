@@ -412,6 +412,7 @@ artist weekly */
    padding-top: 540px;
   background: url('https://www.jame-world.com/media/image/2008-05/_16-9_2288.jpg') 100% no-repeat;
   background-size:contain; 
+  position: relative;
 }
 
 // .artist-weekly-img-1 {
@@ -1216,8 +1217,46 @@ h4 {
 }
 
 
-
-
 .genre-container {
   padding-bottom: 200px ;
+}
+
+
+.weekly-player {
+  background-color: #408ea3;
+  height: 100px;
+  width: 135px;
+  list-style: none;
+  position: absolute;
+  color: white;
+  text-align: center;
+
+   
+}
+
+
+.weekly-player-text {
+  height: 100px;
+  width: 500px;
+  background-color: #818285;
+  position: absolute;
+  left: 131px;
+
+
+    
+
+}
+
+.weekly-player-container {
+  z-index: 1;
+  position: relative;
+  // height: 200px;
+  // width: 500px;
+  top: 420px;
+  left: 200px;
+
+   
+
+
+
 }

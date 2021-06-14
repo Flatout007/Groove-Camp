@@ -17,7 +17,6 @@ class AlbumForm extends React.Component {
             console.log(this.state);
         }
 
-        
     }
 
 
@@ -59,24 +58,11 @@ class AlbumForm extends React.Component {
             processData: false
         }).then(() => window.location.reload());
 
-        // this.props.submitAlbum(this.state);
-
-        // let formData = new FormData;
-        // formData.append('album[title]', this.state.title);
-        // formData.append('album[artist_id]', this.state.artist_id);
-        // formData.append('album[photo]', this.state.photo);
-        // this.props.submitAlbum(formData);
-        
-        
+      
     }
 
 
     render() {
-
-       
-
-       
-      
         return (
             <div>
                 <h1>{this.props.formType}</h1>
