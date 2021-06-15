@@ -1223,27 +1223,23 @@ h4 {
 
 
 .weekly-player {
-  background-color: #408ea3;
+  background-color:cornflowerblue;
   height: 100px;
   width: 135px;
   list-style: none;
   position: absolute;
-  color: white;
-  text-align: center;
+  text-align: center; 
+  background-size: contain;
 
-   
 }
 
 
 .weekly-player-text {
   height: 100px;
   width: 500px;
-  background-color: #818285;
+  background-color: #eee;
   position: absolute;
   left: 131px;
-
-
-    
 
 }
 
@@ -1255,8 +1251,40 @@ h4 {
   top: 420px;
   left: 200px;
 
-   
+}
 
+
+.pause-icon {
+  width: 8px;
+  height: 32px;
+  border-right: 8px solid #eee;
+  border-left: 8px solid #eee;
+  position: absolute;
+  // top: 33px;
+  // left: 54px;
+
+    top: 31px;
+    left: 52px;
+    right: 0px;
+    bottom: 0px;
+
+
+}
+
+.play-icon {
+   width: 0;
+   height: 0;
+   border-top: 16px solid transparent;
+   border-left: 24px solid #eee;
+   border-bottom: 16px solid transparent;
+   position: absolute;
+   z-index: 1;
+  
+   
+    top: 31px;
+    left: 52px;
+    right: 0px;
+    bottom: 0px;
 
 
 }

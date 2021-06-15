@@ -194,7 +194,7 @@ class Player extends React.Component {
                             {this.handleUserSongs()}
                         </div>
             
-                </div>)
+            </div>)
                 
             
 
