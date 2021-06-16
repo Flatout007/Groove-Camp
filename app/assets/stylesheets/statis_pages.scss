@@ -404,12 +404,13 @@ artist weekly */
   height: 540px;
   display: flex;
   justify-content: center;
+  position: relative;
   
 }
 
 .artist-weekly-main {
-   width: 1066px;
-   padding-top: 540px;
+  width: 1066px;
+  padding-top: 540px;
   background: url('https://www.jame-world.com/media/image/2008-05/_16-9_2288.jpg') 100% no-repeat;
   background-size:contain; 
   position: relative;
@@ -1286,5 +1287,54 @@ h4 {
     right: 0px;
     bottom: 0px;
 
+
+}
+
+.weekly-player-text {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.weekly-player-text h2 {
+  font-size: 25px;
+  font-weight: 400;
+  padding-left: 10px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+
+}
+
+.weekly-player-text p:not(.weekly-player-text p:nth-of-type(2)) {
+  // overflow: auto;
+  word-wrap: break-word;
+  padding-left: 10px;
+  padding-bottom: 3px;
+  font-weight: 200;
+  font-size: 14px;
+}
+
+.weekly-player-text p:nth-of-type(2)  {
+  color:  #999;
+  padding-left: 10px;  
+  font-size: 11px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+
+.artist-weekly-overlay {
+  width: 1066px;
+  position: absolute;
+  z-index: 1;
+  height: 540px;
+  left: 106px;
+  width: 961px;
+  top: 0px;
+}
+
+.artist-weekly-overlay:hover {
+//  background-color: seagreen;
+    background: rgba(255, 255, 255, 0.12);
+    // opacity: 0;
+    transition: opacity 0.1s ease-out;
 
 }

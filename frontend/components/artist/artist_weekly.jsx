@@ -6,12 +6,6 @@ import {withRouter} from 'react-router-dom';
 
 
 class ArtistWeekly extends React.Component {
-    componentDidMount() {
-       this.props.requestAllUsers();
-
-    }
-
-
     constructor(props) {
         super(props);
         this.state = { playing: false };
@@ -19,7 +13,33 @@ class ArtistWeekly extends React.Component {
 
         this.handlePlayPause = this.handlePlayPause.bind(this);
         this.handleUserSong = this.handleUserSong.bind(this);
+        this.handleStats = this.handleStats.bind(this);
+        this.handleUserId = this.handleUserId.bind(this);
     }
+   
+
+    componentDidMount() {
+       this.props.requestAllUsers();
+      
+    
+       
+    }
+
+    componentDidUpdate() {
+       
+    }
+
+
+
+    handleStats() {
+        // setTimeout(() => document.querySelector('.weekly-player-text h2').innerHTML = this.handleUserSong()[0].title, 1000) 
+        // document.querySelector('.weekly-player-text h2').innerHTML = this.handleUserSong()[0].title
+
+        // window.addEventListener('load', () => document.querySelector('.weekly-player-text h2').innerHTML = this.handleUserSong()[0].title)
+
+    }
+
+
 
 
     // handlePlayPause() {
@@ -79,11 +99,6 @@ class ArtistWeekly extends React.Component {
 
 
         if(document.readyState === 'complete' && source.src) { 
-           
-            
-           
-           
-           
            audio[action]();
             //    audio[action]();
         }
@@ -124,46 +139,48 @@ class ArtistWeekly extends React.Component {
     render() {
         if(!this.props.users) return null;
         if (!this.handleUserSong()[0]) return null;
-
-        console.log(this.handleUserSong())
-       
-
-       
-
-
+        if (!this.handleUserId) return null;
+        
+        
         return(
             <div>
                         <div className='artist-weekly'>
                                     <div className='artist-weekly-container'>
-                                                <audio preload='metadata' className="player__audio audio viewer">
-                            <source src={this.handleUserSong()[0].audioUrl} type="audio/mpeg" data-trackid="0" />
+                                                <audio   
+                                                            onLoadedMetadata={() => {
+                                                                document.querySelector('.weekly-player-text h2').innerHTML = this.handleUserSong()[0].title;
+                                                                let name = document.querySelector('.weekly-player-text p:nth-of-type(2)');
+                                                                this.props.requestUser(this.handleUserId()).then((res) => name.innerHTML = `by ${res.user.username}`);
+                                                            }} 
+                                                            preload='metadata' 
+                                                            className="player__audio audio viewer">
+                                                            <source src={this.handleUserSong()[0].audioUrl} type="audio/mpeg" data-trackid="0" />
                                                 </audio>
-                                        
                                                 <div className='artist-weekly-outer'>
-                                                <div className='artist-weekly-flex'>
-                                                <div className='weekly-player-container'>
-                                                <li className='weekly-player'>
+                                                            <div className='artist-weekly-flex'>
+                                                                        <div className='artist-weekly-overlay'></div>
+                                                                        <div className='weekly-player-container'>
+                                                                                    <li onClick={this.handlePlayPause} className='weekly-player'>
 
-                                                            { this.state.playing === false ? <span onClick={this.handlePlayPause} className='play-icon'></span> : <span onClick={this.handlePlayPause} className='pause-icon'></span> }
+                                                                                                { this.state.playing === false ? <span className='play-icon'></span> : <span className='pause-icon'></span> }
 
-                                                            
-                                                
-                                                </li>
-                                                            <div className='weekly-player-text'>
-                                                                <h2>{/*song title*/}</h2>
-                                                                <h5>{/*bio trim*/}</h5>
-                                                                <p>{/*artist name*/}</p>
+                                                                                    </li>
+                                                                                    <div className='weekly-player-text'>
+                                                                                                <h2>{/*song title*/}</h2>
+                                                                                                <p>{/*bio trim*/}ispumispumispumispumispumispumispumispumispumispumispumispumispumispumispumispumispumispumispumispumis</p>
+                                                                                                <p>{/*artist name*/}</p>
+                                                                                    </div>
+                                                                                                {this.handleStats()}
+                                                                        </div>
+
+                                                                        { this.handleArtistOfTheWeek() }
+
+                                                                        <ol>
+
+                                                                                    { this.artistList() }
+
+                                                                        </ol>
                                                             </div>
-                                                </div>
-
-                                                            { this.handleArtistOfTheWeek() }
-
-                                                            <ol>
-
-                                                                        { this.artistList() }
-
-                                                            </ol>
-                                                </div>
                                                 </div>
                                     </div>
                         </div>
