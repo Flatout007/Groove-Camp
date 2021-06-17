@@ -139,7 +139,7 @@ class ArtistWeekly extends React.Component {
     render() {
         if(!this.props.users) return null;
         if (!this.handleUserSong()[0]) return null;
-        if (!this.handleUserId) return null;
+        if (!this.handleUserId()) return null;
         
         
         return(
@@ -170,7 +170,7 @@ class ArtistWeekly extends React.Component {
                                                                                                 <p>{/*bio trim*/}ispumispumispumispumispumispumispumispumispumispumispumispumispumispumispumispumispumispumispumispumis</p>
                                                                                                 <p>{/*artist name*/}</p>
                                                                                     </div>
-                                                                                                {this.handleStats()}
+                                                                                                { this.handleStats() }
                                                                         </div>
 
                                                                         { this.handleArtistOfTheWeek() }

@@ -660,10 +660,25 @@ h4 {
 
 .album-stats {
   position:absolute;
-  width: 150px;
-  height: 150px;
-  margin-top: 120px;
+  width: 126px;
+  height: 98px;
+  margin-top: 126px;
 
+}
+
+
+.album-stats > * {
+  padding-left: 10px;
+}
+
+
+.album-stats:hover {
+  transition: 
+    background-color ease-out 0.3s,
+    margin ease-out 0.2s,
+    padding ease-out 0.2s;
+    background-color: #71727210;
+  
 }
 
 .album-stats h5 {
@@ -1231,6 +1246,7 @@ h4 {
   position: absolute;
   text-align: center; 
   background-size: contain;
+  cursor: pointer;
 
 }
 
@@ -1332,9 +1348,71 @@ h4 {
 }
 
 .artist-weekly-overlay:hover {
-//  background-color: seagreen;
-    background: rgba(255, 255, 255, 0.12);
-    // opacity: 0;
-    transition: opacity 0.1s ease-out;
-
+  background: rgba(255, 255, 255, 0.12);
+  transition: opacity 0.1s ease-out;
 }
+
+.artist-weekly-outer ol {
+  position: relative;
+}
+
+.artist-weekly-outer ol li:nth-child(1) .artist-item-overlay {
+  height: 179px;
+  z-index: 1;
+  position: absolute;
+  width: 372px;
+  top:0
+  
+}
+
+.artist-weekly-outer ol li:nth-child(2) .artist-item-overlay {
+  height: 179px;
+  z-index: 1;
+  position: absolute;
+  width: 372px;
+  top: 181px;
+}
+
+.artist-weekly-outer ol li:nth-child(3) .artist-item-overlay {
+  height: 179px;
+  z-index: 1;
+  position: absolute;
+  width: 372px;
+  top: 360px;
+}
+
+
+.artist-weekly-outer ol li .artist-item-overlay:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transition: opacity 0.1s ease-out;
+}
+
+.artist-item-text {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #eee;
+  margin-top: 110px;
+  margin-left: 11px; 
+}
+
+.artist-item-text h2 {
+  font-size: 18px;
+  font-weight: 400;
+   
+}
+
+.artist-item-text p {
+  overflow: auto;
+  word-wrap: break-word;
+  
+  font-weight: 200;
+  font-size: 14px;
+   
+}
+
+// .artist-item-text p:nth-of-type(2)  {
+//   color:  #999;
+//   padding-left: 10px;  
+//   font-size: 11px;
+// }
+
+
