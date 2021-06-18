@@ -12,78 +12,34 @@ class ArtistIndexItem extends React.Component {
         super(props);
         this.state = { playing: false };
         this.handleFilterSongs = this.handleFilterSongs.bind(this);
+        this.handleArtistBio = this.handleArtistBio.bind(this);
         
         
     }
     
     componentWillMount() {
-        // this.handleFilterSongs();
-        // let audio = document.querySelector('.audio');
-        // let source = audio.querySelector('source');
-
-        // setTimeout(() => {
-        //     source.src = this.handleFilterSongs()[0].audioUrl;
-        //     audio.load();
-
-        // }, 200);
-
-        // this.props.fetchUser(this.handleFilterSongs()[0].artist_id);
-        // let audio = document.querySelector('.audio');
-        // let source = audio.querySelector('source');
-        // let songTitle = document.querySelector('.weekly-player-text h2');
-        // let bio = document.querySelector('.weekly-player-text h5');
-        // let artistName = document.querySelector('.weekly-player-text p');
-
-        
-        // if(document.readyState === 'complete') {
-            
-            
-        //     setTimeout(() => {source.src = this.handleFilterSongs()[0].audioUrl; 
-        //         audio.load();
-        //         songTitle.innerHTML = this.handleFilterSongs()[0].title;
-
-        //     }, 200);
-            
-
-            
-        //     // bio.innerHTML = this.handleFilterSongs()[0].title;
-        //     // artistName.innerHTML = this.handleFilterSongs()[0].title;
+       
+    }
 
 
-        //     // fetch user by this.handleFilterSongs()[0].artist_id
-        //     // then set html for bio and artistName
-
-        // }
-
-    //  console.log(this.props.artist.id)
+    handleArtistBio() {
+        return this.props.artist.bio.split('.')[0];
     }
 
     
 
     handleFilterSongs() {
-            return this.props.songs.filter((ele) => {
-                return ele.artist_id === this.props.artist.id;
-            });
+        return this.props.songs.filter((ele) => {
+            return ele.artist_id === this.props.artist.id;
+        });
     }
+
+    
 
     
     render() {
         if(!this.handleFilterSongs()[0]) return null;
 
-        
-        // let songTitle = document.querySelector('.weekly-player-text h2');
-        // let bio = document.querySelector('.weekly-player-text h5');
-        // let artistName = document.querySelector('.weekly-player-text p');
-
-        // songTitle.innerHTML = this.handleFilterSongs()[0].title;
-       
-
-        
-
-        
-
-
-        // if (document.readyState !== 'complete') return null;
 
         return(
           
@@ -92,7 +48,7 @@ class ArtistIndexItem extends React.Component {
                                     <div className='artist-item-text'>
                                         <div className='artist-item-overlay'></div>
                                             <h2 className='artist-name'>{this.props.artist.username}</h2>
-                                            <p>{/*bio trim*/}ispumispumispumispumispumispumispumispumispumispumispumispumispumispumispumispumispumispumispumispumis</p>
+                                            <p>{this.handleArtistBio()}</p>
                                     </div>
                                     <div className='artist-item-overlay'></div>
                                 {/* <div className='artist-item-text'>

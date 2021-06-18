@@ -14,6 +14,7 @@ class ArtistWeekly extends React.Component {
         this.handlePlayPause = this.handlePlayPause.bind(this);
         this.handleUserSong = this.handleUserSong.bind(this);
         this.handleUserId = this.handleUserId.bind(this);
+        this.handleTime = this.handleTime.bind(this);
     }
    
 
@@ -21,10 +22,6 @@ class ArtistWeekly extends React.Component {
        this.props.requestAllUsers();
 
         
-    }
-
-    componentDidUpdate() {
-       
     }
 
     
@@ -46,26 +43,25 @@ class ArtistWeekly extends React.Component {
     }
 
 
-    handleSongLoad() {
+    handleTime() {
         let audio = document.querySelector('.audio');
         let source = audio.querySelector('source');
 
-        source.src = this.handleUserSong()[0].audioUrl;
-
-        return audio.load();
+        if (document.readyState === 'complete' && source.src) {
+            this.setState({ audioTime: audio.currentTime });
+            if(audio.currentTime === audio.duration) this.setState({ playing: false });
+        }
     }
 
+
     handlePlayPause() {
-       
         let audio = document.querySelector('.audio');
         let source = audio.querySelector('source');
         const action = audio.paused ? 'play' : 'pause';
         this.setState({ playing: audio.paused ? true : false });
 
-
-        if(document.readyState === 'complete' && source.src) { 
+        if(document.readyState === 'complete' && source.src) {
            audio[action]();
-            //    audio[action]();
         }
     }
 
@@ -110,12 +106,17 @@ class ArtistWeekly extends React.Component {
             <div>
                         <div className='artist-weekly'>
                                     <div className='artist-weekly-container'>
-                                                <audio   
+                                                <audio      onTimeUpdate={this.handleTime}
                                                             onLoadedMetadata={() => {
                                                                 document.querySelector('.weekly-player-text h2').innerHTML = this.handleUserSong()[0].title;
                                                                 let name = document.querySelector('.weekly-player-text p:nth-of-type(2)');
+                                                                let artistBio = document.querySelector('.weekly-player-text p:nth-of-type(1)');
                                                                 
-                                                                this.props.requestUser(this.handleUserId()).then((res) => name.innerHTML = `by ${res.user.username}`);
+                                                                this.props.requestUser(this.handleUserId()).then((res) => {
+                                                                        name.innerHTML = `by ${res.user.username}`
+                                                                        artistBio.innerHTML = res.user.bio.split('.')[0];
+                                                                        
+                                                                    });
                                                             }} 
                                                             preload='metadata' 
                                                             className="player__audio audio viewer">
@@ -132,7 +133,7 @@ class ArtistWeekly extends React.Component {
                                                                                     </li>
                                                                                     <div className='weekly-player-text'>
                                                                                                 <h2>{/*song title*/}</h2>
-                                                                                                <p>{/*bio trim*/}ispumispumispumispumispumispumispumispumispumispumispumispumispumispumispumispumispumispumispumispumis</p>
+                                                                                                <p>{/*bio trim*/}</p>
                                                                                                 <p>{/*artist name*/}</p>
                                                                                     </div>
                                                                                                

@@ -73,7 +73,7 @@ h2 {
   /* margin: 0 0 0 4.45em; */
 }
 
-img, h1 {
+.logo-container img  {
     display: inline-block;
     vertical-align: middle;
     width: 20px;
@@ -437,9 +437,14 @@ artist weekly */
 }
 
 .artist-weekly-container ol li:nth-child(1) {
-  background: url('https://drive.google.com/uc?export=view&id=1wzdav5Te2mdU-S4txsbumUkxW37opQL2') no-repeat; 
+  background:  url('https://drive.google.com/uc?export=view&id=1wzdav5Te2mdU-S4txsbumUkxW37opQL2') no-repeat; 
   background-size:cover; 
+  
 }
+
+
+
+
 
 .artist-link {
   
@@ -515,15 +520,77 @@ artist article */
 
 
 .artist-article-img {
-  width: 100%;
   // max-width: 100%;
   // // padding-left: 150px;
+  position: absolute;
+  width: 100%;
+  height: auto;
+  top: 330px;
+  
 }
 
 .artist-article {
   padding-top: 120px;
   display: grid;
   grid-template-columns: repeat(1, 3fr);
+  height: auto;
+  width: 100%;
+  
+ 
+}
+
+.pause-circle-icon {
+  width: 7px;
+  height: 20px;
+  border-right: 7px solid #333;
+  border-left: 7px solid #333;
+  position: absolute;
+  z-index: 1;
+
+    
+    top: 20px;
+    left: 21.5px;
+
+}
+
+.play-circle {
+  background-color: ghostwhite;
+  border-radius: 100%;
+  border: 1px solid black;
+  height: 63px;
+  width: 63px;
+  z-index: 1;
+  position: relative;
+
+  // left: 680px;
+  // top: 258px;
+  // position: absolute;
+  display: table;
+  margin-right: auto;
+  margin-left: auto;
+  cursor: pointer;
+}
+
+.play-circle:hover {
+  transform: scale(1.3);
+}
+
+.play-circle-icon {
+   width: 0;
+   height: 0;
+   border-top: 10.5px solid transparent;
+   border-left: 18.5px solid #333;
+   border-bottom: 10.5px solid transparent;
+   position: absolute;
+   z-index: 1;
+
+    
+    top: 20px;
+    left: 24px;
+
+
+ 
+  
 }
 
 /*--------------------------------------
@@ -1240,7 +1307,7 @@ h4 {
 
 .weekly-player {
   background-color: rgb(236, 76, 103);
-  height: 100px;
+  height: 105.5px;
   width: 135px;
   list-style: none;
   position: absolute;
@@ -1252,7 +1319,7 @@ h4 {
 
 
 .weekly-player-text {
-  height: 100px;
+  height: 105.5px;
   width: 500px;
   background-color: #eee;
   position: absolute;
@@ -1281,12 +1348,14 @@ h4 {
   // left: 54px;
 
     top: 31px;
-    left: 52px;
+    left: 55px;
     right: 0px;
     bottom: 0px;
 
 
 }
+
+
 
 .play-icon {
    width: 0;
@@ -1299,7 +1368,7 @@ h4 {
   
    
     top: 31px;
-    left: 52px;
+    left: 55px;
     right: 0px;
     bottom: 0px;
 
@@ -1389,10 +1458,20 @@ h4 {
 
 .artist-item-text {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: ghostwhite;
+  color: white;
   margin-top: 110px;
   margin-left: 11px; 
+ text-shadow: -1px 0 1px #333,
+               1px 0 1px #333,
+               1px 1px 1px #333,
+               -1px -1px 1px #333,
+               0 1px 1px #333,
+               0 -1px 1px #333;
+             
 }
+
+
+
 
 .artist-item-text h2 {
   font-size: 18px;
@@ -1405,7 +1484,7 @@ h4 {
   word-wrap: break-word;
   
   font-weight: 400;
-  font-size: 14px;
+  font-size: 12px;
    
 }
 
@@ -1414,5 +1493,6 @@ h4 {
 //   padding-left: 10px;  
 //   font-size: 11px;
 // }
+
 
 

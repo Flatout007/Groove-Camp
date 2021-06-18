@@ -1,87 +1,90 @@
 import React from 'react';
 import GreetingNav from '../greeting/greeting_container';
-
 import {
-    Route,
-    Redirect,
-    Switch,
-    Link,
-    HashRouter,
     withRouter
 } from 'react-router-dom';
 
-
-/*
-Write an `Artist Show` presentational component that renders an artist
-information. This component should receive the artist
-from the store as props via its container and fetch it once it has successfully
-mounted to the DOM. Additionally, this component should contain a link back to
-the Home `/` page.
-*/
-
 class ArtistArticle extends React.Component {
     constructor(props) {
-        super(props)
-       
+        super(props);
+        this.state = {playing: false};
+
+        this.handleFilterSongs = this.handleFilterSongs.bind(this);
+        this.handlePlayPause = this.handlePlayPause.bind(this);
+        this.handleTimeUpdates = this.handleTimeUpdates.bind(this);
     }
 
     componentDidMount() {
-        
-    //   this.props.requestAllUsers().then(() => {this.props.store.entities.users[this.props.match.params.id]})
         this.props.requestUser(this.props.match.params.id);
         this.props.requestAlbums();
-        //return this.props.requestUser(this.props.artist.id)
-
+        this.props.requestSongs();
     }
 
-    albumList() {
-        return this.props.albums.map((ele) => {      
-            if (parseInt(this.props.match.params.id) === ele.artist_id) {
-              return <li key={ele.id}>
-                <p>{ele.title}</p>
-              </li>
-            }
-        });   
+    handleTimeUpdates() {
+        let audio = document.querySelector('.audio');
+
+        if(audio.currentTime === audio.duration) this.setState({playing: false});
     }
+
+    handlePlayPause() {
+        let audio = document.querySelector('.audio');
+
+        audio.load();
+
+        if(document.readyState === 'complete') {
+            const action = audio.paused ? 'play' : 'pause';
+            this.setState({ playing: audio.paused ? true : false });
+            audio[action]();
+        }
+    }
+
+    handleFilterSongs() {
+        return this.props.songs.filter((ele) => {return ele.artist_id === parseFloat(this.props.match.params.id)});
+    }
+
 
     render() {
-        if (!this.props.artist) return <p>Loading</p>;
-        if (!this.props.albums) return <p>Loading</p>;
+        if (!this.props.artist) return null;
+        if (!this.props.albums) return null;
+        if (!this.handleFilterSongs()[0]) return null;
+
+        console.log(this.handleFilterSongs()[0]);
+        
    
         return(
-          <React.Fragment>
-            <GreetingNav />
-            <nav className='daily-bar'>
-                    <div className='daily-wrapper'> 
-                        <a> 
-                            <strong>Groovecamp Daily</strong>
-                        </a>
-                        <span className="flex-links">
-                            <span className="flex-link-1">
-                                <a href="">Link</a></span>
-                            <span>
-                                ·<a href="">Link</a></span>
-                            <span>
-                                ·<a href="">Link</a></span>
-                            <span>
-                                ·<a href="">Link</a></span>
-                        </span>
+         <div>
+                        <GreetingNav />
+                        
+                        <nav className='daily-bar'>
+                                    <div className='daily-wrapper'> 
+                                                <a> 
+                                                    <strong>Groovecamp Daily</strong>
+                                                </a>
+                                                <span className="flex-links">
+                                                    <span className="flex-link-1">
+                                                        <a href="">Link</a></span>
+                                                    <span>
+                                                        ·<a href="">Link</a></span>
+                                                    <span>
+                                                        ·<a href="">Link</a></span>
+                                                    <span>
+                                                        ·<a href="">Link</a></span>
+                                                </span>
 
-                        <button className="daily-button">Home</button>
-                    </div>
-            </nav>
-            <p>{this.props.artist.username}</p>
-            <article className='artist-article'>
-                    {/* <img className='artist-article-img' src='https://amp.ikimaru.com/pic/3330319_full-naruto-broken-youth-wallpaper-nico-touches-the-walls.jpg' alt=""/> */}
-                    <img className='artist-article-img' src={this.props.artist.photo} alt=""/>
-            </article>
-                {/* <audio controls>
-                    <source src="https://groovecamp-seed.s3.us-east-2.amazonaws.com/Rising+Hope.mp3" type="audio/mp3"/>
-                </audio> */}
-            {this.albumList()}
-            {/* <button onClick={this.props.history.push('/')}></button> */}
-            <button onClick={() => this.props.history.push('/')}>Home</button>
-          </React.Fragment>
+                                                <button className="daily-button">Home</button>
+                                    </div>
+                        </nav>
+                        <p>{this.props.artist.username}</p>
+                        <audio onTimeUpdate={this.handleTimeUpdates} className='audio'>
+                                    <source src={this.handleFilterSongs()[0].audioUrl}></source>
+                        </audio>
+                        <article className='artist-article'>
+                    {this.state.playing === false ? <div onClick={this.handlePlayPause} className='play-circle'><span className='play-circle-icon'></span></div> : <div onClick={this.handlePlayPause}className='play-circle'><span className='pause-circle-icon'></span></div> }
+                                    <img className='artist-article-img' src={this.props.artist.photo} alt=""></img>
+                        </article>
+
+                        <button onClick={() => this.props.history.push('/')}>Home</button>
+        </div>
         );
     }
 }
