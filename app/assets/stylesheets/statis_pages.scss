@@ -411,8 +411,8 @@ artist weekly */
 .artist-weekly-main {
   width: 1066px;
   padding-top: 540px;
-  background: url('https://www.jame-world.com/media/image/2008-05/_16-9_2288.jpg') 100% no-repeat;
-  background-size:contain; 
+  background: url('https://drive.google.com/uc?export=view&id=1_smFiOe0xOx3-KoBkWbjwvGg0FmZRPVn') 40px -100px no-repeat;
+  background-size: cover; 
   position: relative;
 }
 
@@ -427,17 +427,17 @@ artist weekly */
 // }
 
 .artist-weekly-container ol li:nth-child(3) {
-  background: url('https://images-na.ssl-images-amazon.com/images/I/81D5xD1iHbL._SL1423_.jpg') 100% no-repeat; 
+  background:  url('https://cdnb.artstation.com/p/assets/images/images/016/219/147/large/prarthin-bhatt-monkey-majik-by-prarthin-dcb83hw.jpg?1551355762')  100% no-repeat; 
   background-size: cover; 
 }
 
 .artist-weekly-container ol li:nth-child(2) {
-  background: url('https://apicms.thestar.com.my/uploads/images/2020/01/27/527339.jpg') 100% no-repeat; 
+  background: url('https://cdn.amebaowndme.com/madrid-prd/madrid-web/images/sites/493506/fe1edf2be71304d53a66b525aaf233ed_f2e8d8027249512736d681c628a157d9.jpg')  100%  no-repeat; 
   background-size: cover; 
 }
 
 .artist-weekly-container ol li:nth-child(1) {
-     background: url('https://www.jame-world.com/media/image/2018-04/8457.jpg')  100% no-repeat; 
+  background: url('https://drive.google.com/uc?export=view&id=1wzdav5Te2mdU-S4txsbumUkxW37opQL2') no-repeat; 
   background-size:cover; 
 }
 
@@ -1239,7 +1239,7 @@ h4 {
 
 
 .weekly-player {
-  background-color:cornflowerblue;
+  background-color: rgb(236, 76, 103);
   height: 100px;
   width: 135px;
   list-style: none;
@@ -1389,7 +1389,7 @@ h4 {
 
 .artist-item-text {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #eee;
+  color: ghostwhite;
   margin-top: 110px;
   margin-left: 11px; 
 }
@@ -1404,7 +1404,7 @@ h4 {
   overflow: auto;
   word-wrap: break-word;
   
-  font-weight: 200;
+  font-weight: 400;
   font-size: 14px;
    
 }

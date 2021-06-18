@@ -87,11 +87,11 @@ class ArtistIndexItem extends React.Component {
 
         return(
           
-            <li>
+            <li className='artist-image-item'>
                         <Link style={{textDecoration: 'none'}} to={`/artist/${this.props.artist.id}`}>
                                     <div className='artist-item-text'>
                                         <div className='artist-item-overlay'></div>
-                                            <h2>{this.props.artist.username}</h2>
+                                            <h2 className='artist-name'>{this.props.artist.username}</h2>
                                             <p>{/*bio trim*/}ispumispumispumispumispumispumispumispumispumispumispumispumispumispumispumispumispumispumispumispumis</p>
                                     </div>
                                     <div className='artist-item-overlay'></div>

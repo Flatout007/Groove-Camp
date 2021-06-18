@@ -2,71 +2,35 @@
 
 import React from 'react';
 import ArtistIndexItem from './artist_index_item';
-import {withRouter} from 'react-router-dom';
+import {Switch, withRouter} from 'react-router-dom';
 
 
 class ArtistWeekly extends React.Component {
     constructor(props) {
         super(props);
         this.state = { playing: false };
-        this.artistList = this.artistList.bind(this);
 
+        this.artistList = this.artistList.bind(this);
         this.handlePlayPause = this.handlePlayPause.bind(this);
         this.handleUserSong = this.handleUserSong.bind(this);
-        this.handleStats = this.handleStats.bind(this);
         this.handleUserId = this.handleUserId.bind(this);
     }
    
 
     componentDidMount() {
        this.props.requestAllUsers();
-      
-    
-       
+
+        
     }
 
     componentDidUpdate() {
        
     }
 
-
-
-    handleStats() {
-        // setTimeout(() => document.querySelector('.weekly-player-text h2').innerHTML = this.handleUserSong()[0].title, 1000) 
-        // document.querySelector('.weekly-player-text h2').innerHTML = this.handleUserSong()[0].title
-
-        // window.addEventListener('load', () => document.querySelector('.weekly-player-text h2').innerHTML = this.handleUserSong()[0].title)
-
-    }
-
-
-
-
-    // handlePlayPause() {
-    //     let audio = document.querySelector('.audio');
-    //     let source = audio.querySelector('source');
-        
-
-    //     if (document.readyState === 'complete') {
-    //         const action = audio.paused ? 'play' : 'pause';
-    //         this.setState({ playing: audio.paused ? true : false });
-    //         audio[action]();
-    //     } else {
-    //         return 'please wait';
-    //     }
-
-
-    //     source.src = this.props.song.audioUrl;
-    //     Promise.resolve(audio.load()).then(audio.play());
-    // }
-
-
-
-
     
     artistList() {
-           return this.props.users.map((ele) => {
-              if(ele.username === 'LiSA' || ele.username === 'Nico Touches the Walls' || ele.username === 'ONE OK ROCK') {
+           return this.props.users.sort().map((ele) => {
+               if (ele.username === 'Monkey Majik' || ele.username === 'Uverworld' || ele.username === 'Mirei Toyama') {
                 return  <ArtistIndexItem
                  artist={ele}
                  key={ele.id}
@@ -78,6 +42,7 @@ class ArtistWeekly extends React.Component {
                 />
               }
             });
+
     }
 
 
@@ -114,7 +79,7 @@ class ArtistWeekly extends React.Component {
         let id;
 
         this.props.users.forEach((ele) => {
-            if (ele.username === 'ONE OK ROCK') id = ele.id;
+            if (ele.username === 'SILENT SIREN') id = ele.id;
         });
 
         return id;
@@ -124,8 +89,7 @@ class ArtistWeekly extends React.Component {
     handleArtistOfTheWeek() {
         return this.props.users.map((ele, idx) => {
             if(idx === 1) return;
-            if (ele.username === 'ONE OK ROCK') {
-                
+            if (ele.username === 'SILENT SIREN') {
                 return (<div key={ele.id} className='artist-weekly-main'>
                     {/* <button onClick={() => this.props.history.push(`/artist/${ele.id}`)}>go</button> */}
                 
@@ -140,8 +104,8 @@ class ArtistWeekly extends React.Component {
         if(!this.props.users) return null;
         if (!this.handleUserSong()[0]) return null;
         if (!this.handleUserId()) return null;
-        
-        
+
+                
         return(
             <div>
                         <div className='artist-weekly'>
@@ -150,6 +114,7 @@ class ArtistWeekly extends React.Component {
                                                             onLoadedMetadata={() => {
                                                                 document.querySelector('.weekly-player-text h2').innerHTML = this.handleUserSong()[0].title;
                                                                 let name = document.querySelector('.weekly-player-text p:nth-of-type(2)');
+                                                                
                                                                 this.props.requestUser(this.handleUserId()).then((res) => name.innerHTML = `by ${res.user.username}`);
                                                             }} 
                                                             preload='metadata' 
@@ -170,7 +135,7 @@ class ArtistWeekly extends React.Component {
                                                                                                 <p>{/*bio trim*/}ispumispumispumispumispumispumispumispumispumispumispumispumispumispumispumispumispumispumispumispumis</p>
                                                                                                 <p>{/*artist name*/}</p>
                                                                                     </div>
-                                                                                                { this.handleStats() }
+                                                                                               
                                                                         </div>
 
                                                                         { this.handleArtistOfTheWeek() }
