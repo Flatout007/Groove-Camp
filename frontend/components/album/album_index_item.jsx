@@ -9,6 +9,22 @@ class AlbumIndexItem extends React.Component {
         // this.deleteAlbum = this.deleteAlbum.bind(this);
     }
 
+    componentWillUpdate() {
+        let items = document.getElementsByClassName('album-li');
+
+        Array.from(items).forEach((ele) => {
+            ele.style.backgroundSize = 'cover'
+        });
+
+       
+    }
+
+    // componentDidMount() {
+    //     if(document.readyState === 'complete') {
+    //         console.log(document.querySelectorAll('.album-list-flex li'))
+    //     }
+    // }
+
     
     // deleteAlbum(e) {    
     //     this.props.deleteAlbum(this.props.album.id);
@@ -18,10 +34,11 @@ class AlbumIndexItem extends React.Component {
     render() {
         
         if (!this.props.album) return <p>Loading</p>;
+        
 
         return (
         <React.Fragment>
-            <li className='album-li' onClick={() => this.props.history.push(`/album/songs/${this.props.album.id}`)}>       
+               <li style={{background:`url(${this.props.album.photo}) 100% no-repeat`}} className='album-li' onClick={() => this.props.history.push(`/album/songs/${this.props.album.id}`)}>
                {/* <Link to={`/`}>albums</Link>  */}
                {/* <audio controls>
                     <source src="https://groovecamp-seed.s3.us-east-2.amazonaws.com/Rising+Hope.mp3" type="audio/mp3"/>

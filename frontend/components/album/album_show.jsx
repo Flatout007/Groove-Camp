@@ -15,12 +15,12 @@ class AlbumShow extends React.Component {
     }
 
 
-    componentDidMount() {      
+    componentDidMount() {
+        window.scrollTo(0, 0);
         this.props.requestAlbum(this.props.match.params.id);
        
         setTimeout(() => this.props.requestAlbums(), 500);
 
-      
     }
 
 

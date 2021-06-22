@@ -16,6 +16,7 @@ class ArtistShow extends React.Component {
 
     componentDidMount() {
         //   this.props.requestAllUsers().then(() => {this.props.store.entities.users[this.props.match.params.id]})
+        window.scrollTo(0, 0);
         this.props.requestSongs();
         this.props.requestAlbum(this.props.match.params.id);
     }

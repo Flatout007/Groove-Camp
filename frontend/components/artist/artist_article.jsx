@@ -14,17 +14,20 @@ class ArtistArticle extends React.Component {
         this.handleTimeUpdates = this.handleTimeUpdates.bind(this);
     }
 
+
     componentDidMount() {
         this.props.requestUser(this.props.match.params.id);
         this.props.requestAlbums();
         this.props.requestSongs();
     }
 
+
     handleTimeUpdates() {
         let audio = document.querySelector('.audio');
 
         if(audio.currentTime === audio.duration) this.setState({playing: false});
     }
+
 
     handlePlayPause() {
         let audio = document.querySelector('.audio');
@@ -38,6 +41,7 @@ class ArtistArticle extends React.Component {
         }
     }
 
+
     handleFilterSongs() {
         return this.props.songs.filter((ele) => {return ele.artist_id === parseFloat(this.props.match.params.id)});
     }
@@ -48,15 +52,13 @@ class ArtistArticle extends React.Component {
         if (!this.props.albums) return null;
         if (!this.handleFilterSongs()[0]) return null;
 
-        console.log(this.handleFilterSongs()[0]);
-        
-   
+       
         return(
          <div>
                         <GreetingNav />
-                        
                         <nav className='daily-bar'>
-                                    <div className='daily-wrapper'> 
+                                    <div className='daily-wrapper'>
+                                                
                                                 <a> 
                                                     <strong>Groovecamp Daily</strong>
                                                 </a>
@@ -74,12 +76,16 @@ class ArtistArticle extends React.Component {
                                                 <button className="daily-button">Home</button>
                                     </div>
                         </nav>
-                        <p>{this.props.artist.username}</p>
+                        <div  className='artist-article-heading'>
+                                    <h5>FEATURES</h5>
+                                    <h5>{this.handleFilterSongs()[0].title}</h5>
+                                    <h5>By <span>{this.props.artist.username}</span></h5>
+                        </div>
                         <audio onTimeUpdate={this.handleTimeUpdates} className='audio'>
                                     <source src={this.handleFilterSongs()[0].audioUrl}></source>
                         </audio>
                         <article className='artist-article'>
-                    {this.state.playing === false ? <div onClick={this.handlePlayPause} className='play-circle'><span className='play-circle-icon'></span></div> : <div onClick={this.handlePlayPause}className='play-circle'><span className='pause-circle-icon'></span></div> }
+                                    {this.state.playing === false ? <div onClick={this.handlePlayPause} className='play-circle'><span className='play-circle-icon'></span></div> : <div onClick={this.handlePlayPause}className='play-circle'><span className='pause-circle-icon'></span></div> }
                                     <img className='artist-article-img' src={this.props.artist.photo} alt=""></img>
                         </article>
 
