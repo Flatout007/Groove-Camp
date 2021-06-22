@@ -20,6 +20,10 @@ class GreetingIndex extends React.Component {
         this.signoutUser = this.signoutUser.bind(this);
     }
 
+    componentDidMount() {
+        window.scrollTo(0, 0);
+    }
+
     signoutUser() {
       console.log('user has signed out');
       return this.props.signout();

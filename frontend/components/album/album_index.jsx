@@ -2,6 +2,15 @@ import React from 'react';
 import AlbumIndexItem from './album_index_item';
 
 class AlbumIndex extends React.Component {
+    constructor(props) {
+          super(props);
+          this.state = {flag: true};
+
+          this.handleAnimation = this.handleAnimation.bind(this);
+          this.albumList = this.albumList.bind(this);
+          this.handleClick = this.handleClick.bind(this);
+    }
+
     componentDidMount() {
       this.props.requestAlbums();   
 
@@ -16,31 +25,30 @@ class AlbumIndex extends React.Component {
             // let myacc;
 
             // if (document.readyState === 'complete') {
-                  
-            //       Array.from(lis).reduce((acc, ele, idx, arr) => {  
-            //             myacc = acc;
-            //             return myacc += ele.clientWidth
-                  
+            //      let ul = document.querySelector('.album-list-flex');
 
-            //             // console.log(acc)
+            //      setInterval(() => {
+            //         console.log('hello')
+            //      }, 3000);
 
-      
-            //       },0)
+            
 
-            //       if(myacc >= max) lis.forEach((ele, idx, arr) => .style.display = 'none');
-
-                 
-                
-              
             // }
+
+      //     if (document.readyState === 'complete') {
+      //           let ul = document.querySelector('.album-list-flex');
+
+      //           setInterval(() => {
+      //                 ul.scrollLeft = 100;
+      //           }, 3000);
+
+
+
+      //     }
+
+     
     }
 
-    
-
-    constructor(props) {
-        super(props);
-        this.albumList = this.albumList.bind(this);
-    }
 
     handleLimit() {
       return this.props.albums.filter((ele, idx) => { return idx < 20 } );
@@ -60,11 +68,43 @@ class AlbumIndex extends React.Component {
     }
 
 
+    handleAnimation() {
+        let slider = document.getElementById('slider');
+        let li = slider.getElementsByClassName('album-li')[0];
+
+
+        if (this.state.flag === true) li.style.paddingLeft = '-11.5px';
+        else {
+            slider.appendChild(li).style.paddingLeft = '0px';
+            li.style.paddingLeft = '0px';
+            slider.getElementsByClassName('album-li')[0].style.paddingLeft = '-11.5px';
+        }
+
+        this.setState({flag: false});
+            
+      
+      
+    }
+
+
+    handleClick() {
+          let button = document.querySelector('.selling-now');
+
+          setInterval(() => {
+                button.click();
+          }, 3000)
+    }
+
+    
+
+
     render() {
        
       return (
         <React.Fragment>
-              <div className="how-many-selling">
+              <div  className="how-many-selling">
+                        <audio onLoadedMetadata={this.handleClick} preload='metadata' src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
+                    
                     <div className='how-many-title-flex'>
                           <h4 className='how-many-title'>Fans have paid artists 
                     <span className='how-many-span-1'>
@@ -81,10 +121,15 @@ class AlbumIndex extends React.Component {
               </div>
                     
               <div className="albums-display">
-                    <div className='selling-now'>Selling Now</div>
-                    <ul className='album-list-flex'>
-                        {this.albumList()}
-                    </ul>                
+                        <div onClick={this.handleAnimation} className='selling-now'>Selling Now</div>
+
+                    
+                          <ul id='slider' className='album-list-flex'>
+                        
+                           {this.albumList()}
+                        
+                         </ul>     
+                 
               </div>
         </React.Fragment >);
     }

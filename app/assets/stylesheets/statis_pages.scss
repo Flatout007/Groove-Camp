@@ -674,7 +674,7 @@ a {
 
 .selling-now {
  position: relative;
- left: 100px;
+ left: 19px;
   // background-color: green;
   color: #408ea3;
   // text-transform: uppercase;
@@ -762,24 +762,48 @@ h4 {
 }
 
 .album-list-flex {
-  display: grid;
-  grid-template-columns: repeat(10, 1fr);
-  height: 230px;
-  grid-gap: 3px;
-  margin-left: auto;
-  margin-right: auto;
-  width: 1181px;
-  position: relative;
-  left: 133px;
+  // height: 230px;
+  //  grid-gap: 3px;
+  // margin-left: auto;
+  // margin-right: auto;
+  //  width: 70%;
+  // flex-direction: column;
+  // position: relative;
+  // left: 133px;
   // overflow: hidden;
-  background-color: #6E943B;
+  // background-color: #6E943B;
 
   // display: flex;
-  // justify-content: space-around;
+  // flex-direction: row;
+  // flex-wrap: nowrap;
 
     // width: 1105px;
     // height: 275px;
 
+  white-space: nowrap;
+  overflow: hidden;
+  // font-size: 0;
+  position: relative;
+  // display: table;
+  // margin-left: auto;
+  // margin-right: auto;
+  // border: 1px solid black;
+  // box-sizing: border-box;
+  // left: 193px;
+  // top: 20px;
+  // display: inline-block;
+  margin: auto;
+  right: 38px;
+  left: -40px;
+  width: 1000px;
+  height: 228px;
+
+
+}
+
+
+.album-li {
+transition: all 0.6s ease;
 }
 
 
@@ -792,6 +816,8 @@ h4 {
   display: inline-block;
   margin-left: 10px;
   margin-right: 10px;
+  
+
 
   
 
@@ -801,7 +827,7 @@ h4 {
   background-color: #8182853b;
   height: 800px;
   width: 100%;
-  position: relative;
+  // position: relative;
   // overflow: hidden;
 }
 
