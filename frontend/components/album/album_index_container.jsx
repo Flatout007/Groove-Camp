@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import AlbumIndex from './album_index';
 import { requestAlbums } from '../../actions/album_actions';
 import { deleteAlbum } from '../../actions/album_actions';
-
+import {requestUser} from '../../actions/session_actions';
+ 
 /*
 Export a container component for `AlbumIndex` that maps an array of all
 users from the store as an `users` prop. Additionally, it should map in
@@ -14,7 +15,7 @@ props of the same name.
 const mapStoreToProps = (store, props) => {
     return {
         albums: Object.values(store.entities.albums),
-        artist: store.entities.users[props.match.params.id],
+        users: Object.values(store.entities.users)
     };
 };
 
@@ -22,6 +23,7 @@ const mapActionsToProps = (dispatch, props) => {
     return {
         requestAlbums: () => dispatch(requestAlbums()),
         deleteAlbum: (albumId) => dispatch(deleteAlbum(albumId)),
+        requestUser: (artistId) => dispatch(requestUser(artistId))
     };
 };
 
