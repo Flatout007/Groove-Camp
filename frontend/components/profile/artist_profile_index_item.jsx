@@ -86,11 +86,11 @@ class ArtistProfileIndexItem extends React.Component {
     }
 
 
-    // handlePlayHover() {
-    //     let play = document.querySelector('.artist-play-container');
+    handlePlayHover() {
+        let play = document.querySelector('.artist-play-container');
 
-    //     play.style.display = 'block';
-    // }
+        play.style.display = 'block';
+    }
 
 
     render() {
