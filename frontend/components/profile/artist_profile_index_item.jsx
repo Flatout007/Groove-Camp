@@ -9,6 +9,8 @@ class ArtistProfileIndexItem extends React.Component {
 
         this.handlePlayPause = this.handlePlayPause.bind(this);
         this.handleSongToPlay = this.handleSongToPlay.bind(this);
+        this.handleUsers = this.handleUsers.bind(this);
+        this.handlePlayHover = this.handlePlayHover.bind(this);
     }
 
 
@@ -33,12 +35,12 @@ class ArtistProfileIndexItem extends React.Component {
 
 
     componentDidMount() {
-        let li = document.querySelectorAll('.artist-profile-index-grid li');
+        // let li = document.querySelectorAll('.artist-profile-index-grid li');
   
         
-        li.forEach((ele) => {
-            ele.style.backgroundSize = 'cover';
-        });
+        // li.forEach((ele) => {
+        //     ele.style.backgroundSize = '';
+        // });
     }
 
 
@@ -54,13 +56,27 @@ class ArtistProfileIndexItem extends React.Component {
         }, initialValue);
     }
 
+    handleUsers() {
+        let users = [];
+
+
+        this.props.users.forEach((ele) => {
+            if (ele.id === this.props.album.artist_id) {
+                users.push(ele);
+            }
+        });
+
+
+        return users[0];
+    }
+
 
     handleSongToPlay() {
         let songs = [];
 
 
         this.props.songs.forEach((ele) => {
-            if(ele.artist_id === this.props.artist.id) {
+            if(ele.album_id === this.props.album.id) {
                 songs.push(ele);
             }
         });
@@ -70,21 +86,30 @@ class ArtistProfileIndexItem extends React.Component {
     }
 
 
+    // handlePlayHover() {
+    //     let play = document.querySelector('.artist-play-container');
+
+    //     play.style.display = 'block';
+    // }
+
+
     render() {
+        if(!this.props.users[0]) return null;
+        if(!this.handleUsers()) return null;
+
         return(
             <div>    
-                        <li style={{ background: `url(${this.props.artist.photo})  100% no-repeat`}}>
-                                    <div onClick={this.handlePlayPause} className="play-container">
-
-                                                {this.state.playing === true ? <div className="pause-button"></div> : <div className='play'></div>}
-
+                        <li onMouseEnter={this.handlePlayHover} className='artist-index-list-item'>
+                                    <div onClick={this.handlePlayPause} className="artist-play-container">
+                                             {this.state.playing === true ? <div className="pause-circle-icon"></div> : <div className='artist-play-icon'></div>}
                                     </div>
+                                    <img src={this.handleUsers().photo} width='206' height='119' alt=""/>
                                     <div className='artist-stats'>
                                                 <h5>
 
 
 
-                                                            {this.props.artist.username}
+                                                            {this.handleUsers().username}
                                         
                                         
                                                             

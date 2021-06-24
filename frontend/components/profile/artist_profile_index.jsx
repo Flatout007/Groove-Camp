@@ -6,24 +6,52 @@ class ArtistProfileIndex extends React.Component {
     componentDidMount() {
         this.props.requestAllUsers();
         this.props.requestSongs();
+
        
     }
+
 
     constructor(props) {
         super(props);
         this.artistProfileList = this.artistProfileList.bind(this);
+        
     }
 
+
+    handleArtistLimit() {
+        return this.props.albums.filter((ele, idx) => { return idx < 5 });
+    }
+
+
     artistProfileList() {
-        return this.props.users.map((ele) => {
-            if (ele.username === 'FLOW' || ele.username === 'ONE OK ROCK' ) {
-                return <ArtistProfileIndexItem
-                    key={ele.id}
-                    artist={ele}
-                    albums={this.props.albums.filter(album => ele.id === album.artist_id)}
-                    songs={this.props.songs.filter(song => song.artist_id === ele.id)}
-                />
-            }
+        return this.handleArtistLimit(5).map((ele, idx) => {
+            return <ArtistProfileIndexItem
+                key={ele.id}
+                album={ele}
+                users={this.props.users}
+                songs={this.props.songs}
+            />
+
+        })
+    }
+
+//album
+
+    handleAlbumLimit() {
+        return this.props.albums.filter((ele, idx) => { return idx > 5 });
+    }
+
+
+
+    artistAlbumList() {
+        return this.handleAlbumLimit(5).map((ele, idx) => {
+            return <ArtistProfileIndexItem
+                key={ele.id}
+                album={ele}
+                users={this.props.users}
+                songs={this.props.songs}
+            />
+
         })
     }
 
@@ -34,6 +62,7 @@ class ArtistProfileIndex extends React.Component {
 
 
         return (
+            <div className='artist-profile-index-wrapper'>
                 <div className='artist-profile-index-container'>
 
                 <audio onLoadedMetadata={this.handleDuration} preload='metadata' onTimeUpdate={this.handleSeekBar} className="player__audio audio viewer">
@@ -49,6 +78,23 @@ class ArtistProfileIndex extends React.Component {
                             </div>
                     </div>
                 </div>
+                <div className='new-and-notable-container'>
+
+                    <audio onLoadedMetadata={this.handleDuration} preload='metadata' onTimeUpdate={this.handleSeekBar} className="player__audio audio viewer">
+                        <source src={null} type="audio/mpeg" data-trackid="0" />
+                    </audio>
+
+                    <div className='artist-profile-index-title'>NEW AND NOTABLE</div>
+                    <div className='artist-profile-index-flex'>
+                        <div className='artist-profile-index-grid'>
+
+                            {this.artistAlbumList()}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+                
         )
     }
 };
