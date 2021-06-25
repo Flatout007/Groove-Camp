@@ -24,7 +24,7 @@ class ArtistProfileIndex extends React.Component {
 
 
     artistProfileList() {
-        return this.handleArtistLimit(5).map((ele, idx) => {
+        return this.handleArtistLimit().map((ele, idx) => {
             return <ArtistProfileIndexItem
                 key={ele.id}
                 album={ele}
@@ -44,7 +44,8 @@ class ArtistProfileIndex extends React.Component {
 
 
     artistAlbumList() {
-        return this.handleAlbumLimit(5).map((ele, idx) => {
+        return this.handleAlbumLimit().map((ele, idx) => {
+            if (ele.title !== 'GO Way! EP');
             return <ArtistProfileIndexItem
                 key={ele.id}
                 album={ele}
