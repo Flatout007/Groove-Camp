@@ -4,15 +4,16 @@ import React from 'react';
 class ArtistProfileIndexItem extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { playing: false };
+        this.state = { playing: false, showPlayer: false };
 
 
         this.handlePlayPause = this.handlePlayPause.bind(this);
         this.handleSongToPlay = this.handleSongToPlay.bind(this);
         this.handleUsers = this.handleUsers.bind(this);
-        this.handlePlayHover = this.handlePlayHover.bind(this);
+        this.handleHover = this.handleHover.bind(this);
     }
 
+    // onMouseEnter = {() => this.handleHover('enter')} onMouseLeave = {() => this.handleHover('leave')}
 
     handleAudioSelection() {
         let audio = document.querySelector('.audio');
@@ -85,36 +86,45 @@ class ArtistProfileIndexItem extends React.Component {
         return songs[0];
     }
 
-
-    handlePlayHover() {
-        let play = document.querySelector('.artist-play-container');
-
-        play.style.display = 'block';
+    handleHover(action) {
+       return action === 'enter' ? this.setState({ showPlayer: true }) : this.setState({ showPlayer: false });
     }
 
 
     render() {
         if(!this.props.users[0]) return null;
         if(!this.handleUsers()) return null;
+        if(!this.handleSongToPlay()) return null;
+
+
+        let player = this.state.showPlayer ? <div onClick={this.handlePlayPause} className="artist-play-container">
+            {this.state.playing === true ? <div className="artist-pause-icon"></div> : <div className='artist-play-icon'></div>}
+        </div> : 
+        <div></div>
+
 
         return(
             <div>    
-                        <li onMouseEnter={this.handlePlayHover} className='artist-index-list-item'>
-                                    <div onClick={this.handlePlayPause} className="artist-play-container">
-                                             {this.state.playing === true ? <div className="pause-circle-icon"></div> : <div className='artist-play-icon'></div>}
-                                    </div>
+                     <li onMouseEnter = {() => this.handleHover('enter')} onMouseLeave = {() => this.handleHover('leave')} className='artist-index-list-item'>
+                                    { player }
                                     <img src={this.handleUsers().photo} width='206' height='119' alt=""/>
                                     <div className='artist-stats'>
+                                               
+                        
                                                 <h5>
+                                                    <p>{this.handleSongToPlay().title}</p>
+                                                    <div>{this.handleUsers().username}</div>
+                                                    <div>{this.handleUsers().bio.split('.')[0]}</div>
 
 
 
-                                                            {this.handleUsers().username}
+                                                            {/* {this.handleUsers().username} */}
                                         
                                         
                                                             
 
                                                 </h5>
+                                        
                                     </div>
                         </li>
             </div>

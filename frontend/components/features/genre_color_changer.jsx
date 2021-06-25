@@ -1,4 +1,5 @@
 import React from 'react';
+import AlbumGenreIndexContainer from '../../components/album/album_genre_index_container';
 
 
 class GenreColorChanger extends React.Component {
@@ -208,6 +209,7 @@ class GenreColorChanger extends React.Component {
 
     render() {
         return (
+            <React.Fragment>
             <div className='genre-container'>
                         <div className='discover'><h2>Discover</h2></div>
                         <div className='genre-color-changer'>
@@ -251,6 +253,10 @@ class GenreColorChanger extends React.Component {
                         
                         </div>
             </div>
+
+            <AlbumGenreIndexContainer/>
+
+            </React.Fragment>
            
         )
 

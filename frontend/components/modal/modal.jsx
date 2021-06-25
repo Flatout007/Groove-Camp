@@ -51,8 +51,8 @@ import {
                                     <div className='icon-2'></div>
 
                                     <div>
-                                        <a className='signup-artist-button' onClick={() => openModal('signup-artist')}>Sign up as a artist</a>
-                                        <div>text</div>
+                                        <a className=' signup-fan-button signup-artist-button' onClick={() => openModal('signup-artist')}>Sign up as a artist</a>
+                                        <div className='fan-account-text'>Sell directly to your fans with total control over your music and pricing. Easy access to your customers’ data, real-time stats, music chart reporting, and more.</div>
                                     </div>
                                 </li>
 
@@ -60,8 +60,8 @@ import {
                                     <div className='icon-3'></div>
 
                                     <div>
-                                        <a className='signup-demo-button' onClick={() => signin({ username: 'demo', password: '123456', artist_check: false , bio:''}).then(closeModal)}>Curious? Try a demo</a>
-                                        <div>text</div>
+                                        <a className='signup-fan-button signup-demo-button' onClick={() => signin({ username: 'demo', password: '123456', artist_check: false , bio:''}).then(closeModal)}>Curious? Try a demo</a>
+                                        <div className='fan-account-text'>Curious? Try a demo of the site. You can listen to hours of music, see all of groovecamps bands and artist, and much much more.</div>
                                     </div>
                                 </li>
                           </ul>
