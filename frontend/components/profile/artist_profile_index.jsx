@@ -45,7 +45,6 @@ class ArtistProfileIndex extends React.Component {
 
     artistAlbumList() {
         return this.handleAlbumLimit().map((ele, idx) => {
-            if (ele.title !== 'GO Way! EP');
             return <ArtistProfileIndexItem
                 key={ele.id}
                 album={ele}
