@@ -44,13 +44,13 @@ class AlbumGenreIndex extends React.Component {
        
         return(
             <div>
-                <ul class='artist-genre-index-grid'>
+                <ul className='artist-genre-index-grid'>
                     <li></li>
                     <li></li>
                     <li></li>
                 </ul>
 
-                <ul class='artist-genre-index-grid-rand'>
+                <ul className='artist-genre-index-grid-rand'>
                     <li></li>
                     <li></li>
                     <li></li>
