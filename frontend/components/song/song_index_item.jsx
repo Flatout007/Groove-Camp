@@ -4,36 +4,6 @@ import React from 'react';
 class SongIndexItem extends React.Component {
     constructor(props) {
         super(props);
-        this.handleSongsPlayPause = this.handleSongsPlayPause.bind(this);
-    }
-
-
-    componentDidMount() {
-        this.props.requestUser(this.props.song.artist_id).then((res) => {
-            if (document.readyState === 'complete') {
-                let name = document.querySelector('.name');
-                name.innerHTML = res['user'].username;
-                let li = document.querySelector('.album-header-img');
-                li.style.background = `url(${res['user'].photo}) center / cover no-repeat`;
-                // li.backgroundSize = 'cover';
-            }
-
-        });
-        
-    }
-
-
-
-    handleSongsPlayPause() {
-        let audio = document.querySelector('.audio');
-        let src = audio.querySelector('source').src.split('/')[document.querySelector('source').src.split('/').length - 1];
-        let mysrc = this.props.song.audioUrl.split('/')[this.props.song.audioUrl.split('/').length - 1];
-        let source = audio.querySelector('source');
-
-
-        source.src = this.props.song.audioUrl;
-        Promise.resolve(audio.load()).then(audio.play());
-        
     }
 
 
@@ -43,9 +13,12 @@ class SongIndexItem extends React.Component {
        
         return (        
             <li>
-                        <div onClick={this.handleSongsPlayPause} className='play'></div>
+                        <div className='songs-play-container'>
+                                    { this.props.playing ? <div onClick={this.props.handlePlay} className='songs-pause-icon'></div> : <div onClick={this.props.handlePlay} className='songs-play-icon'></div> }
+                        </div> 
                         <p>{this.props.song.title}</p>
-                        <p className={'name'}></p>
+                        {/* <p className='name'></p>
+                        <p className='title'>0:30</p> */}
             </li>
         )
     }

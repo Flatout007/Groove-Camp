@@ -87,7 +87,7 @@ class AlbumGenreIndex extends React.Component {
 
 
     handleAlbumProfileList1() {
-        return this.handleAlbums(2).map((ele, idx) => {
+        return this.handleAlbums(2).map((ele, idx) => {    
             return <AlbumGenreIndexItem
                 key={idx}
                 album={ele}
@@ -105,7 +105,6 @@ class AlbumGenreIndex extends React.Component {
         if(!this.handleAlbumProfileList1()[0]) return null;
         if (!this.handleAlbumProfileList2()[0]) return null;
         if(!this.handleUsers()) return null;
-
     
        
        

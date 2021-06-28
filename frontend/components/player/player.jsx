@@ -36,6 +36,7 @@ class Player extends React.Component {
                playing={this.state.playing}
                requestUser={this.props.requestUser}
                artist={this.props.artist}
+               handlePlay={this.handlePlayPause.bind(this)}
             //    requestAllUsers={this.props.requestAllUsers}
             />
         }); 
@@ -173,7 +174,6 @@ class Player extends React.Component {
                         onMouseUp={() => this.setState({ mousedown: false })}
                         onMouseLeave={() => this.setState({ mousedown: false})}
                         onMouseMove={(e) => this.state.mousedown ? this.handleSrcubbing(e) : null}
-                        onClick={this.handleSrcubbing}
                         className="progress">
                         <div className="progress__filled"></div>
                         <a className='thumb'></a>
@@ -191,7 +191,11 @@ class Player extends React.Component {
                             
                         </div>
                         <div className='songs'>
+                            <ol>
+                                
                             {this.handleUserSongs()}
+
+                            </ol>
                         </div>
             
             </div>)

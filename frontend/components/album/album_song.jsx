@@ -18,8 +18,8 @@ class ArtistShow extends React.Component {
         //   this.props.requestAllUsers().then(() => {this.props.store.entities.users[this.props.match.params.id]})
         window.scrollTo(0, 0);
         this.props.requestSongs();
-        this.props.requestAlbum(this.props.match.params.id);
-        this.props.requestAllUsers();
+         this.props.requestAllUsers();
+         this.props.requestAlbum(this.props.match.params.id);
     }
 
     handleUser() {
@@ -59,7 +59,7 @@ class ArtistShow extends React.Component {
                         <GreetingNav />
                         <div className='wrapper'>
                         <div className='album-header'>
-                                    <li className='album-header-img'></li>
+                                    <li style={{background: `url(${this.handleUser().photo}) 100% center / cover no-repeat`}}className='album-header-img'></li>
                                     <h2 className='album-title-profile'>{this.props.album.title}</h2>
                                     <h3 className='song-title-profile'>by {this.handleUser().username}</h3>
                                     <div className='album-header-nav'>
@@ -75,7 +75,14 @@ class ArtistShow extends React.Component {
                                                     requestAllUsers={this.props.requestAllUsers}
                                                     artist={this.props.artist}
                                                 />
-                                                <div className='album-profile-box'></div>
+                                                <h2 className='digital'>Digital Album</h2>
+                                                <p className='digital-p'>Includes unlimited streaming via the free Bandcamp app, plus high-<br/>quality download in MP3, FLAC and more.</p>
+                                                <div className='album-profile-box'>
+                                                    <img src={this.handleUser().photo} alt=""/>
+                                                    <button>Discography</button>
+                                                    <p className='album-profile-box-bio'>{this.handleUser().bio.split('.')[0] + this.handleUser().bio.split('.')[1]}</p>
+                                                </div>
+                                                <li style={{background: `url(${this.props.album.photo}) 100% center / cover no-repeat`}} className='album-player-cover'></li>
                                     </div>
                         </div>
                     </div>
