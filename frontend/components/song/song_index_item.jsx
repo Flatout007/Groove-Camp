@@ -5,8 +5,6 @@ class SongIndexItem extends React.Component {
     constructor(props) {
         super(props);
         this.handleSongsPlayPause = this.handleSongsPlayPause.bind(this);
-       
-      
     }
 
 
@@ -16,8 +14,8 @@ class SongIndexItem extends React.Component {
                 let name = document.querySelector('.name');
                 name.innerHTML = res['user'].username;
                 let li = document.querySelector('.album-header-img');
-                li.style.background = `url(${res['user'].photo}) no-repeat 50%`;
-                li.backgroundSize = 'contain';
+                li.style.background = `url(${res['user'].photo}) center / cover no-repeat`;
+                // li.backgroundSize = 'cover';
             }
 
         });

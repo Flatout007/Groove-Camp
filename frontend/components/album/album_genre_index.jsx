@@ -32,7 +32,7 @@ class AlbumGenreIndex extends React.Component {
         let arr = [];
 
         for(let i=0; i<this.props.albums.length; i++) {
-            if (this.props.albums[i].username === 'SILENT SIREN' && i === 1);
+            if (this.props.albums[i].title === 'GO Way! EP' && i === 1);
                 arr.push(
                 <li className='album-of-the-week'>
                     <img src={this.props.albums[i].photo} alt=""/>
@@ -75,7 +75,6 @@ class AlbumGenreIndex extends React.Component {
 
     handleAlbumProfileList2() {
         return this.handleAlbums(5).map((ele, idx) => {
-            if (ele.title !== 'GO Way! EP');
             return <AlbumGenreIndexItem
                 key={idx}
                 album={ele}
@@ -89,7 +88,6 @@ class AlbumGenreIndex extends React.Component {
 
     handleAlbumProfileList1() {
         return this.handleAlbums(2).map((ele, idx) => {
-            if (ele.title !== 'GO Way! EP');
             return <AlbumGenreIndexItem
                 key={idx}
                 album={ele}
@@ -107,6 +105,8 @@ class AlbumGenreIndex extends React.Component {
         if(!this.handleAlbumProfileList1()[0]) return null;
         if (!this.handleAlbumProfileList2()[0]) return null;
         if(!this.handleUsers()) return null;
+
+    
        
        
         return(

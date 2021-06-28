@@ -904,7 +904,7 @@ h4 {
   display: table;
   margin-left: auto;
   margin-right: auto;
-  background-color: burlywood;
+  background-color: white;
   list-style: none;
   width: 1200px;
   height: 218px;
@@ -914,6 +914,7 @@ h4 {
 .album-header-img{
  height: 180px;
  width: 975;
+ background-size: cover;
 //  background-color: green;
 
 }
@@ -924,18 +925,21 @@ h4 {
   // background-color: blue;
   font: 13px/1.231 'Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 92.30769231%;
+  background-color: #81828560;
+  position: relative;
+  bottom: 50px;
   
   // margin: auto;
 }
 
 .album-header-nav ol {
-  margin-left: 20px
+  margin-left: 20px;
+
 }
 
 .album-header-nav ol li:nth-child(1) {
   height: 38px;
   width: 70.38px;
-  background-color: #222;
   display: inline-block;
   // list-style: none;
   // text-align: left;
@@ -946,10 +950,13 @@ h4 {
   display: inline-block;
   height: 38px;
   width: 104.38px;
- 
-  background-color: #222;
   margin-left: 20px;
   position: relative;
+}
+
+.album-header-nav ol li:nth-child(2):hover {
+  
+  
 }
 
 
@@ -957,22 +964,48 @@ h4 {
   top: 7px;
   left: 13px;
   position: relative;
-   text-decoration: none;
-   color: #FFFFFF;
+  text-decoration: none;
+  color: #333;
+  font-weight: 700;
 }
 
 .album-header-nav ol li:nth-child(2) p {
    position: relative;
    top: 7px;
    left: 13px;
-   color: #FFFFFF;
+   color: #333;
+    font-weight: 700;
+
+   
+}
+
+.album-header-nav ol li:nth-child(2) p {
+  border-top: cyan;
+}
+
+
+.profile-hover {
+  position: absolute;
+  width: 100px;
+  height: 3px;
+  background-color: cyan;
+  bottom: 35px;
+}
+
+.profile-hover2 {
+  position: absolute;
+  width: 100px;
+  height: 3px;
+  background-color: cyan;
+  bottom: 35px;
+  left: 5px;
 }
 
 
 .album-content {
   width: 975px;
   height: 1000px;
-  background-color: #909090;
+  background-color: white;
   display: flex;
   justify-content: center;
 }
@@ -992,7 +1025,7 @@ h4 {
 .album-content-grid li {
   width: 232px;
   height: 232px;
-  background-color: green;
+ 
 
 }
 
@@ -1177,7 +1210,31 @@ h4 {
   height: 100px;
   position: relative;
   margin-right: 900px;
+  top: 150px;
   
+}
+
+.song-title-profile {
+  position: relative;
+
+  font: normal 14.5px/1em 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  margin: -4px 30px 8px 0;
+  word-wrap: break-word;
+  max-width: 726px;
+  top: 148px;
+  
+  padding-left: 19px;
+}
+
+.album-title-profile {
+  position: relative;
+
+  font: normal 28px/1em 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  margin: -4px 30px 8px 0;
+  word-wrap: break-word;
+  max-width: 726px;
+  top: 124px;
+  padding-left: 19px;
 }
 
 .thumb {
@@ -1500,6 +1557,9 @@ h4 {
 .genre-container {
   padding-bottom: 200px ;
   padding-top: 100px;
+  background-color: #eef2f3;
+  position: relative;
+  bottom: 110px;
   
 }
 
@@ -1518,7 +1578,6 @@ h4 {
 .artist-genre-index-grid-rand li {
   height: 213px;
   width: 214px;
-  background-color: green;
 }
 
 .artist-genre-index-grid {
@@ -1537,15 +1596,16 @@ h4 {
 .artist-genre-index-grid li{
   height: 148px;
   width: 214px;
-  background-color: green;
   position: relative;
   background-size: cover;
-
 }
 
 .artist-genre-index-container {
-    margin-right: 88px;
+    padding-right: 88px;
     height: 610px;
+    background-color: #eef2f3;
+    position: relative;
+    bottom: 110px;
 
 }
 
@@ -1856,3 +1916,6 @@ h4 {
 
 
 
+.wrapper {
+  background-color: #333;
+}

@@ -5,8 +5,6 @@ import React from 'react';
 class AlbumShowItem extends React.Component {
     constructor(props) {
         super(props); 
-
-        
     }
 
 
@@ -14,10 +12,7 @@ class AlbumShowItem extends React.Component {
         this.props.fetchUser(this.props.album.artist_id).then((res) => {
                 if(document.readyState === 'complete') {
                     let li = document.querySelector('.album-header-img');
-
-                    li.style.background = `url(${res['user'].photo}) no-repeat 50%`;
-                    li.backgroundSize = 'contain';
-                 
+                    li.style.background = `url(${res['user'].photo}) center / cover no-repeat`;
                 }     
         }); 
     }
