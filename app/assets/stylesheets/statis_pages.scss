@@ -1339,6 +1339,9 @@ h4 {
   color: white;
 }
 
+
+
+
 .genre-grid {
   white-space: nowrap;
   width: 100%;
@@ -1532,10 +1535,17 @@ h4 {
 
 
 .artist-genre-index-grid li{
-  height: 205px;
+  height: 148px;
   width: 214px;
   background-color: green;
-  
+  position: relative;
+  background-size: cover;
+
+}
+
+.artist-genre-index-container {
+    margin-right: 88px;
+    height: 610px;
 
 }
 
@@ -1543,6 +1553,118 @@ h4 {
   width: 655.990px;
   height: 280px;
   
+}
+///
+.genre-index-stats {
+  position: relative;
+  background-color: white;
+  width: 214px;
+  height: 148px;
+  top: 148px;
+}
+
+.genre-index-stats h3{
+  position: relative;
+  font-size: 16px;
+  font-weight: 700;
+  padding-left: 8px;
+  color: #333;
+  top: 6px;
+}
+
+.genre-index-stats h5{
+  font-size: 11px;
+  font-weight: 100;
+  padding-left: 8px;
+  position: relative;
+  color: #777;
+  top: 6px;
+}
+
+.genre-index-stats p{
+  position: relative;
+  font-size: 12.2px;
+  font-weight: 100;
+  color: #333;
+  padding-left: 8px;
+  top: 11px;
+}
+
+.genre-index-stats span{
+  position: absolute;
+  color: #777;
+  text-transform: uppercase;
+  font-size: 10px;
+  // top: 66px;
+  padding-left: 8px;
+  top: 117px
+}
+///@at-root
+.album-of-the-week-stats {
+  position: relative;
+  background-color: white;
+  width: 214px;
+  height: 148px;
+  // top: 148px;
+}
+
+.album-of-the-week-stats h3{
+  position: relative;
+  font-size: 16px;
+  font-weight: 700;
+  padding-left: 8px;
+  color: #333;
+  // top: 6px;
+}
+
+.album-of-the-week-stats h5{
+  font-size: 16px;
+  font-weight: 100;
+  padding-left: 6px;
+  position: relative;
+  color: #333;
+  top: 6px;
+}
+
+.album-of-the-week-stats p{
+  position: relative;
+  font-size: 13px;
+  font-weight: 100;
+  color: #333;
+  padding-left: 6px;
+  top: 70px;
+}
+
+.album-of-the-week-stats span{
+  position: absolute;
+  color: #777;
+  text-transform: uppercase;
+  font-size: 10px;
+  // top: 66px;
+  padding-left: 8px;
+  top: 263px
+}
+.album-of-the-week {
+  position: relative;
+}
+
+.album-of-the-week img {
+  position: absolute;
+  height: 280px;
+}
+
+.album-of-the-week-stats {
+  position: absolute;
+  background-color: white;
+  width: 377px;
+  height: 280px;
+  left: 280px;
+
+}
+
+
+.album-of-the-week div{
+   position: absolute;
 }
 
 .weekly-player {

@@ -33,26 +33,29 @@ class ArtistProfileIndex extends React.Component {
             />
 
         })
+
+       
     }
 
 //album
 
-    handleAlbumLimit() {
-        return this.props.albums.filter((ele, idx) => { return idx > 5 });
-    }
-
-
-
     artistAlbumList() {
-        return this.handleAlbumLimit().map((ele, idx) => {
-            return <ArtistProfileIndexItem
-                key={ele.id}
-                album={ele}
-                users={this.props.users}
-                songs={this.props.songs}
-            />
+        let arr = [];
 
-        })
+        for (let i = 0; i < this.props.albums.length; i++) {
+            if (i >= 10) break;
+            if (i >= 5) {
+                arr.push(<ArtistProfileIndexItem
+                    key={i}
+                    album={this.props.albums[i]}
+                    users={this.props.users}
+                    songs={this.props.songs}
+                />)
+            }
+
+        }
+
+        return arr;
     }
 
 
