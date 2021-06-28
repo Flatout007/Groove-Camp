@@ -1,10 +1,6 @@
 import React from 'react';
 
 
-
-
-// import {Navbar, Nav, NavDropdowm, Modal, Button} from 'react-bootstrap'
-
 import {
     Route,
     Redirect,
