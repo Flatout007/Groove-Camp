@@ -20,7 +20,8 @@ class ArtistProfileShow extends React.Component {
 
 
     componentDidMount() {
-        this.props.fetchAlbums();
+        this.props.requestUser(this.props.match.params.id);
+        this.props.requestAlbums();
 
     }
 
@@ -35,6 +36,8 @@ class ArtistProfileShow extends React.Component {
                 key={ ele.id}
                 album={ele}
                 deleteAlbum={this.props.deleteAlbum}
+                user={this.props.user}
+                albums={this.props.albums}
 
             />
 
@@ -42,15 +45,17 @@ class ArtistProfileShow extends React.Component {
         
     }
 
+
     render() {
         if(!this.props.albums[0]) return null;
+        if(!this.props.user) return null;
     
         return(
            
         <div>
             <GreetingNav />
             <div className='album-header'>
-                <li className='album-header-img'></li>
+                <li style={{background: `url(${this.props.user.photo}) center / cover no-repeat`}} className='album-header-img'></li>
                 <div className='album-header-nav'>
                     <ol>
                         {/* <li>music</li>
@@ -69,7 +74,9 @@ class ArtistProfileShow extends React.Component {
 
                     </div>
                     <div className='album-profile-box'>
-
+                            <img src={this.props.user.photo} alt="" />
+                            <button>Discography</button>
+                            <p className='album-profile-box-bio'>{this.props.user.bio.split('.')[0] + this.props.user.bio.split('.')[1]}</p>
                     </div>
                 </div>
 

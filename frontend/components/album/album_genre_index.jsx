@@ -31,24 +31,25 @@ class AlbumGenreIndex extends React.Component {
     handleAlbumOfTheWeek() {
         let arr = [];
 
-        for(let i=0; i<this.props.albums.length; i++) {
-            if (this.props.albums[i].title === 'GO Way! EP' && i === 1);
+    
+        this.props.albums.forEach((ele) => {
+            if (ele.title === 'GO Way! EP') {
                 arr.push(
-                <li className='album-of-the-week'>
-                    <img src={this.props.albums[i].photo} alt=""/>
-                    <div className='album-of-the-week-stats'>
-                        {/* album name */}
-                            <h3>{this.props.albums[i].title}</h3>
-                        <h5>by {this.handleUsers().username}</h5>
-                        <p> { this.handleUsers().bio.split('.')[0]}</p>
-                        <span>Album Of the Day</span>
-                    </div>
-                    
+                    <li className='album-of-the-week'>
+                        <img src={ele.photo} alt="" />
+                        <div className='album-of-the-week-stats'>
+                            {/* album name */}
+                            <h3>{ele.title}</h3>
+                            <h5>by {this.handleUsers().username}</h5>
+                            <p> {this.handleUsers().bio.split('.')[0]}</p>
+                            <span>Album Of the Day</span>
+                        </div>
+                    </li>
+                )
+               
+            }
+        });
 
-
-
-                    </li>);
-        }
 
         return arr[0];
     }

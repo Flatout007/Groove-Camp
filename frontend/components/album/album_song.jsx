@@ -18,8 +18,8 @@ class ArtistShow extends React.Component {
         //   this.props.requestAllUsers().then(() => {this.props.store.entities.users[this.props.match.params.id]})
         window.scrollTo(0, 0);
         this.props.requestSongs();
-         this.props.requestAllUsers();
-         this.props.requestAlbum(this.props.match.params.id);
+        this.props.requestAllUsers();
+        this.props.requestAlbum(this.props.match.params.id);
     }
 
     handleUser() {

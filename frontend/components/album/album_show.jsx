@@ -12,11 +12,15 @@ class AlbumShow extends React.Component {
    
     constructor(props) {
         super(props);
+        this.state = { communityTabHover: false, musicTabHover: false };
+
+        this.handleUser = this.handleUser.bind(this);
     }
 
 
     componentDidMount() {
         window.scrollTo(0, 0);
+        this.props.requestAllUsers();
         this.props.requestAlbum(this.props.match.params.id);
        
         setTimeout(() => this.props.requestAlbums(), 500);
@@ -37,30 +41,48 @@ class AlbumShow extends React.Component {
            return <AlbumShowItem
                 key={ele.id}
                 album={ele}
-                fetchUser={this.props.requestUser}
            />
 
         }) 
+    }
+
+    handleUser() {
+        let arr = [];
+
+
+        this.props.users.forEach((ele) => {
+            if (ele.id === this.props.album.artist_id) {
+                arr.push(ele);
+            }
+        })
+
+
+        return arr[0];
     }
 
 
     render() {
         if (!this.props.album) return null;
         if (!this.props.albums[0]) return null;
+        if(!this.handleUser()) return null;
       
 
 
         console.log(this.handleFilterAlbums())
 
+        let communityTab = this.state.communityTabHover ? <div className='profile-hover'></div> : <div></div>
+        let musicTab = this.state.musicTabHover ? <div className='profile-hover2'></div> : <div></div>
+
         
-        return (<div>
+        return (
+        <div>
             <GreetingNav/>
             <div className='album-header'>
-                        <li className='album-header-img'></li>
-                                    <div className='album-header-nav'>
+                        <li style={{background: `url(${this.handleUser().photo}) center / cover no-repeat`}} className='album-header-img'></li>
+                                    <div className='artist-header-nav'>
                                                 <ol>                 
-                                                            <li><Link to={`/album/songs/${this.props.album.id}`}>music</Link></li>
-                                                            <li><p>community</p></li>
+                                                            <li onMouseEnter={() => this.setState({ musicTabHover: true })} onMouseLeave={() => this.setState({ musicTabHover: false })}><Link to={`/album/songs/${this.props.album.id}`}>music</Link>{musicTab}</li>
+                                                            <li onMouseEnter={() => this.setState({ communityTabHover: true })} onMouseLeave={() => this.setState({ communityTabHover: false })}><p>community</p>{communityTab}</li>
                                                 </ol>
                                     
                                     </div>
@@ -74,17 +96,12 @@ class AlbumShow extends React.Component {
                                                             {this.handleAlbumItems()}
                                                 </div>
                                                 <div className='album-profile-box'>
-                                                    
-                                                </div>
+                                                            <img src={this.handleUser().photo} alt="" />
+                                                            <button>Discography</button>
+                                                            <p className='album-profile-box-bio'>{this.handleUser().bio.split('.')[0] + this.handleUser().bio.split('.')[1]}</p>
+                                                        </div>
                                     </div> 
             </div>
-            
-            {/* content div */}
-
-
-
-           {/* <p>{this.props.album.title}</p> */}
-           {/* <button onClick={() => this.props.deleteAlbum(this.props.album.id)}>delete</button> */}
         </div>);
     }
 }

@@ -983,6 +983,68 @@ h4 {
   border-top: cyan;
 }
 
+//
+
+.artist-header-nav {
+  // height: 38px;
+  // width: 975;
+  // background-color: blue;
+  font: 13px/1.231 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 92.30769231%;
+  background-color: #81828560;
+  position: relative;
+  bottom: 50px;
+  top: 0;
+  
+  // margin: auto;
+}
+
+.artist-header-nav ol {
+  margin-left: 20px;
+
+}
+
+.artist-header-nav ol li:nth-child(1) {
+  height: 38px;
+  width: 70.38px;
+  display: inline-block;
+  // list-style: none;
+  // text-align: left;
+}
+
+
+.artist-header-nav ol li:nth-child(2){
+  display: inline-block;
+  height: 38px;
+  width: 104.38px;
+  margin-left: 20px;
+  position: relative;
+}
+
+.artist-header-nav ol li:nth-child(2):hover {
+  
+  
+}
+
+
+.artist-header-nav ol li:nth-child(1) a {
+  top: 7px;
+  left: 13px;
+  position: relative;
+  text-decoration: none;
+  color: #333;
+  font-weight: 700;
+}
+
+.artist-header-nav ol li:nth-child(2) p {
+   position: relative;
+   top: 7px;
+   left: 13px;
+   color: #333;
+    font-weight: 700;
+
+   
+}
 
 .profile-hover {
   position: absolute;
@@ -1015,7 +1077,7 @@ h4 {
   grid-template-columns: repeat(3,1fr);
   width: 900px;
   height: 900px;
-  background-color: #999;
+  // background-color: #999;
   margin-top: 30px;
    grid-gap: 3px;
   justify-items: center;
@@ -1025,6 +1087,7 @@ h4 {
 .album-content-grid li {
   width: 232px;
   height: 232px;
+  background-color: cyan;
  
 
 }
@@ -1786,7 +1849,7 @@ h4 {
   font-weight: 700;
   padding-left: 8px;
   color: #333;
-  // top: 6px;
+  top: 6px;
 }
 
 .album-of-the-week-stats h5{
@@ -2026,8 +2089,12 @@ h4 {
 //   font-size: 11px;
 // }
 
-
-
 .wrapper {
   background-color: #333;
+}
+
+.delete-button {
+  position: relative;
+  left: 200px;
+  cursor: pointer;
 }

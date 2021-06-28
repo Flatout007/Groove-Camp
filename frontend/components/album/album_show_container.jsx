@@ -1,9 +1,9 @@
-import React from 'react';
+
 import { connect } from 'react-redux';
 import AlbumShow from './album_show';
 import { requestAlbum, requestAlbums } from '../../actions/album_actions';
 import { deleteAlbum } from '../../actions/album_actions';
-import { requestUser } from '../../actions/session_actions';
+import { requestUser, requestAllUsers } from '../../actions/session_actions';
 
 /*
 Export a container component for `AlbumIndex` that maps an array of all
@@ -16,6 +16,7 @@ const mapStoreToProps = (store, props) => {
     return {
         album: store.entities.albums[props.match.params.id],
         albums: Object.values(store.entities.albums),
+        users: Object.values(store.entities.users)
     };
 };
 
@@ -24,7 +25,8 @@ const mapActionsToProps = (dispatch, props) => {
         requestAlbum: (id) => dispatch(requestAlbum(id)),
         deleteAlbum: (id) => dispatch(deleteAlbum(id)),
         requestUser: (id) => dispatch(requestUser(id)),
-        requestAlbums: () => dispatch(requestAlbums())
+        requestAlbums: () => dispatch(requestAlbums()),
+        requestAllUsers: () => dispatch(requestAllUsers())
         
     };
 };

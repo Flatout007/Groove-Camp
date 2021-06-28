@@ -1,22 +1,27 @@
 
 import { connect } from 'react-redux';
 import ArtistProfileShow from './artist_profile_show';
-import { deleteAlbum, requestAlbums } from '../../actions/album_actions';
+import { deleteAlbum, requestAlbums, requestAlbum } from '../../actions/album_actions';
+import { requestUser, requestAllUsers } from '../../actions/session_actions';
 
 
 
 const mapStoreToProps = (store, props) => {
     return {
-        songs: Object.values(store.entities.songs),
+        user: store.entities.users[props.match.params.id],
         albums: Object.values(store.entities.albums),
-        user: store.entities.users[store.session.id]
+        users: Object.values(store.entities.users)
     };
 };
 
 const mapActionsToProps = (dispatch, props) => {
     return {
-        fetchAlbums: () => dispatch(requestAlbums()),
+        requestAlbum: (id) => dispatch(requestAlbum(id)),
         deleteAlbum: (id) => dispatch(deleteAlbum(id)),
+        requestUser: (id) => dispatch(requestUser(id)),
+        requestAlbums: () => dispatch(requestAlbums()),
+        requestAllUsers: () => dispatch(requestAllUsers())
+
     };
 };
 
