@@ -45,6 +45,13 @@ class ArtistProfileShow extends React.Component {
         
     }
 
+    handleNoAlbums() {
+        if(this.handleUsersAlbums.length < 1) {
+            return <div>
+                <h1 style={{fontSize: '3em', whiteSpace: 'nowrap'}} >YOU HAVE NO ALBUMS.</h1>
+            </div>
+        }
+    }
 
     render() {
         if(!this.props.albums[0]) return null;
@@ -69,6 +76,7 @@ class ArtistProfileShow extends React.Component {
                     <div className='album-content-grid'>
                         {/* albumIndexItem */}
                         {this.handleUsersAlbums()}
+                        {this.handleNoAlbums()}
 
                        
 
