@@ -31,8 +31,6 @@ class AlbumForm extends React.Component {
         } else {
             this.setState({ photo: "", photo: null });
         }
-
-        console.log(file)
     }
 
 
@@ -71,14 +69,16 @@ class AlbumForm extends React.Component {
                         <input onChange={this.handleChange('title')} type="text" value={this.state.title} />
                     </label>
 
-                    <input onChange={this.handleFile} type="file" />
+                    <label>Add Album Cover
+                                <input onChange={this.handleFile} type="file" />
+                    </label>
 
                     
 
-                    <button>Submit</button>
+                    <button style={{ marginTop: '20px' }} className='session-submit-button' >Submit</button>
                 </form>
 
-                <button onClick={() => this.props.history.push('/songs/new')}>song</button>
+                {/* <button onClick={() => this.props.history.push('/songs/new')}>song</button> */}
                 {/* <Link to='/songs/new'>song</Link> */}
             </div>
         )

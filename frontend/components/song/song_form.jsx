@@ -68,18 +68,18 @@ class SongForm extends React.Component {
                         <input onChange={this.handleChange('title')} type="text" value={this.state.title} />
                     </label>
 
-                    <select onClick={this.handleSelect}>
+                <label htmlFor=""> Choose Album
+                        <select onClick={this.handleSelect}>
                            {this.handleAlbumDropdown()}
-                    </select>
-
-                    <input onChange={this.handleFile} type="file"/>
+                        </select>
+                </label>
                     
-                
-                    <button>Submit</button>
-                </form>
+                    <input onChange={this.handleFile} type="file" text/>
 
-                {/* <Link to='/albums/new'>Home</Link> */}
-                <button onClick={() => this.props.history.push('/albums/new')}>album</button>
+
+                
+                    <button style={{marginTop: '20px'}} className='session-submit-button'>Submit</button>
+                </form>
             </div>
         )
       

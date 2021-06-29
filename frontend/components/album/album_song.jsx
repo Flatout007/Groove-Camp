@@ -57,7 +57,7 @@ class ArtistShow extends React.Component {
         return (
             <React.Fragment>
                         <GreetingNav />
-                        <div className='wrapper'>
+                        <div style={{background: `url(${this.handleUser().photo}) center / cover no-repeat`}} className='wrapper'>
                         <div className='album-header'>
                                     <li style={{background: `url(${this.handleUser().photo}) 100% center / cover no-repeat`}}className='album-header-img'></li>
                                     <h2 className='album-title-profile'>{this.props.album.title}</h2>

@@ -44,7 +44,7 @@ class AlbumIndex extends React.Component {
       } else {
             slider.appendChild(li).style.paddingLeft = '0px';
             li.style.paddingLeft = '0px';
-            slider.getElementsByClassName('album-li')[0].style.paddingLeft = '-11.5px';
+            li.style.paddingLeft = '-11.5px';
       }
 
       this.setState({flag: false});

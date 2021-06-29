@@ -158,19 +158,58 @@ h2 {
   display: block;
   padding: 1em;
   color: black;
+  font-weight: 700;
+  width: 200px;
+
 }
 
-.nav-hd-div {
-  
-  /* position:absolute;  
-  display:block;  
-  top:0px;  */
+
+
+
+.song-modal-create-goal-title {
+  width: 100%;
+  /* height: 18px; */
+  padding-top: 15px;
+  position: relative;
+  z-index: 1;
+  /* padding-left: 12px;
+  padding-right: 20px; */
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  /* margin-top: 10px; */
+  margin-bottom: 20px;
+  border-radius: 16px 16px 0 0;
  
 }
 
-/* .session-nav a:hover {
-    background: #00ace6;
-} */
+.album-modal-create-goal-title {
+   width: 100%;
+  /* height: 18px; */
+  padding-top: 15px;
+  position: relative;
+  z-index: 1;
+  /* padding-left: 12px;
+  padding-right: 20px; */
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  /* margin-top: 10px; */
+  margin-bottom: 20px;
+  border-radius: 16px 16px 0 0;
+}
+
+
+.signup, .login {
+  width: max-content;
+}
+
+.session-nav a:hover:not(.signup, .login) {
+  background-color: #000;
+  color: ghostwhite;
+  transition: all .6s;
+}
+
 
 
 /* ****** ****** */
@@ -196,9 +235,6 @@ h2 {
     border-bottom: 1px solid rgba(0,0,0,0.1); 
   }
   
-  .session-nav li:last-of-type a {
-    // border-bottom: none;
-  }
 }  
 /*--------------------------------------------------
 
@@ -341,6 +377,10 @@ input[type=password], select {
   background: #fff;
   width: 492px;
   height: 595px;
+   border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+   border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 .modal-form-div {
@@ -386,6 +426,9 @@ input[type=password], select {
   width: 460px;
   height: 18px;
   text-align: center;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  position: relative;
 }
 
 .modal-form {
@@ -832,9 +875,20 @@ h4 {
 
 
 .album-li {
- transition: all 0.6s ease-in-out;
+//  transition: all .6s ease-in-out;
  cursor: pointer;
 }
+
+.album-li:nth-child(1) {
+  transform: translateY(150px);
+  animation: come-in 0.8s ease forwards;
+}
+
+@keyframes come-in {
+  to { transform: translateY(0); }
+}
+
+
 
 
 .album-list-flex li {
@@ -1134,7 +1188,9 @@ h4 {
   font-weight: 100;
   font-size: 11.5px;
   padding-left: 12px;
+  line-height: 16px;
 }
+
 
 .artist-profile-index-container {
   width: 100%;
@@ -1145,6 +1201,41 @@ h4 {
   // background-color: #eef2f3;
   
 }
+
+.greeting-nav {
+  position: absolute;
+  background-color: white;
+  z-index: 20;
+  
+  top: 57px;
+
+}
+
+
+.profile-img-circle {
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+  cursor: pointer;
+  position: relative;
+  
+}
+
+.logout-button {
+  cursor: pointer;
+  padding-top: 20px;
+}
+
+.profile-img-circle img{
+  position: relative;
+  height: 43px;
+  width: 45px;
+  border-radius: 80%;
+  top: 12.5px;
+  background-color: #000;
+  
+}
+
 
 .artist-profile-index-title {
   width: 1090px;
@@ -2018,7 +2109,7 @@ h4 {
 
 .artist-weekly-overlay:hover {
   background: rgba(255, 255, 255, 0.12);
-  transition: opacity 0.1s ease-out;
+  transition: all .3s ease-out;
 }
 
 .artist-weekly-outer ol {
@@ -2030,7 +2121,8 @@ h4 {
   z-index: 1;
   position: absolute;
   width: 372px;
-  top:0
+  top:0;
+   transition: all .3s ease-out;
   
 }
 
@@ -2053,7 +2145,7 @@ h4 {
 
 .artist-weekly-outer ol li .artist-item-overlay:hover {
   background: rgba(255, 255, 255, 0.12);
-  transition: opacity 0.1s ease-out;
+  transition: all .3s ease-out;
 }
 
 .artist-item-text {

@@ -40,7 +40,7 @@ const App = () => {
         
                 <Route exact path='/artist/:id' component={ArtistArticle}></Route>
                 <Route exact path='/album/:id' component={AlbumShow}></Route>
-                <Route path='/albums/new' component={AlbumForm}></Route>
+                {/* <Route path='/albums/new' component={AlbumForm}></Route> */}
                 <Route path='/songs/new' component={SongForm}></Route>
                 <Route exact path="/signup" component={SignupContainer}></Route>   
                 <Route exact path="/" component={GreetingIndex}></Route>
