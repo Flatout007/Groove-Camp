@@ -154,7 +154,7 @@ h2 {
   display: flex;
 }
 
-.session-nav a {
+.session-nav a:not(.signup, .login) {
   display: block;
   padding: 1em;
   color: black;
@@ -202,6 +202,10 @@ h2 {
 
 .signup, .login {
   width: max-content;
+  display: block;
+  padding: 1em;
+  color: black;
+  font-weight: 700;
 }
 
 .session-nav a:hover:not(.signup, .login) {
