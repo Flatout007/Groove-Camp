@@ -14,9 +14,7 @@ class AlbumForm extends React.Component {
     handleChange(type) {
         return e => {
             this.setState({ [type]: e.currentTarget.value });
-            console.log(this.state);
         }
-
     }
 
 
@@ -55,31 +53,20 @@ class AlbumForm extends React.Component {
             contentType: false,
             processData: false
         }).then(() => window.location.reload());
-
-      
     }
 
 
     render() {
         return (
             <div>
-                <h1>{this.props.formType}</h1>
-                <form onSubmit={this.handleSubmit}>
-                    <label>Description
-                        <input onChange={this.handleChange('title')} type="text" value={this.state.title} />
-                    </label>
-
-                    <label>Add Album Cover
-                                <input onChange={this.handleFile} type="file" />
-                    </label>
-
-                    
-
-                    <button style={{ marginTop: '20px' }} className='session-submit-button' >Submit</button>
-                </form>
-
-                {/* <button onClick={() => this.props.history.push('/songs/new')}>song</button> */}
-                {/* <Link to='/songs/new'>song</Link> */}
+                        {/* <h1>{this.props.formType}</h1> */}
+                        <form onSubmit={this.handleSubmit}>
+                                    <label style={{ position: 'absolute', left: '208px', top: '36px', fontWeight: '700' }}>Album Title</label>
+                                    <input onChange={this.handleChange('title')} type="text" value={this.state.title} />
+                                    <label style={{ position: 'absolute', left: '190px', top: '125px', fontWeight: '700' }}>Add Album Cover</label>
+                                    <input style={{ position: 'absolute', left: '132px', top: '170px' }} onChange={this.handleFile} type="file"/>
+                                    <button style={{ position: 'absolute', top: '300px', left: '153px' }} className='session-submit-button' >Submit</button>
+                        </form>
             </div>
         )
     }

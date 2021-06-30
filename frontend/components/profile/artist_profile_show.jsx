@@ -15,6 +15,7 @@ import {
 class ArtistProfileShow extends React.Component {
     constructor(props) {
         super(props);
+        this.handleUsersAlbums = this.handleUsersAlbums.bind(this);
         
     }
 
@@ -46,7 +47,7 @@ class ArtistProfileShow extends React.Component {
     }
 
     handleNoAlbums() {
-        if(this.handleUsersAlbums.length < 1) {
+        if(!this.handleUsersAlbums()[0]) {
             return <div>
                 <h1 style={{fontSize: '3em', whiteSpace: 'nowrap'}} >YOU HAVE NO ALBUMS.</h1>
             </div>
@@ -56,6 +57,7 @@ class ArtistProfileShow extends React.Component {
     render() {
         if(!this.props.albums[0]) return null;
         if(!this.props.user) return null;
+    
     
         return(
            

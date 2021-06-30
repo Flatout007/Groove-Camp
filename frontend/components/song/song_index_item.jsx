@@ -18,7 +18,6 @@ class SongIndexItem extends React.Component {
         let source = audio.querySelector('source');
         source.src = this.props.song.audioUrl;
         audio.load();
-        // console.log(this.props.song.audioUrl);
     }
 
    

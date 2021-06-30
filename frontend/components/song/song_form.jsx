@@ -16,7 +16,6 @@ class SongForm extends React.Component {
 
    componentDidMount() {
         this.props.requestAlbums()
-    //  this.props.requestSongs();
     }
 
     handleChange(type) {
@@ -53,36 +52,28 @@ class SongForm extends React.Component {
 
 
     handleSelect(e) {
-        this.setState({album_id: parseFloat(e.target.value)})
-        console.log(this.state)
+        this.setState({album_id: parseFloat(e.target.value)});
     }
 
 
     render() {
-       
         return (
             <div>
-                <h1>{this.props.formType}</h1>
-                <form onSubmit={this.handleSubmit}>
-                    <label>Title
-                        <input onChange={this.handleChange('title')} type="text" value={this.state.title} />
-                    </label>
+                        {/* <h1>{this.props.formType}</h1> */}
+                        <form className='song-form' onSubmit={this.handleSubmit}>
+                                    <label style={{position: 'absolute', left:'232px', top: '36px', fontWeight: '700'}}>Title</label>
+                                    <input onChange={this.handleChange('title')} type="text" value={this.state.title} />
+                                    <label style={{ position: 'absolute', left: '198px', top: '125px', fontWeight: '700' }}> Choose Album</label>
+                                    <select onClick={this.handleSelect}>
 
-                <label htmlFor=""> Choose Album
-                        <select onClick={this.handleSelect}>
-                           {this.handleAlbumDropdown()}
-                        </select>
-                </label>
-                    
-                    <input onChange={this.handleFile} type="file" text/>
+                                                {this.handleAlbumDropdown()}
 
-
-                
-                    <button style={{marginTop: '20px'}} className='session-submit-button'>Submit</button>
-                </form>
+                                    </select>   
+                                    <input style={{ position: 'absolute', left: '125px', top: '248px' }} onChange={this.handleFile} type="file" text/>
+                                    <button style={{ position: 'absolute', top: '300px', left: '153px' }} className='session-submit-button'>Submit</button>
+                        </form>
             </div>
         )
-      
     }
 }
 

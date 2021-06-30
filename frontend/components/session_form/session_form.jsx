@@ -20,7 +20,6 @@ class SessionForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);   
         this.handleErrors = this.handleErrors.bind(this);
         this.handlePhotoFile = this.handlePhotoFile.bind(this);
-        
     }
 
 
@@ -55,13 +54,11 @@ class SessionForm extends React.Component {
     
     handleErrors(e) {
         return this.props.errors.map((ele) => {
-            return <div key={`ele-${Math.random(100 * 10)}`}>{ele}</div>
+            return <div style={{position: 'absolute', zIndex: '20', left: '180px'}} key={`ele-${Math.random(100 * 10)}`}>{ele}</div>
         });
     }
 
     handlePhotoFile(e) {
-        // this.setState({photo: e.currentTarget.files[0]})
-
         const reader = new FileReader();
         const file = e.currentTarget.files[0];
         reader.onloadend = () =>
@@ -89,51 +86,38 @@ class SessionForm extends React.Component {
         else {
            return (
             <div>
-                <div className='flex-login-header'>
-                  <h1>{this.props.formType}</h1>
-                </div>
-                   
-                {/* <div onClick={this.props.closeModal} className="close-x">X</div> */}
-                {this.handleErrors()}
+                        <div className='flex-login-header'>
+                                    <h1>{this.props.formType}</h1>
+                        </div>
+                        
+                        {this.handleErrors()}
 
-                
-                <form className='signup-form'>
-                    <label>Username
-                      <input onChange={this.handleChange('username')} type="text" value={this.state.username}/>
-                    </label>
+                        <form className='signup-form'>         
+                                    <label>Username</label>
+                                    <input onChange={this.handleChange('username')} type="text" value={this.state.username}/>
+                                    {this.props.formType !== 'login' ? <label style={{ position: 'absolute', left: '180px', top: '218px'}}>Add A Profile Photo</label> : <div></div> }
+                                    
+                                    {this.props.formType !== 'login' ? <input style={{ position: 'absolute', left: '125px', top: '248px'}} onChange={this.handlePhotoFile} type="file" /> : <React.Fragment></React.Fragment>}
+                                    
+                                    <label style={{ position: 'absolute', left: '210px', top: '122px'}}>Password</label>
+                                    <input onChange={this.handleChange('password')} type="password" value={this.state.password}/>
+                                    
+                                    {this.props.formType !== 'login' ? <button onClick={this.handleSubmit} type="submit" className='session-submit-button'>Submit</button> :
+                                    <button style={{position: 'absolute', top:'300px', left: '153px'}} onClick={this.handleSubmit} type="submit" className='session-submit-button'>Submit</button>}
 
-                    <br/>
-
-
-                       {this.props.formType !== 'login' ? <input onChange={this.handlePhotoFile} type="file" /> : <React.Fragment></React.Fragment>}
-
-                    <br/>
-
-                    <label>Password
-                      <input onChange={this.handleChange('password')} type="password" value={this.state.password}/>
-                    </label> 
-                     
-                    <button onClick={this.handleSubmit} type="submit" className='session-submit-button'>Submit</button>     
-
-                       {this.props.formType !== 'login' ? <textarea onChange={this.handleChange('bio')} name="" id="" cols="30" rows="10" value={this.state.bio} placeholder='add a bio'></textarea> 
-                       : <React.Fragment></React.Fragment>}
-                    
-                </form>
-
+                                    {this.props.formType !== 'login' ? <textarea onChange={this.handleChange('bio')} name="" id="" cols="30" rows="10" value={this.state.bio} placeholder='add a bio'></textarea> 
+                                    : <React.Fragment></React.Fragment>}
+                        </form>
             </div>)
         }
-
     }
 
+
     render() {
-        return(
-            
+        return(    
             <div>   
                 {this.sessionForm()}  
             </div>
-            
-        
-            
         )
     }
 }
