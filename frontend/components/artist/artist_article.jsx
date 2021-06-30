@@ -62,7 +62,7 @@ class ArtistArticle extends React.Component {
                                                 <a> 
                                                     <strong>Groovecamp Daily</strong>
                                                 </a>
-                                                <span className="flex-links">
+                                                {/* <span className="flex-links">
                                                     <span className="flex-link-1">
                                                         <a href="">Link</a></span>
                                                     <span>
@@ -71,7 +71,7 @@ class ArtistArticle extends React.Component {
                                                         ·<a href="">Link</a></span>
                                                     <span>
                                                         ·<a href="">Link</a></span>
-                                                </span>
+                                                </span> */}
 
                                                 <button className="daily-button">Home</button>
                                     </div>

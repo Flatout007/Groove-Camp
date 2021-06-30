@@ -17,6 +17,7 @@ class Player extends React.Component {
         this.handleSeekBar = this.handleSeekBar.bind(this);
         this.handleSrcubbing = this.handleSrcubbing.bind(this);
         this.handleDuration = this.handleDuration.bind(this);
+        this.handleTitle = this.handleTitle.bind(this);
        
     }
 
@@ -42,6 +43,17 @@ class Player extends React.Component {
         }); 
     }
 
+    handleTitle() {
+        let songTitle = document.querySelector('.song-info__title');
+        let audio = document.querySelector('.audio');
+        let source = audio.querySelector('source');
+        let title = source.src.split('/')[source.src.split('/').length - 1];
+
+        songTitle.innerHTML = decodeURI(title.replace('.mp3', ''))
+        
+        // console.log(decodeURI(title.replace('.mp3', '')));
+
+    }
 
     handleUserFiles() {
         return this.handleFilterSongsById();
@@ -105,6 +117,7 @@ class Player extends React.Component {
 
 
     handleDurationConversion(seconds) {
+        this.handleTitle();
         let sec = Math.floor(seconds);
         let min = Math.floor(sec / 60);
 

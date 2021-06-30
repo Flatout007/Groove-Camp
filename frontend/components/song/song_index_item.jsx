@@ -4,7 +4,28 @@ import React from 'react';
 class SongIndexItem extends React.Component {
     constructor(props) {
         super(props);
+        this.handleTitle = this.handleTitle.bind(this);
+        this.handleLoad = this.handleLoad.bind(this);
+        this.state = {playing: false};
     }
+
+    componentDidUpdate() {
+      
+    }
+
+    handleLoad() {
+        let audio = document.querySelector('.audio');
+        let source = audio.querySelector('source');
+        source.src = this.props.song.audioUrl;
+        audio.load();
+        // console.log(this.props.song.audioUrl);
+    }
+
+   
+   handleTitle() {
+       let title = document.querySelector('.song-info__title');
+       title.innerHTML = this.props.song.title;
+   }
 
 
     render() {
@@ -14,7 +35,18 @@ class SongIndexItem extends React.Component {
         return (        
             <li>
                         <div className='songs-play-container'>
-                                    { this.props.playing ? <div onClick={this.props.handlePlay} className='songs-pause-icon'></div> : <div onClick={this.props.handlePlay} className='songs-play-icon'></div> }
+                        {this.state.playing ? 
+                                    <div onClick={() => Promise.resolve(this.props.handlePlay())
+                                        .then(() => this.handleTitle())
+                                        .then(() => this.setState({ playing: false }))
+                                        } 
+                                        className='songs-pause-icon'></div> : 
+                                    <div onClick={() => Promise.resolve(this.handleLoad())
+                                        .then(() => this.props.handlePlay())
+                                        .then(() => this.handleTitle())
+                                        .then(() => this.setState({ playing: true }))} 
+                                        className='songs-play-icon'>
+                        </div>}
                         </div> 
                         <p>{this.props.song.title}</p>
                         {/* <p className='name'></p>
