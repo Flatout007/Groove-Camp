@@ -35,9 +35,10 @@ class GreetingIndex extends React.Component {
 
             let greetBox = this.state.click ? <div className='profile-img-circle' onClick={() => this.setState({ click: false })}><img src={this.props.currentUser.photo} />  <span className='arrow-icon'>⬇</span>
                 <div className='greeting-nav'>
-                    <a style={{position: 'relative'}} onClick={() => this.setState({showSongForm: true})}>upload a song</a>
-                    <a style={{ position: 'relative', zIndex: '1' }} onClick={() => this.setState({ showAlbumForm: true })}>upload an album</a>
-                    <Link style={{ position: 'relative', zIndex: '1' }} to={`/profile/${this.props.currentUser.id}`}>profile</Link>
+                    <a style={{position: 'relative'}} onClick={() => this.setState({showSongForm: true})}>Upload a Song</a>
+                    <a style={{ position: 'relative', zIndex: '1' }} onClick={() => this.setState({ showAlbumForm: true })}>Upload an Album</a>
+                    <Link style={{ position: 'relative', zIndex: '1' }} to={`/profile/${this.props.currentUser.id}`}>Profile</Link>
+                    <a className='logout-button' onClick={this.signoutUser}>Log Out</a>
                 </div>
                 
 
@@ -55,8 +56,7 @@ class GreetingIndex extends React.Component {
                                { greetBox }
                         </div>
                     </div>
-                    </div>
-                       <button className='logout-button' onClick={this.signoutUser}>Log Out</button>      
+                    </div>      
             </div>
           
             );

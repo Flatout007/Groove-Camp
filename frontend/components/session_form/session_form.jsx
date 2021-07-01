@@ -7,6 +7,7 @@ import {
     Link,
     HashRouter
 } from 'react-router-dom';
+import { errors } from '../../actions/song_actions';
 
 
 
@@ -20,6 +21,7 @@ class SessionForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);   
         this.handleErrors = this.handleErrors.bind(this);
         this.handlePhotoFile = this.handlePhotoFile.bind(this);
+        this.handleUserErrors = this.handleUserErrors.bind(this);
     }
 
 
@@ -44,17 +46,23 @@ class SessionForm extends React.Component {
                 data: formData,
                 contentType: false,
                 processData: false
-            }).then(() => window.location.reload());
+            }).then(() => window.location.reload(), (err) => this.handleUserErrors(err.responseJSON));
         } else {
-            return this.props.action(obj).then(this.props.closeModal);
+            return this.props.action(obj).then(this.props.closeModal)
         }
             
+    }
+
+    handleUserErrors(err) {
+        let error = document.querySelector('.errors');
+        error.innerHTML  = err;
+        
     }
 
     
     handleErrors(e) {
         return this.props.errors.map((ele) => {
-            return <div style={{position: 'absolute', zIndex: '20', left: '180px'}} key={`ele-${Math.random(100 * 10)}`}>{ele}</div>
+            return <div className='errors' key={`ele-${Math.random(100 * 10)}`}>{ele}</div>
         });
     }
 
@@ -91,6 +99,7 @@ class SessionForm extends React.Component {
                         </div>
                         
                         {this.handleErrors()}
+                        <div className='errors'></div>
 
                         <form className='signup-form'>         
                                     <label>Username</label>
@@ -104,6 +113,8 @@ class SessionForm extends React.Component {
                                     
                                     {this.props.formType !== 'login' ? <button onClick={this.handleSubmit} type="submit" className='session-submit-button'>Submit</button> :
                                     <button style={{position: 'absolute', top:'300px', left: '153px'}} onClick={this.handleSubmit} type="submit" className='session-submit-button'>Submit</button>}
+
+                                    {this.props.formType === 'login' ? <button style={{ position: 'absolute', top: '350px', left: '153px' }} onClick={() => this.props.action({ username: "L'Arc-en-Ciel", password: '123456' }).then(this.props.closeModal)} type="submit" className='session-submit-button'>DEMO</button> : <div></div> }
 
                                     {this.props.formType !== 'login' ? <textarea onChange={this.handleChange('bio')} name="" id="" cols="30" rows="10" value={this.state.bio} placeholder='add a bio'></textarea> 
                                     : <React.Fragment></React.Fragment>}

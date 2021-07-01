@@ -15,14 +15,6 @@ import {
 } from 'react-router-dom';
 
  function Modal({ modal, closeModal, openModal, boolean, signin }){
-    // const handleSignIn = () => {
-    //     openModal('signup');
-    // }
-
-    // if (!modal) {
-    //     return null;
-    // }
-
     let component;
     
     // switches on string argument that's put into the `openModal(case)` function
@@ -60,7 +52,7 @@ import {
                                     <div className='icon-3'></div>
 
                                     <div>
-                                        <a className='signup-fan-button signup-demo-button' onClick={() => signin({ username: 'SILENT SIREN', password: '123456'}).then(closeModal)}>Curious? Try a demo</a>
+                                        <a className='signup-fan-button signup-demo-button' onClick={() => signin({ username: "L'Arc-en-Ciel", password: '123456'}).then(closeModal)}>Curious? Try a demo</a>
                                         <div className='fan-account-text'>Curious? Try a demo of the site. You can listen to hours of music, see all of groovecamps bands and artist, and much much more.</div>
                                     </div>
                                 </li>
