@@ -943,16 +943,25 @@ h4 {
   transform: translateX(-150px);
   // animation: come-in 0.8s ease forwards;
   animation: come-in .33s ease-in forwards;
-  // transition: height 0.5s ease-out;
+  transition: all .1s;
 }
 
 @keyframes come-in {
-  to { transform: translateX(0); }
-  //  to { transition: height 0.5s ease-out; }
-   0% {width:10px; height:10px; opacity: 0.0;}
-  100% {width:126px; height:126px; opacity: 1.0;}
+  from {
+    transform: translatex(-100px) translatey(-200px)
+  };
 
-  to { transform: translate(0); }
+  to { 
+    transform: translatex(0px) 
+    translatey(0)
+  };
+
+
+  //  to { transition: height 0.5s ease-out; }
+   0% {width: 10px;height: 10px; opacity: 0;}
+  100% { opacity: 1.0;}
+
+  // to { transform: translate(0); }
 
 
 }
