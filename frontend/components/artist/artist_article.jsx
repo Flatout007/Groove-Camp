@@ -18,7 +18,7 @@ class ArtistArticle extends React.Component {
 
 
     componentDidMount() {
-        window.scrollTo(0, 195);
+        window.scrollTo(0, 190);
         this.props.requestUser(this.props.match.params.id);
         this.props.requestAlbums();
         this.props.requestSongs();
@@ -97,7 +97,7 @@ class ArtistArticle extends React.Component {
                         <div  className='artist-article-heading'>
                                     <h5>FEATURES</h5>
                                     <h5>{this.handleFilterSongs()[0].title}</h5>
-                    <h5>By <Link style={{textDecoration: 'none', color: 'inherit'}} to={`/profile/${this.props.artist.id}`}><span>{this.props.artist.username}</span></Link></h5>
+                                    <h5>By <Link style={{textDecoration: 'none', color: 'inherit'}} to={`/profile/${this.props.artist.id}`}><span>{this.props.artist.username}</span></Link></h5>
                         </div>
                         <audio onTimeUpdate={this.handleTimeUpdates} className='audio'>
                                     <source src={this.handleFilterSongs()[0].audioUrl}></source>

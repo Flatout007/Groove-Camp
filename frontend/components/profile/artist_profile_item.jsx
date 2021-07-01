@@ -45,11 +45,15 @@ class ArtistProfileItem extends React.Component {
 
         // console.log(this.props.currentUser.id, this.props.album.artist_id);
         if(!this.handleAlbum()) return null;
+
         let deleteIcon;
 
-        deleteIcon = this.state.showDelete && this.props.currentUser.id === this.props.album.artist_id
+        if(!this.props.currentUser) {
+            deleteIcon = null;
+        } else {
+            deleteIcon = this.state.showDelete && this.props.currentUser.id === this.props.album.artist_id
             ? <button className='delete-button' onClick={this.handleDelete}>🗑️</button> : <div></div>
-       
+        }
 
         return (
         <React.Fragment>
@@ -57,7 +61,7 @@ class ArtistProfileItem extends React.Component {
                         
                         onMouseEnter={() => this.handleHover('enter')} onMouseLeave={() => this.handleHover('leave')}
                         style={{background: `url(${this.handleAlbum().photo}) center / cover no-repeat`}}>
-                        {this.props.currentUser.id ? deleteIcon  : <div></div>}
+                        {deleteIcon}  
                         <Link style={{ position: 'absolute', position: 'absolute', width: '232px', height: '232px' }} to={`/album/songs/${this.handleAlbum().id}`}></Link>
             </li>
         </React.Fragment>
