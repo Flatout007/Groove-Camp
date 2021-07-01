@@ -47,7 +47,7 @@ class SongForm extends React.Component {
         formData.append('song[artist_id]', this.state.artist_id);
         formData.append('song[album_id]', this.state.album_id);
         formData.append('song[audio]', this.state.audioUrl);
-        this.props.submitSong(formData);
+        this.props.submitSong(formData).then(() => window.location.reload());
     }
 
 
@@ -69,7 +69,7 @@ class SongForm extends React.Component {
                                                 {this.handleAlbumDropdown()}
 
                                     </select>   
-                                    <input style={{ position: 'absolute', left: '125px', top: '248px' }} onChange={this.handleFile} type="file" text/>
+                                    <input style={{ position: 'absolute', left: '125px', top: '248px' }} onChange={this.handleFile} type="file"/>
                                     <button style={{ position: 'absolute', top: '300px', left: '153px' }} className='session-submit-button'>Submit</button>
                         </form>
             </div>

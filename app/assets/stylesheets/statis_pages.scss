@@ -1876,7 +1876,8 @@ h4 {
 
 .discover h2 {
   position: relative;
-  right: 495px;
+  right: 505px;
+  bottom: 16px;
   display: table;
   margin-right: auto;
   margin-left: auto;
@@ -2238,6 +2239,7 @@ h4 {
   position: relative;
   left: 200px;
   cursor: pointer;
+  z-index: 100;
 }
 
 

@@ -8,6 +8,7 @@ import { requestUser, requestAllUsers } from '../../actions/session_actions';
 
 const mapStoreToProps = (store, props) => {
     return {
+        currentUser: store.entities.users[store.session.id],
         user: store.entities.users[props.match.params.id],
         albums: Object.values(store.entities.albums),
         users: Object.values(store.entities.users)

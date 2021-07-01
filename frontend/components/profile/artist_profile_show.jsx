@@ -16,6 +16,10 @@ class ArtistProfileShow extends React.Component {
     constructor(props) {
         super(props);
         this.handleUsersAlbums = this.handleUsersAlbums.bind(this);
+        this.handleRender = this.handleRender.bind(this);
+        
+        this.state = {render: 0, state: null}
+        // this.deleteAlbum = this.deleteAlbum.bind(this);
         
     }
 
@@ -31,6 +35,21 @@ class ArtistProfileShow extends React.Component {
     }
 
 
+    handleRender() {
+        // let render = this.setState({render: this.state.render + 1});
+        // console.log(render);
+    //    this.setState({render: this.state.render + 1});
+    // this.props.albums.push(this.handleUsersAlbums())
+    }
+
+
+    // deleteAlbum() {
+    //    return (id) => {
+    //         this.props.deleteAlbum(id).then(this.forceUpdate())
+    //     }
+    // }
+
+
     handleUsersAlbums() {
        return this.filterAlbums().map((ele) => {
            return <ArtistProfileItem
@@ -39,6 +58,10 @@ class ArtistProfileShow extends React.Component {
                 deleteAlbum={this.props.deleteAlbum}
                 user={this.props.user}
                 albums={this.props.albums}
+                currentUser={this.props.currentUser}
+                fetchUser={this.props.requestUser}
+                handleRender={this.handleRender.bind(this)}
+                
 
             />
 

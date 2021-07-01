@@ -1,7 +1,8 @@
 import React from 'react';
 import GreetingNav from '../greeting/greeting_container';
 import {
-    withRouter
+    withRouter,
+    Link
 } from 'react-router-dom';
 
 class ArtistArticle extends React.Component {
@@ -12,13 +13,29 @@ class ArtistArticle extends React.Component {
         this.handleFilterSongs = this.handleFilterSongs.bind(this);
         this.handlePlayPause = this.handlePlayPause.bind(this);
         this.handleTimeUpdates = this.handleTimeUpdates.bind(this);
+        this.handleAlbum = this.handleAlbum.bind(this);
     }
 
 
     componentDidMount() {
+        window.scrollTo(0, 195);
         this.props.requestUser(this.props.match.params.id);
         this.props.requestAlbums();
         this.props.requestSongs();
+    }
+
+    handleAlbum() {
+        let users = [];
+
+
+        this.props.albums.forEach((ele) => {
+            if (ele.artist_id === this.props.artist.id) {
+                users.push(ele);
+            }
+        });
+
+
+        return users[0];
     }
 
 
@@ -51,6 +68,7 @@ class ArtistArticle extends React.Component {
         if (!this.props.artist) return null;
         if (!this.props.albums) return null;
         if (!this.handleFilterSongs()[0]) return null;
+        if (!this.props.artist.id) return null;
 
        
         return(
@@ -79,7 +97,7 @@ class ArtistArticle extends React.Component {
                         <div  className='artist-article-heading'>
                                     <h5>FEATURES</h5>
                                     <h5>{this.handleFilterSongs()[0].title}</h5>
-                                    <h5>By <span>{this.props.artist.username}</span></h5>
+                    <h5>By <Link style={{textDecoration: 'none', color: 'inherit'}} to={`/profile/${this.props.artist.id}`}><span>{this.props.artist.username}</span></Link></h5>
                         </div>
                         <audio onTimeUpdate={this.handleTimeUpdates} className='audio'>
                                     <source src={this.handleFilterSongs()[0].audioUrl}></source>
@@ -87,9 +105,10 @@ class ArtistArticle extends React.Component {
                         <article className='artist-article'>
                                     {this.state.playing === false ? <div onClick={this.handlePlayPause} className='play-circle'><span className='play-circle-icon'></span></div> : <div onClick={this.handlePlayPause}className='play-circle'><span className='pause-circle-icon'></span></div> }
                                     <img className='artist-article-img' src={this.props.artist.photo} alt=""></img>
+                                    <p style={{height: 'auto', width: '900px', lineHeight:'38px', fontWeight: '700', display:'table', marginLeft:'auto', marginRight:'auto', paddingTop: '25px'}}>{this.props.artist.bio}</p>
                         </article>
 
-                        <button onClick={() => this.props.history.push('/')}>Home</button>
+                        
         </div>
         );
     }

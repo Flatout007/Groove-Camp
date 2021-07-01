@@ -1,13 +1,19 @@
 import React from 'react';
 import {Link, withRouter} from  'react-router-dom'
+import ArtistProfileShow from '../profile/artist_profile_show';
 
 
 class ArtistProfileItem extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { showDelete: false };
+        this.state = { showDelete: false, render: true };
+
 
         this.handleAlbum = this.handleAlbum.bind(this);
+        this.handleDelete = this.handleDelete.bind(this);
+       
+
+        // this.props.fetchUser(this.props.match.params.id);
       
     }
 
@@ -25,6 +31,10 @@ class ArtistProfileItem extends React.Component {
         return arr[0];
     }
 
+    handleDelete() {
+        this.props.deleteAlbum(this.props.album.id).then(() => window.location.reload())
+    }
+
 
     handleHover(action) {
         return action === 'enter' ? this.setState({ showDelete: true }) : this.setState({ showDelete: false });
@@ -32,9 +42,13 @@ class ArtistProfileItem extends React.Component {
 
 
     render() {
-       if(!this.handleAlbum()) return null; 
 
-        let deleteIcon = this.state.showDelete ? <button className='delete-button' onClick={() => this.props.deleteAlbum(this.props.album.id)}>🗑️</button> : <div></div>
+        // console.log(this.props.currentUser.id, this.props.album.artist_id);
+        if(!this.handleAlbum()) return null;
+        let deleteIcon;
+
+        deleteIcon = this.state.showDelete && this.props.currentUser.id === this.props.album.artist_id
+            ? <button className='delete-button' onClick={this.handleDelete}>🗑️</button> : <div></div>
        
 
         return (
@@ -43,7 +57,7 @@ class ArtistProfileItem extends React.Component {
                         
                         onMouseEnter={() => this.handleHover('enter')} onMouseLeave={() => this.handleHover('leave')}
                         style={{background: `url(${this.handleAlbum().photo}) center / cover no-repeat`}}>
-                        { deleteIcon }
+                        {this.props.currentUser.id ? deleteIcon  : <div></div>}
                         <Link style={{ position: 'absolute', position: 'absolute', width: '232px', height: '232px' }} to={`/album/songs/${this.handleAlbum().id}`}></Link>
             </li>
         </React.Fragment>
