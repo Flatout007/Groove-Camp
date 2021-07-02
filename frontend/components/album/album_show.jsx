@@ -97,7 +97,8 @@ class AlbumShow extends React.Component {
                                                 </div>
                                                 <div className='album-profile-box'>
                                                             <img src={this.handleUser().photo} alt="" />
-                                                            <button>Discography</button>
+                                                            {/* <button>Discography</button> */}
+                            <Link to={`/album/${this.props.album.id}`}> <button>Discography</button></Link>
                                                             <p className='album-profile-box-bio'>{this.handleUser().bio.split('.')[0] + this.handleUser().bio.split('.')[1]}</p>
                                                         </div>
                                     </div> 

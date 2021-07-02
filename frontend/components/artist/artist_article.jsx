@@ -97,7 +97,7 @@ class ArtistArticle extends React.Component {
                         <div  className='artist-article-heading'>
                                     <h5>FEATURES</h5>
                                     <h5>{this.handleFilterSongs()[0].title}</h5>
-                                    <h5>By <Link style={{textDecoration: 'none', color: 'inherit'}} to={`/profile/${this.props.artist.id}`}><span>{this.props.artist.username}</span></Link></h5>
+                                    <h5>By <Link style={{textDecoration: 'none', color: 'inherit', zIndex: 100}} to={`/profile/${this.props.artist.id}`}><span>{this.props.artist.username}</span></Link></h5>
                         </div>
                         <audio onTimeUpdate={this.handleTimeUpdates} className='audio'>
                                     <source src={this.handleFilterSongs()[0].audioUrl}></source>

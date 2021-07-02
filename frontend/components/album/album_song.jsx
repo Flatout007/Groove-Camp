@@ -79,7 +79,7 @@ class ArtistShow extends React.Component {
                                                 <p className='digital-p'>Includes unlimited streaming via the free Bandcamp app, plus high-<br/>quality download in MP3, FLAC and more.</p>
                                                 <div className='album-profile-box'>
                                                     <img src={this.handleUser().photo} alt=""/>
-                                                    <button>Discography</button>
+                                <Link to={`/album/${this.props.album.id}`}> <button>Discography</button></Link>
                                                     <p className='album-profile-box-bio'>{this.handleUser().bio.split('.')[0] + this.handleUser().bio.split('.')[1]}</p>
                                                 </div>
                                                 <li style={{background: `url(${this.props.album.photo}) 100% center / cover no-repeat`}} className='album-player-cover'></li>
