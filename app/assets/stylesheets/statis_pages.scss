@@ -752,10 +752,12 @@ artist article */
   height: auto;
   width: 100%;
   position: relative;
-   bottom: 61px;
+   top: 120px;
+   transform: scale(1.359);
   
  
 }
+
 
 .pause-circle-icon {
   width: 7px;
@@ -789,10 +791,11 @@ artist article */
   margin-right: auto;
   margin-left: auto;
   cursor: pointer;
+  transform: scale(0.8);
 }
 
 .play-circle:hover {
-  transform: scale(1.3);
+  transform: scale(1.0);
 }
 
 .play-circle-icon {
@@ -1936,7 +1939,7 @@ h4 {
 
 .artist-genre-index-container {
     padding-right: 88px;
-    height: 610px;
+    height: 683px;
     background-color: #eef2f3;
     position: relative;
     bottom: 280px;
@@ -2253,3 +2256,65 @@ h4 {
   top: 10px;
   font-size: 13.5px;
 }
+
+.footer a {
+    background-color: #6E943B;
+    height: 100px;
+    width: 100px;
+    list-style: none;
+    position: absolute;
+    cursor: pointer;
+    transition: all .5s;
+}
+
+.footer a:hover {
+  transform: scale(1.1);
+  transition: all .5s;
+}
+
+
+.footer a:nth-child(1) {
+  background: url('https://img.icons8.com/ios/452/linkedin.png') 100% center / cover no-repeat;
+  border-radius: 100%;
+  left: 80px;
+  border: 1px solid #3b7788be;
+}
+
+
+.footer a:nth-child(2) {
+   background: url('https://img.icons8.com/ios/452/github.png') center / cover no-repeat;
+   border-radius: 100%;
+   left: 200px;
+
+  }
+
+
+.footer a:nth-child(3) {
+  background: url('https://img.icons8.com/ios/452/angelist.png') 100% center / cover no-repeat;
+  border-radius: 100%;
+  left: 309px;
+ }
+
+.footer {
+  background-color: #477987;
+  position: relative;
+  height: 500px;
+  width: 100%;
+  position: relative;
+  top: -280px;
+
+}
+
+.footer ul {
+  position: relative;
+  // background-color: gold;
+  height: 102px;
+  width: 500px;
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+  top: 50px
+}
+
+
+

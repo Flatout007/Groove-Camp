@@ -27,6 +27,7 @@ import ArtistHome from './components/artist/artist_home_container';
 import ArtistProfileIndexContainer from './components/profile/artist_profile_index_container';
 import ArtistProfileShowContainer from './components/profile/artist_profile_show_container';
 import GenreColorChanger from './components/features/genre_color_changer';
+import Footer from './components/features/footer';
 
 import AlbumSongContainer from './components/album/album_song_container';
 
@@ -34,7 +35,7 @@ const App = () => {
      
         return(
    
-          <div> 
+          <div style={{height: '1000px'}}> 
                 <Modal/>
                 
         
@@ -52,6 +53,7 @@ const App = () => {
                 <Route exact path="/" component={GenreColorChanger}></Route>
                 {/* <Route exact path="/" component={ArtistHome}></Route> */}
                 
+                <Route exact path='/' component={Footer}></Route>
                 <Route exact path='/profile/:id' component={ArtistProfileShowContainer}></Route>
                  
           </div>)
