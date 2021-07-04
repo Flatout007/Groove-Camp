@@ -7,7 +7,7 @@ import SongIndexItem from '../song/song_index_item';
 class Player extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {playing: false, trackSwitch: false, percent: 0, mousedown: null, current: '00:00' };
+        this.state = {playing: false,  trackSwitch: false, percent: 0, mousedown: null, current: '00:00' };
         this.audio = null;
 
         this.handlePlayPause = this.handlePlayPause.bind(this);
