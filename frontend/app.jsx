@@ -35,7 +35,7 @@ const App = () => {
      
         return(
    
-          <div style={{height: '1000px'}}> 
+          <div className='top-shelf' style={{height: '1000px'}}> 
                 <Modal/>
                 
         

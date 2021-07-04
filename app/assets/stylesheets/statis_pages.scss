@@ -230,6 +230,42 @@ h2 {
 }
 
 
+@media all and (max-width: 1300px) {
+  body {
+    // width: 160%;
+    // overflow-x: hidden;
+    // padding-left: 100px;
+    
+  }
+
+  .top-shelf {
+    // width: 2000px;
+    overflow-x: hidden;
+  }
+
+    /* Hide scrollbar for Chrome, Safari and Opera */
+  .top-shelf::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .top-shelf {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
+
+    /* Hide scrollbar for Chrome, Safari and Opera */
+  html::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  html {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+}
 
 // /* ****** ****** */
 //  @media all and (max-width: 600px) {
