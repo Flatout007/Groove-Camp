@@ -89,27 +89,25 @@ class ArtistProfileShow extends React.Component {
             <div className='album-header'>
                 <li style={{background: `url(${this.props.user.photo}) center / cover no-repeat`}} className='album-header-img'></li>
                 <div className='album-header-nav'>
-                    <ol>
-                        {/* <li>music</li>
-                                <li onClick={() => this.props.history.push(`/album/songs/${this.props.album.id}`)}>community</li> */}
-                        {/* <li><Link to={`/album/songs/${this.props.album.id}`}>music</Link></li> */}
-                        {/* <li><p>community</p></li> */}
-                    </ol>
+                            <ol>
+                                {/* <li>music</li>
+                                        <li onClick={() => this.props.history.push(`/album/songs/${this.props.album.id}`)}>community</li> */}
+                                {/* <li><Link to={`/album/songs/${this.props.album.id}`}>music</Link></li> */}
+                                {/* <li><p>community</p></li> */}
+                            </ol>
 
                 </div>
                 <div className='album-content'>
                     <div className='album-content-grid'>
-                        {/* albumIndexItem */}
-                        {this.handleUsersAlbums()}
-                        {this.handleNoAlbums()}
-
-                       
+                      
+                                {this.handleUsersAlbums()}
+                                {this.handleNoAlbums()}
 
                     </div>
                     <div className='album-profile-box'>
-                            <img src={this.props.user.photo} alt="" />
-                            <button>Discography</button>
-                            <p className='album-profile-box-bio'>{this.props.user.bio.split('.')[0] + this.props.user.bio.split('.')[1]}</p>
+                                <img src={this.props.user.photo} alt="" />
+                                <button>Discography</button>
+                                <p className='album-profile-box-bio'>{this.props.user.bio.split('.')[0] + this.props.user.bio.split('.')[1]}</p>
                     </div>
                 </div>
 

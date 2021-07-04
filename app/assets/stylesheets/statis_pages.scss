@@ -5,7 +5,7 @@
 
 
 
-// * {padding: 0; margin: 0;}
+
 * {
         margin: 0;
         padding: 0;
@@ -539,12 +539,16 @@ artist weekly */
 
 @media (max-width: 1000px) {
  .artist-weekly {
-  background-color: white;
-  width: 0;
+  width: 100%;
  }
 
-
+ .artist-weekly-container ol li {
+   display: none;
+ }
 }
+
+
+// }
 
 .artist-weekly-container {
   
@@ -837,35 +841,20 @@ a {
 
 
 .selling-now {
- position: relative;
- left: 19px;
-  // background-color: green;
+  position: relative;
+  left: 5px;
   color: #408ea3;
-  // text-transform: uppercase;
-  
   margin-top: 0px;
   margin-bottom: 10px;
   height: 20px;
-  // text-align: center;
   width: 1090px;
-  
   display: table;
   margin-right: auto;
   margin-left: auto;
-  
   color: #408ea3;
   text-transform: uppercase;
   font-weight: 50;
   font: 13px/1.2307692308 'Helvetica Neue',Helvetica,Arial,sans-serif;
-  
-//  margin-left: 204.5px;
-
-    // margin-right: 204.5px;
-
-
-  
-    
-
 }
 
 .flex-grid {
