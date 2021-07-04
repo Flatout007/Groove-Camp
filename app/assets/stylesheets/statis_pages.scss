@@ -231,30 +231,30 @@ h2 {
 
 
 
-/* ****** ****** */
- @media all and (max-width: 600px) {
+// /* ****** ****** */
+//  @media all and (max-width: 600px) {
   
-  .logo {
-     margin: .25em 0; 
-    align-self: left; 
-   }
+//   .logo {
+//      margin: .25em 0; 
+//     align-self: left; 
+//    }
   
-   .top-div {
-     flex-direction: column-reverse;
-   }
+//    .top-div {
+//      flex-direction: column-reverse;
+//    }
   
-  .session-nav {
-    flex-direction: column;
-  }
+//   .session-nav {
+//     flex-direction: column;
+//   }
   
-  .session-nav a { 
-    text-align: center; 
-    padding: 10px;
-    border-top: 1px solid rgba(255,255,255,0.3); 
-    border-bottom: 1px solid rgba(0,0,0,0.1); 
-  }
+//   .session-nav a { 
+//     text-align: center; 
+//     padding: 10px;
+//     border-top: 1px solid rgba(255,255,255,0.3); 
+//     border-bottom: 1px solid rgba(0,0,0,0.1); 
+//   }
   
-}  
+// }  
 /*--------------------------------------------------
 
 /*-------------------------------------------------
