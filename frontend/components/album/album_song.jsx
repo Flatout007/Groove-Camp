@@ -46,7 +46,8 @@ class ArtistShow extends React.Component {
     }
 
     handleBio() {
-        return !this.handleUser().bio.split('.') ? this.handleUser().bio : this.handleUser().bio.split('.')[0] + this.handleUser().bio.split('.')[1];
+        return !this.handleUser().bio.split('.') ?  this.handleUser().bio.split('.')[0] + this.handleUser().bio.split('.')[1] : this.handleUser().bio
+
     }
 
 
