@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import LoginFormContainer from '../session_form/login_container';
 import SignupFormContainer from '../session_form/signup_container';
 import {login} from '../../actions/session_actions';
-import EditPhotoForm from '../session_form/edit_photo_form';
+
 
 import {
     Route,

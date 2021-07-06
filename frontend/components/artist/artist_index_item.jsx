@@ -11,30 +11,22 @@ class ArtistIndexItem extends React.Component {
     constructor(props) {
         super(props);
         this.state = { playing: false };
+
         this.handleFilterSongs = this.handleFilterSongs.bind(this);
-        this.handleArtistBio = this.handleArtistBio.bind(this);
-        
-        
+        this.handleArtistBio = this.handleArtistBio.bind(this);        
     }
     
-    componentWillMount() {
-       
-    }
-
 
     handleArtistBio() {
         return this.props.artist.bio.split('.')[0];
     }
 
     
-
     handleFilterSongs() {
         return this.props.songs.filter((ele) => {
             return ele.artist_id === this.props.artist.id;
         });
     }
-
-    
 
     
     render() {

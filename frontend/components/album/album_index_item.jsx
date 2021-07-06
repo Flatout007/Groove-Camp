@@ -10,16 +10,7 @@ class AlbumIndexItem extends React.Component {
         this.handleUsers = this.handleUsers.bind(this);
     }
 
-
-    componentWillUpdate() {
-        let items = document.getElementsByClassName('album-li');
-
-        Array.from(items).forEach((ele) => {
-            ele.style.backgroundSize = 'cover'
-        });
-    }
-
-
+    
     handleUsers() {
         let users = [];
 
@@ -42,7 +33,7 @@ class AlbumIndexItem extends React.Component {
 
         return (
         <React.Fragment>
-                    <li style={{background:`url(${this.props.album.photo}) 100% no-repeat`}} className='album-li' onClick={() => this.props.history.push(`/album/songs/${this.props.album.id}`)}>
+                    <li style={{background:`url(${this.props.album.photo}) center / cover no-repeat`}} className='album-li' onClick={() => this.props.history.push(`/album/songs/${this.props.album.id}`)}>
                                 <div className='album-stats'>
                                     <h5>
                                 

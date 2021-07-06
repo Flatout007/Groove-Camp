@@ -8,28 +8,9 @@ class ArtistProfileItem extends React.Component {
         super(props);
         this.state = { showDelete: false, render: true };
 
-
-        this.handleAlbum = this.handleAlbum.bind(this);
         this.handleDelete = this.handleDelete.bind(this);
-       
-
-        // this.props.fetchUser(this.props.match.params.id);
-      
     }
 
-    handleAlbum() {
-        let arr = [];
-
-
-        this.props.albums.forEach((ele) => {
-            if (ele.artist_id === this.props.user.id) {
-                arr.push(ele);
-            }
-        })
-
-
-        return arr[0];
-    }
 
     handleDelete() {
         this.props.deleteAlbum(this.props.album.id).then(() => window.location.reload())
@@ -42,10 +23,6 @@ class ArtistProfileItem extends React.Component {
 
 
     render() {
-
-        // console.log(this.props.currentUser.id, this.props.album.artist_id);
-        if(!this.handleAlbum()) return null;
-
         let deleteIcon;
 
         if(!this.props.currentUser) {
@@ -57,12 +34,11 @@ class ArtistProfileItem extends React.Component {
 
         return (
         <React.Fragment>
-            <li
-                        
+            <li          
                         onMouseEnter={() => this.handleHover('enter')} onMouseLeave={() => this.handleHover('leave')}
-                        style={{background: `url(${this.handleAlbum().photo}) center / cover no-repeat`}}>
+                        style={{background: `url(${this.props.album.photo}) center / cover no-repeat`}}>
                         {deleteIcon}  
-                        <Link style={{ position: 'absolute', position: 'absolute', width: '232px', height: '232px' }} to={`/album/songs/${this.handleAlbum().id}`}></Link>
+                        <Link style={{ position: 'absolute', position: 'absolute', width: '232px', height: '232px' }} to={`/album/songs/${this.props.album.id}`}></Link>
             </li>
         </React.Fragment>
         )

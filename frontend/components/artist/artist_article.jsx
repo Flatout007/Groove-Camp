@@ -105,7 +105,7 @@ class ArtistArticle extends React.Component {
                         <article className='artist-article'>
                                     {this.state.playing === false ? <div onClick={this.handlePlayPause} className='play-circle'><span className='play-circle-icon'></span></div> : <div onClick={this.handlePlayPause}className='play-circle'><span className='pause-circle-icon'></span></div> }
                                     <img className='artist-article-img' src={this.props.artist.photo} alt=""></img>
-                                    <p style={{height: 'auto', width: '900px', lineHeight:'38px', fontWeight: '700', display:'table', marginLeft:'auto', marginRight:'auto', paddingTop: '100px'}}>{this.props.artist.bio}</p>
+                                    <p>{this.props.artist.bio}</p>
                         </article>          
         </div>
         );

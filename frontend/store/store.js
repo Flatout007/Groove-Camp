@@ -5,7 +5,7 @@ import logger from 'redux-logger'
 
 const configureStore = (preloadedState = {}) => {
   preloadedState = preloadedState || {};
-  return createStore(RootReducer, preloadedState, applyMiddleware(thunk, logger));
+  return createStore(RootReducer, preloadedState, applyMiddleware(thunk));
 };
 
 export default configureStore;
