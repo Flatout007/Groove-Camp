@@ -16,11 +16,8 @@ class ArtistProfileShow extends React.Component {
     constructor(props) {
         super(props);
         this.handleUsersAlbums = this.handleUsersAlbums.bind(this);
-        this.handleRender = this.handleRender.bind(this);
-        
-        this.state = {render: 0, state: null}
-        // this.deleteAlbum = this.deleteAlbum.bind(this);
-        
+        this.handleBio = this.handleBio.bind(this);
+        this.state = {render: 0, state: null} 
     }
 
 
@@ -35,21 +32,6 @@ class ArtistProfileShow extends React.Component {
     }
 
 
-    handleRender() {
-        // let render = this.setState({render: this.state.render + 1});
-        // console.log(render);
-    //    this.setState({render: this.state.render + 1});
-    // this.props.albums.push(this.handleUsersAlbums())
-    }
-
-
-    // deleteAlbum() {
-    //    return (id) => {
-    //         this.props.deleteAlbum(id).then(this.forceUpdate())
-    //     }
-    // }
-
-
     handleUsersAlbums() {
        return this.filterAlbums().map((ele) => {
            return <ArtistProfileItem
@@ -60,8 +42,6 @@ class ArtistProfileShow extends React.Component {
                 albums={this.props.albums}
                 currentUser={this.props.currentUser}
                 fetchUser={this.props.requestUser}
-                handleRender={this.handleRender.bind(this)}
-                
 
             />
 
@@ -77,43 +57,35 @@ class ArtistProfileShow extends React.Component {
         }
     }
 
+
+    handleBio() {
+        return !this.props.user.bio.split('.') ? this.props.user.bio : this.props.user.bio.split('.')[0] + this.props.user.bio.split('.')[1];
+    }
+    
+
     render() {
         if(!this.props.albums[0]) return null;
         if(!this.props.user) return null;
     
     
-        return(
-           
+        return(   
         <div>
             <GreetingNav />
             <div className='album-header'>
                 <li style={{background: `url(${this.props.user.photo}) center / cover no-repeat`}} className='album-header-img'></li>
-                <div className='album-header-nav'>
-                            <ol>
-                                {/* <li>music</li>
-                                        <li onClick={() => this.props.history.push(`/album/songs/${this.props.album.id}`)}>community</li> */}
-                                {/* <li><Link to={`/album/songs/${this.props.album.id}`}>music</Link></li> */}
-                                {/* <li><p>community</p></li> */}
-                            </ol>
-
-                </div>
+                <div className='album-header-nav'></div>
                 <div className='album-content'>
                     <div className='album-content-grid'>
-                      
                                 {this.handleUsersAlbums()}
                                 {this.handleNoAlbums()}
-
                     </div>
                     <div className='album-profile-box'>
                                 <img src={this.props.user.photo} alt="" />
                                 <button>Discography</button>
-                                <p className='album-profile-box-bio'>{this.props.user.bio.split('.')[0] + this.props.user.bio.split('.')[1]}</p>
+                                <p className='album-profile-box-bio'>{this.handleBio()}</p>
                     </div>
                 </div>
-
             </div>
-
-          
         </div>);
     }
 }
