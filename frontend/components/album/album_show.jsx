@@ -15,6 +15,7 @@ class AlbumShow extends React.Component {
         this.state = { communityTabHover: false, musicTabHover: false };
 
         this.handleUser = this.handleUser.bind(this);
+        this.handleBio = this.handleBio.bind(this);
     }
 
 
@@ -27,6 +28,10 @@ class AlbumShow extends React.Component {
 
     }
 
+
+    handleBio() {
+        return !this.handleUser().bio.split('.') ? this.handleUser().bio : this.handleUser().bio.split('.')[0] + this.handleUser().bio.split('.')[1];
+    }
 
     
 
@@ -99,7 +104,7 @@ class AlbumShow extends React.Component {
                                                             <img src={this.handleUser().photo} alt="" />
                                                             {/* <button>Discography</button> */}
                             <Link to={`/album/${this.props.album.id}`}> <button>Discography</button></Link>
-                                                            <p className='album-profile-box-bio'>{this.handleUser().bio.split('.')[0] + this.handleUser().bio.split('.')[1]}</p>
+                                                            <p className='album-profile-box-bio'>{this.handleBio()}</p>
                                                         </div>
                                     </div> 
             </div>

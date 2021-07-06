@@ -11,17 +11,19 @@ class ArtistShow extends React.Component {
     constructor(props) {
         super(props);
         this.state = {communityTabHover: false, musicTabHover: false};
+
+        this.handleBio = this.handleBio.bind(this);
     }
 
 
     componentDidMount() {
-        //   this.props.requestAllUsers().then(() => {this.props.store.entities.users[this.props.match.params.id]})
         window.scrollTo(0, 0);
         this.props.requestSongs();
         this.props.requestAllUsers();
         this.props.requestAlbum(this.props.match.params.id);
     }
 
+    
     handleUser() {
         let arr = [];
 
@@ -41,6 +43,10 @@ class ArtistShow extends React.Component {
         return this.handleFilterSongsById().map(ele => {
             return ele
         });
+    }
+
+    handleBio() {
+        return !this.handleUser().bio.split('.') ? this.handleUser().bio : this.handleUser().bio.split('.')[0] + this.handleUser().bio.split('.')[1];
     }
 
 
@@ -80,7 +86,7 @@ class ArtistShow extends React.Component {
                                                 <div className='album-profile-box'>
                                                     <img src={this.handleUser().photo} alt=""/>
                                 <Link to={`/album/${this.props.album.id}`}> <button>Discography</button></Link>
-                                                    <p className='album-profile-box-bio'>{this.handleUser().bio.split('.')[0] + this.handleUser().bio.split('.')[1]}</p>
+                                                    <p className='album-profile-box-bio'>{this.handleBio()}</p>
                                                 </div>
                                                 <li style={{background: `url(${this.props.album.photo}) 100% center / cover no-repeat`}} className='album-player-cover'></li>
                                     </div>
