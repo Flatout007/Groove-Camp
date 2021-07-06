@@ -16,6 +16,7 @@ class AlbumShow extends React.Component {
 
         this.handleUser = this.handleUser.bind(this);
         this.handleBio = this.handleBio.bind(this);
+        this.handleProfilePhoto = this.handleProfilePhoto.bind(this);
     }
 
 
@@ -29,15 +30,23 @@ class AlbumShow extends React.Component {
     }
 
 
+    handleProfilePhoto() {
+        return (
+            !this.handleUser().photo ?
+                <li className="album-profile-box-img" style={{ background: 'linear-gradient(to right, #12c2e9, #c471ed, #f64f59)' }}></li> :
+                <li className="album-profile-box-img" style={{ background: `url(${this.handleUser().photo}) center / cover no-repeat` }}></li>
+        );
+    }
+
+
     handleBio() {
-        return !this.handleUser().bio.split('.') ? this.handleUser().bio.split('.')[0] + this.handleUser().bio.split('.')[1] : this.handleUser().bio
+        return !this.handleUser().bio.split('.') ? this.handleUser().bio.split('.')[0] + this.handleUser().bio.split('.')[1] : this.handleUser().bio;
     }
 
     
 
     handleFilterAlbums() {
-        // console.log(this.props.album.artist_id)
-        return this.props.albums.filter((ele) => { return ele.artist_id === this.props.album.artist_id})
+        return this.props.albums.filter((ele) => { return ele.artist_id === this.props.album.artist_id});
     }
 
 
@@ -72,9 +81,6 @@ class AlbumShow extends React.Component {
         if(!this.handleUser()) return null;
       
 
-
-        console.log(this.handleFilterAlbums())
-
         let communityTab = this.state.communityTabHover ? <div className='profile-hover'></div> : <div></div>
         let musicTab = this.state.musicTabHover ? <div className='profile-hover2'></div> : <div></div>
 
@@ -93,17 +99,15 @@ class AlbumShow extends React.Component {
                                     </div>
                                     <div className='album-content'>
                                                 <div className='album-content-grid'>
-                                                
-                                                            {/* <li></li>
-                                                            <li></li>
-                                                            <li></li> */}
+                                               
+                                                         {this.handleAlbumItems()}
 
-                                                            {this.handleAlbumItems()}
                                                 </div>
                                                 <div className='album-profile-box'>
-                                                            <img src={this.handleUser().photo} alt="" />
-                                                            {/* <button>Discography</button> */}
-                            <Link to={`/album/${this.props.album.id}`}> <button>Discography</button></Link>
+                                                            {/* <img src={this.handleUser().photo} alt="" /> */}
+                                                            {this.handleProfilePhoto()}
+                                                           
+                                                            <Link to={`/album/${this.props.album.id}`}> <button>Discography</button></Link>
                                                             <p className='album-profile-box-bio'>{this.handleBio()}</p>
                                                         </div>
                                     </div> 

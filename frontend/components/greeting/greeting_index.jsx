@@ -17,12 +17,21 @@ class GreetingIndex extends React.Component {
         super(props);
         this.greetUser = this.greetUser.bind(this);
         this.signoutUser = this.signoutUser.bind(this);
+        this.handleProfilePhoto = this.handleProfilePhoto.bind(this);
 
         this.state = { click: false, showSongForm: false, showAlbumForm: false};
     }
 
     componentDidMount() {
         window.scrollTo(0, 0);
+    }
+
+    handleProfilePhoto() {
+        return (
+            !this.props.currentUser.photo ?
+                <li className="profile-img-circle-li" style={{ background: 'linear-gradient(to right, #12c2e9, #c471ed, #f64f59)' }}></li> :
+                <li className="profile-img-circle-li" style={{ background: `url(${this.props.currentUser.photo}) center / cover no-repeat` }}></li>
+        );
     }
 
     signoutUser() {
@@ -33,7 +42,7 @@ class GreetingIndex extends React.Component {
     greetUser() {
         if(this.props.currentUser) {
 
-            let greetBox = this.state.click ? <div className='profile-img-circle' onClick={() => this.setState({ click: false })}><img src={this.props.currentUser.photo} />  <span className='arrow-icon'>⬇</span>
+            let greetBox = this.state.click ? <div className='profile-img-circle' onClick={() => this.setState({ click: false })}> {this.handleProfilePhoto()} <span className='arrow-icon'>⬇</span>
                 <div className='greeting-nav'>
                     <a style={{position: 'relative'}} onClick={() => this.setState({showSongForm: true})}>Upload a Song</a>
                     <a style={{ position: 'relative', zIndex: '1' }} onClick={() => this.setState({ showAlbumForm: true })}>Upload an Album</a>
@@ -42,7 +51,7 @@ class GreetingIndex extends React.Component {
                 </div>
                 
 
-            </div> : <div className='profile-img-circle' onClick={() => this.setState({ click: true })}><img src={this.props.currentUser.photo} /> <span className='arrow-icon'>⬆</span></div>
+            </div> : <div className='profile-img-circle' onClick={() => this.setState({ click: true })}> {this.handleProfilePhoto()} <span className='arrow-icon'>⬆</span></div>
            return(  
             <div className='nav-hd-div'>
                  <div className='flex-c'>
@@ -85,6 +94,8 @@ class GreetingIndex extends React.Component {
     }
 
     render() {
+
+
         let songModal = this.state.showSongForm ?
             <div onClick={() => this.setState({ showSongForm: false })} className='modal-background'>
                 <SongModal />

@@ -1,5 +1,5 @@
-// Place all the styles related to the statis_pages controller here.
 // They will automatically be included in application.css.
+// Place all the styles related to the statis_pages controller here.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
@@ -1236,13 +1236,23 @@ h4 {
   width: 148px;
 }
 
-.album-profile-box img {
+.album-profile-box img{
   position: relative;
   border-radius: 50%;
   width: 120px;
   height: 110px;
   left: 14px;
   top: 1px;
+}
+
+.album-profile-box-img {
+  position: relative;
+  border-radius: 50%;
+  width: 120px;
+  height: 110px;
+  left: 14px;
+  top: 1px;
+  background: linear-gradient(to right, #12c2e9, #c471ed, #f64f59);
 }
 
 .album-profile-box button {
@@ -1303,14 +1313,12 @@ h4 {
   padding-top: 20px;
 }
 
-.profile-img-circle img{
+.profile-img-circle-li{
   position: relative;
   height: 43px;
   width: 45px;
   border-radius: 80%;
-  top: 12.5px;
-  background-color: #000;
-  
+  top: 12.5px;  
 }
 
 
@@ -2319,3 +2327,11 @@ h4 {
 
 
 
+.arrow-icon {
+  position: relative;
+  top: -20px;
+  left: 50px;
+  font-weight: 700;
+  color: #12c2e9;
+  font-size: larger;
+}

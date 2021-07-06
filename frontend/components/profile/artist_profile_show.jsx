@@ -16,6 +16,7 @@ class ArtistProfileShow extends React.Component {
     constructor(props) {
         super(props);
         this.handleUsersAlbums = this.handleUsersAlbums.bind(this);
+        this.handleProfilePhoto = this.handleProfilePhoto.bind(this);
         this.handleBio = this.handleBio.bind(this);
         this.state = {render: 0, state: null} 
     }
@@ -26,6 +27,7 @@ class ArtistProfileShow extends React.Component {
         this.props.requestAlbums();
 
     }
+
 
     filterAlbums() {
         return this.props.albums.filter(ele => parseFloat(this.props.match.params.id) === parseFloat(ele.artist_id));
@@ -46,7 +48,15 @@ class ArtistProfileShow extends React.Component {
             />
 
         })
-        
+    }
+
+
+    handleProfilePhoto() {
+        return( 
+            !this.props.user.photo ? 
+                <li className="album-profile-box-img" style={{ background: 'linear-gradient(to right, #12c2e9, #c471ed, #f64f59)' }}></li> :
+                <li className="album-profile-box-img" style={{ background: `url(${this.props.user.photo}) center / cover no-repeat` }}></li>
+        );
     }
 
     handleNoAlbums() {
@@ -80,7 +90,9 @@ class ArtistProfileShow extends React.Component {
                                 {this.handleNoAlbums()}
                     </div>
                     <div className='album-profile-box'>
-                                <img src={this.props.user.photo} alt="" />
+                                {/* <img src={this.props.user.photo} alt="" /> */}
+                                <li className="album-profile-box-img" style={{background: `url(${this.props.user.photo}) center / cover no-repeat`}}></li>
+                                {this.handleProfilePhoto()}
                                 <button>Discography</button>
                                 <p className='album-profile-box-bio'>{this.handleBio()}</p>
                     </div>

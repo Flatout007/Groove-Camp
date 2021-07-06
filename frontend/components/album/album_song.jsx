@@ -13,6 +13,8 @@ class ArtistShow extends React.Component {
         this.state = {communityTabHover: false, musicTabHover: false};
 
         this.handleBio = this.handleBio.bind(this);
+        this.handleProfilePhoto = this.handleProfilePhoto.bind(this);
+        this.handleAlbumPhoto = this.handleAlbumPhoto.bind(this);
     }
 
 
@@ -21,6 +23,23 @@ class ArtistShow extends React.Component {
         this.props.requestSongs();
         this.props.requestAllUsers();
         this.props.requestAlbum(this.props.match.params.id);
+    }
+
+
+    handleProfilePhoto() {
+        return (
+            !this.handleUser().photo ?
+                <li className="album-profile-box-img" style={{ background: 'linear-gradient(to right, #12c2e9, #c471ed, #f64f59)' }}></li> :
+                <li className="album-profile-box-img" style={{ background: `url(${this.handleUser().photo}) center / cover no-repeat` }}></li>
+        );
+    }
+
+
+    handleAlbumPhoto() {
+       return ( !this.props.album.photo ? 
+                <li style={{ background: 'linear-gradient(to right, #12c2e9, #c471ed, #f64f59)' }} className='album-player-cover'></li> :
+                <li style={{ background: `url(${this.props.album.photo}) 100% center / cover no-repeat` }} className='album-player-cover'></li>
+       );
     }
 
     
@@ -39,15 +58,8 @@ class ArtistShow extends React.Component {
     }
 
     
-    handleAnotherSongs() {
-        return this.handleFilterSongsById().map(ele => {
-            return ele
-        });
-    }
-
     handleBio() {
         return !this.handleUser().bio.split('.') ?  this.handleUser().bio.split('.')[0] + this.handleUser().bio.split('.')[1] : this.handleUser().bio
-
     }
 
 
@@ -85,11 +97,12 @@ class ArtistShow extends React.Component {
                                                 <h2 className='digital'>Digital Album</h2>
                                                 <p className='digital-p'>Includes unlimited streaming via the free Bandcamp app, plus high-<br/>quality download in MP3, FLAC and more.</p>
                                                 <div className='album-profile-box'>
-                                                    <img src={this.handleUser().photo} alt=""/>
-                                <Link to={`/album/${this.props.album.id}`}> <button>Discography</button></Link>
-                                                    <p className='album-profile-box-bio'>{this.handleBio()}</p>
+                                                            {this.handleProfilePhoto()}
+                                                            <Link to={`/album/${this.props.album.id}`}> <button>Discography</button></Link>
+                                                            <p className='album-profile-box-bio'>{this.handleBio()}</p>
                                                 </div>
-                                                <li style={{background: `url(${this.props.album.photo}) 100% center / cover no-repeat`}} className='album-player-cover'></li>
+                
+                                                {this.handleAlbumPhoto()}
                                     </div>
                         </div>
                     </div>
