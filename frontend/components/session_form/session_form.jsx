@@ -22,6 +22,7 @@ class SessionForm extends React.Component {
         this.handleErrors = this.handleErrors.bind(this);
         this.handlePhotoFile = this.handlePhotoFile.bind(this);
         this.handleUserErrors = this.handleUserErrors.bind(this);
+        this.handleDemo = this.handleDemo.bind(this);
     }
 
 
@@ -86,6 +87,10 @@ class SessionForm extends React.Component {
         });
     }
 
+    handleDemo(e) {
+        e.preventDefault();
+        this.props.signin({ username: "Motohiro Hata", password: '123456' }).then(this.props.closeModal);
+    }
     
     sessionForm() {
         if(this.props.currentUser) { 
@@ -114,7 +119,7 @@ class SessionForm extends React.Component {
                                     {this.props.formType !== 'login' ? <button onClick={this.handleSubmit} type="submit" className='session-submit-button'>Submit</button> :
                                     <button style={{position: 'absolute', top:'300px', left: '153px'}} onClick={this.handleSubmit} type="submit" className='session-submit-button'>Submit</button>}
 
-                                    {this.props.formType === 'login' ? <button style={{ position: 'absolute', top: '350px', left: '153px' }} onClick={() => Promise.resolve(this.props.action({ username: "L'Arc-en-Ciel", password: '123456' })).then(this.props.closeModal)} type="submit" className='session-submit-button'>DEMO</button> : <div></div> }
+                                    {this.props.formType === 'login' ? <button style={{ position: 'absolute', top: '350px', left: '153px' }} onClick={this.handleDemo} className='session-submit-button'>DEMO</button> : <div></div> }
 
                                     {this.props.formType !== 'login' ? <textarea onChange={this.handleChange('bio')} name="" id="" cols="30" rows="10" value={this.state.bio} placeholder='add a bio'></textarea> 
                                     : <React.Fragment></React.Fragment>}

@@ -16,7 +16,7 @@ const mapStoreToProps = (store, props) => {
 
 const mapActionsToProps = (dispatch, props) => {
     return {
-        signup: (user) => dispatch(signup(user)) ,
+        signup: (user) => dispatch(signup(user)),
         otherForm: (
             <button onClick={() => dispatch(openModal('login'))}>
                 Login

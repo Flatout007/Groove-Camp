@@ -19,7 +19,8 @@ const mapActionsToProps = (dispatch, props) => {
       action: (user) => dispatch(login(user)),
       otherForm: (<button onClick={() => dispatch(openModal('signup'))}>Signup</button>),
       closeModal: () => dispatch(closeModal()),
-      openModal: (login) => dispatch(openModal(login))
+      openModal: (login) => dispatch(openModal(login)),
+      signin: (user) => dispatch(login(user))
     };
     
 };

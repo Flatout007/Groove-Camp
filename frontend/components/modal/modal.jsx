@@ -52,7 +52,7 @@ import {
                                     <div className='icon-3'></div>
 
                                     <div>
-                                        <a className='signup-fan-button signup-demo-button' onClick={() => signin({ username: "L'Arc-en-Ciel", password: '123456'}).then(closeModal)}>Curious? Try a demo</a>
+                                        <a className='signup-fan-button signup-demo-button' onClick={() => signin({ username: "Motohiro Hata", password: '123456'}).then(closeModal)}>Curious? Try a demo</a>
                                         <div className='fan-account-text'>Curious? Try a demo of the site. You can listen to hours of music, see all of groovecamps bands and artist, and much much more.</div>
                                     </div>
                                 </li>

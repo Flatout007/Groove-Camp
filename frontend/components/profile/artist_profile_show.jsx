@@ -91,7 +91,7 @@ class ArtistProfileShow extends React.Component {
                     </div>
                     <div className='album-profile-box'>
                                 {/* <img src={this.props.user.photo} alt="" /> */}
-                                <li className="album-profile-box-img" style={{background: `url(${this.props.user.photo}) center / cover no-repeat`}}></li>
+                                {/* <li className="album-profile-box-img" style={{background: `url(${this.props.user.photo}) center / cover no-repeat`}}></li> */}
                                 {this.handleProfilePhoto()}
                                 <button>Discography</button>
                                 <p className='album-profile-box-bio'>{this.handleBio()}</p>
