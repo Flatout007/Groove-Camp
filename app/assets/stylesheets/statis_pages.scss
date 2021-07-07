@@ -1231,9 +1231,10 @@ h4 {
 .album-profile-box {
   position: absolute;
   height: 341.500px;
-  bottom: 630px;
+  bottom: 595px;
   left: 1016px;
   width: 148px;
+  transform: scale(1.25);
 }
 
 .album-profile-box img{
@@ -2307,9 +2308,8 @@ h4 {
 .footer {
   background-color: #477987;
   position: relative;
-  height: 500px;
+  height: 300px;
   width: 100%;
-  position: relative;
   top: -280px;
 
 }
@@ -2324,6 +2324,67 @@ h4 {
   margin-right: auto;
   top: 50px
 }
+
+
+
+.article-footer a {
+    background-color: #6E943B;
+    height: 100px;
+    width: 100px;
+    list-style: none;
+    position: absolute;
+    cursor: pointer;
+    transition: all .5s;
+}
+
+.article-footer a:hover {
+  transform: scale(1.1);
+  transition: all .5s;
+}
+
+
+.article-footer a:nth-child(1) {
+  background: url('https://img.icons8.com/ios/452/linkedin.png') 100% center / cover no-repeat;
+  border-radius: 100%;
+  left: 80px;
+  border: 1px solid #3b7788be;
+}
+
+
+.article-footer a:nth-child(2) {
+   background: url('https://img.icons8.com/ios/452/github.png') center / cover no-repeat;
+   border-radius: 100%;
+   left: 200px;
+
+  }
+
+
+.article-footer a:nth-child(3) {
+  background: url('https://img.icons8.com/ios/452/angelist.png') 100% center / cover no-repeat;
+  border-radius: 100%;
+  left: 309px;
+ }
+
+
+.article-footer {
+ background-color: #477987;
+  position: relative;
+  height: 300px;
+  width: 100%;
+  top: 300px;
+}
+
+.article-footer ul {
+  position: relative;
+  // background-color: gold;
+  height: 102px;
+  width: 500px;
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+  top: 50px
+}
+
 
 
 

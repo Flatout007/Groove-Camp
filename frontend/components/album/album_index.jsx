@@ -24,12 +24,13 @@ class AlbumIndex extends React.Component {
 
     albumList() {
       return this.handleLimit().map((ele) => {
-           if(ele.title !== 'GO Way! EP') 
-             return <AlbumIndexItem
-               key={ele.id}
-               album={ele}
-               users={this.props.users}
-           />
+          if(ele.photo) {
+              return <AlbumIndexItem
+                key={ele.id}
+                album={ele}
+                users={this.props.users}
+            />
+          }
         });
     }
 

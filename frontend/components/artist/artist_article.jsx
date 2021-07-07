@@ -72,6 +72,7 @@ class ArtistArticle extends React.Component {
 
        
         return(
+            <React.Fragment>
          <div>
                         <GreetingNav />
                         <nav className='daily-bar'>
@@ -106,8 +107,17 @@ class ArtistArticle extends React.Component {
                                     {this.state.playing === false ? <div onClick={this.handlePlayPause} className='play-circle'><span className='play-circle-icon'></span></div> : <div onClick={this.handlePlayPause}className='play-circle'><span className='pause-circle-icon'></span></div> }
                                     <img className='artist-article-img' src={this.props.artist.photo} alt=""></img>
                                     <p>{this.props.artist.bio}</p>
-                        </article>          
+                        </article>
+                                
         </div>
+                <div className='article-footer'>
+                    <ul>
+                        <a target="_blank" href="https://www.linkedin.com/in/reginald-dunlap-591612202/"></a>
+                        <a target="_blank" href="https://github.com/Flatout007"></a>
+                        <a target="_blank" href="https://angel.co/u/reggie-dunn"></a>
+                    </ul>
+                </div>
+            </React.Fragment>
         );
     }
 }
