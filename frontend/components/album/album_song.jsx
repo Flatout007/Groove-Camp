@@ -95,7 +95,7 @@ class ArtistShow extends React.Component {
                                                     artist={this.props.artist}
                                                 />
                                                 <h2 className='digital'>Digital Album</h2>
-                                                <p className='digital-p'>Includes unlimited streaming via the free Bandcamp app, plus high-<br/>quality download in MP3, FLAC and more.</p>
+                                                <p className='digital-p'>Includes unlimited streaming via the free Groovecamp app, plus high-<br/>quality download in MP3, FLAC and more.</p>
                                                 <div className='album-profile-box'>
                                                             {this.handleProfilePhoto()}
                                                             <Link to={`/album/${this.props.album.id}`}> <button>Discography</button></Link>

@@ -22,28 +22,26 @@ class ArtistProfileIndexItem extends React.Component {
 
 
     handlePlayPause() {
-        let audio = document.querySelector('.audio');
+        let audio = document.querySelector('.audio_player');
         let source = audio.querySelector('source');
         
         
-        if (document.readyState === "complete") {
-            source.src = this.handleSongToPlay().audioUrl;
-            const action = audio.paused ? 'play' : 'pause';
-            this.setState({ playing: audio.paused ? true : false });
-            Promise.resolve(audio.load()).then(audio[action]());
-        }
-    }
+        // if (document.readyState === "complete") {
+        //     source.src = this.handleSongToPlay().audioUrl;
+        //const action = audio.paused ? 'play' : 'pause';
+        // this.setState({ playing: audio.paused ? true : false });
+        //     Promise.resolve(audio.load()).then(audio[action]());
+        // }
 
-
-    componentDidMount() {
-        // let li = document.querySelectorAll('.artist-profile-index-grid li');
-  
+        audio.src = this.handleSongToPlay().audioUrl;
+        const action = audio.paused ? 'play' : 'pause';
+        this.setState({ playing: audio.paused ? true : false });
+        Promise.resolve(audio.load()).then(audio[action]());
         
-        // li.forEach((ele) => {
-        //     ele.style.backgroundSize = '';
-        // });
     }
 
+
+   
 
     handleArrayToObject(array, key) {
         const initialValue = {};
@@ -102,27 +100,22 @@ class ArtistProfileIndexItem extends React.Component {
         </div> : 
         <div></div>
 
+        let audioPlayer = document.readyState === 'complete' ? <audio className='audio_player' src=''/> : <div></div>
+
 
         return(
             <div>    
+                    { audioPlayer }
                      <li onMouseEnter = {() => this.handleHover('enter')} onMouseLeave = {() => this.handleHover('leave')} className='artist-index-list-item'>
                                     { player }
+                                    
                                     <img src={this.handleUsers().photo} width='206' height='119' alt=""/>
                                     <div className='artist-stats'>
                                                
-                        
                                                 <h5>
                                                     <p>{this.handleSongToPlay().title}</p>
                                                     <div>{this.handleUsers().username}</div>
                                                     <div>{this.handleUsers().bio.split('.')[0]}</div>
-
-
-
-                                                            {/* {this.handleUsers().username} */}
-                                        
-                                        
-                                                            
-
                                                 </h5>
                                         
                                     </div>
