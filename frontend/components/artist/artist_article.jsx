@@ -18,7 +18,7 @@ class ArtistArticle extends React.Component {
 
 
     componentDidMount() {
-        window.scrollTo(0, 190);
+        window.scrollTo(0, 110);
         this.props.requestUser(this.props.match.params.id);
         this.props.requestAlbums();
         this.props.requestSongs();
@@ -72,26 +72,14 @@ class ArtistArticle extends React.Component {
 
        
         return(
-            <React.Fragment>
+        <React.Fragment>
          <div>
                         <GreetingNav />
                         <nav className='daily-bar'>
-                                    <div className='daily-wrapper'>
-                                                
+                                    <div className='daily-wrapper'>         
                                                 <a> 
-                                                    <strong>Groovecamp Daily</strong>
+                                                    <strong onClick={() => this.props.history.push('/')}>Groovecamp Daily</strong>
                                                 </a>
-                                                {/* <span className="flex-links">
-                                                    <span className="flex-link-1">
-                                                        <a href="">Link</a></span>
-                                                    <span>
-                                                        ·<a href="">Link</a></span>
-                                                    <span>
-                                                        ·<a href="">Link</a></span>
-                                                    <span>
-                                                        ·<a href="">Link</a></span>
-                                                </span> */}
-
                                                 <button style={{cursor: 'pointer'}} onClick={() => this.props.history.push('/')} className="daily-button">Home</button>
                                     </div>
                         </nav>
@@ -110,14 +98,14 @@ class ArtistArticle extends React.Component {
                         </article>
                                 
         </div>
-                <div className='article-footer'>
+        <div className='article-footer'>
                     <ul>
-                        <a target="_blank" href="https://www.linkedin.com/in/reginald-dunlap-591612202/"></a>
-                        <a target="_blank" href="https://github.com/Flatout007"></a>
-                        <a target="_blank" href="https://angel.co/u/reggie-dunn"></a>
+                                <a target="_blank" href="https://www.linkedin.com/in/reginald-dunlap-591612202/"></a>
+                                <a target="_blank" href="https://github.com/Flatout007"></a>
+                                <a target="_blank" href="https://angel.co/u/reggie-dunn"></a>
                     </ul>
-                </div>
-            </React.Fragment>
+        </div>
+        </React.Fragment>
         );
     }
 }

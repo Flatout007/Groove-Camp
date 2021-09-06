@@ -13,7 +13,6 @@ class ArtistProfileIndexItem extends React.Component {
         this.handleHover = this.handleHover.bind(this);
     }
 
-    // onMouseEnter = {() => this.handleHover('enter')} onMouseLeave = {() => this.handleHover('leave')}
 
     handleAudioSelection() {
         let audio = document.querySelector('.audio');
@@ -40,20 +39,17 @@ class ArtistProfileIndexItem extends React.Component {
         
     }
 
-
-   
-
-    handleArrayToObject(array, key) {
-        const initialValue = {};
+    // handleArrayToObject(array, key) {
+    //     const initialValue = {};
 
 
-        return array.reduce((obj, item) => {
-            return {
-                ...obj,
-                [item[key]]: item,
-            };
-        }, initialValue);
-    }
+    //     return array.reduce((obj, item) => {
+    //         return {
+    //             ...obj,
+    //             [item[key]]: item,
+    //         };
+    //     }, initialValue);
+    // }
 
     handleUsers() {
         let users = [];
