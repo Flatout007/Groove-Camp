@@ -69,7 +69,7 @@ class AlbumGenreIndex extends React.Component {
 
 
     handleAlbums(n) {
-        let set = new Set(this.props.albums);
+        let set = new Set(this.props.albums.filter((ele) => ele.title !== 'balh'));
         return this.handleRandomize(Array.from(set),n);
     }
 
