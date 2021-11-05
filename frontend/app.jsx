@@ -24,6 +24,11 @@ import GenreColorChanger from './components/features/genre_color_changer';
 import Footer from './components/features/footer';
 import AlbumSongContainer from './components/album/album_song_container';
 
+const page404 = () => {
+   return <h2>404. could not connect to host</h2>
+}
+
+
 const App = () => {
         return(
           <div className='top-shelf' style={{height: '1000px'}}> 
@@ -46,7 +51,7 @@ const App = () => {
                 
                 <Route exact path='/' component={Footer}></Route>
                 <Route exact path='/profile/:id' component={ArtistProfileShowContainer}></Route>
-                 
+                <Route component={page404}></Route>
           </div>)
         
     
