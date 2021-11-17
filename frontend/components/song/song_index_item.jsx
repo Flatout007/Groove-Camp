@@ -45,6 +45,7 @@ class SongIndexItem extends React.Component {
                                         .then(() => this.handleTitle())
                                         .then(() => this.setState({ playing: true }))} 
                                         className='songs-play-icon'>
+                                    <a href={this.props.song.audioUrl} className="download-button" download={this.props.song.title}>Download</a>        
                         </div>}
                         </div> 
                         <p>{this.props.song.title}</p>
